@@ -98,55 +98,13 @@
           </td>
         </tr>
       </table>
-      {{-- <div class="row">
-        <div style="margin-top: 10px;" class="col-12">
-          Wilayah : 
-          @php
-              foreach ($response_data as $covid) {
-                echo $covid->name;
-              }
-          @endphp
-        </div>
-        <div class="col-12">
-          Positif : 
-          @php
-              foreach ($response_data as $covid) {
-                echo $covid->positif;
-              }
-          @endphp
-        </div>
-        <div class="col-12">
-          Sembuh : 
-          @php
-              foreach ($response_data as $covid) {
-                echo $covid->sembuh;
-              }
-          @endphp
-        </div>
-        <div class="col-12">
-          Dirawat : 
-          @php
-              foreach ($response_data as $covid) {
-                echo $covid->dirawat;
-              }
-          @endphp
-        </div>
-        <div class="col-12">
-          Meninggal : 
-          @php
-              foreach ($response_data as $covid) {
-                echo $covid->meninggal;
-              }
-          @endphp
-        </div>
-      </div> --}}
     </div>
     <div class="sidebar-title">BERITA TERBARU
       <div class="line-sidebar-title"></div>
     </div>
     <div class="sidebar-content news-content">
      <?php
-    $news_api_url = 'https://newsapi.org/v2/top-headlines?country=id&apiKey=d977691509e24de48bcd24b95699d76c';
+    $news_api_url = 'https://newsapi.org/v2/everything?q=Kabupaten+Tangerang+OR+Banten+OR+Pemerintah+Kabupaten+Tangerang+OR+Bupati+Tangerang&apiKey=d977691509e24de48bcd24b95699d76c';
     $json_dataa = file_get_contents($news_api_url);
     $response_dataa = json_decode($json_dataa);
      ?>
@@ -154,20 +112,22 @@
       $i = 0;
       foreach ($response_dataa->articles as $key) {
       ?>
-        <?php if ($i < 5) { ?>
+        <?php 
+        // if ($i < 5) { 
+          ?>
           <div class="row">
             <div class="col-2">
               <span class="news-number">#<?=$i+1?></span>
             </div>
             <div class="col">
               <div class="news-title">
-                <a target="blank" href="<?=$key->url;?>"> <?=$key->title;?></a>
+                <a target="blank" href="<?=$key->url;?>"> <?=$key->title;?> - <?= $key->source->name ?></a>
               </div>
             </div>
             <div class="sidebar-divider"></div>
           </div>
         <?php
-        } 
+        // } 
         $i++;
         ?>
       <?php

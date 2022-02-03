@@ -17,9 +17,10 @@ class AdminController extends Controller
     {
         return view('admin.upload');
     }
-    public function editData()
+    public function editData($id)
     {
-        return view('admin.edit-post');
+        $artikel = Artikel::find($id);
+        return view('admin.edit', ['artikel' => $artikel]);
     }
     public function uploadDokumentasi()
     {
@@ -37,7 +38,7 @@ class AdminController extends Controller
             'link' => $request->link,
             'id_user' => "12",
             'nama_user' => "Admin",
-            // 'foto_utama' => "timothy-eberly-VgvMDrPoCN4-unsplash.jpg",
+            'foto_utama' => "timothy-eberly-VgvMDrPoCN4-unsplash.jpg",
             'kategori' => $request->kategori,
             'tahun' => $request->tahun,
             'wilayah' => $request->wilayah,

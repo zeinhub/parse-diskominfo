@@ -33,8 +33,8 @@
       </table>
     </div>
     <div class="col text-end">
-      <a class="word-export text-end btn btn-outline-danger" href="javascript:void(0)"> Edit Data</a>
-      <a class="word-export text-end btn btn-outline-info" href="{{$artikel->link}}"> Open Link </a>
+      <a class="text-end btn btn-outline-danger" href="{{route('edit-post', ['id' => $artikel->id])}}"> Edit Data</a>
+      <a class="text-end btn btn-outline-info" href="{{$artikel->link}}"> Open Link </a>
     </div>
   </div>
   <iframe width="100%" height="315" src="https://tangerangkab.go.id/detail-konten/show-berita/5325" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

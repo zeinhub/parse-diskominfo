@@ -33,8 +33,8 @@ Arsip
       </table>
     </div>
     <div class="col text-end">
-      <a class="word-export text-end btn btn-outline-danger" href="javascript:void(0)"> Edit Data</a>
-      <a class="word-export text-end btn btn-outline-info" href="javascript:void(0)"> Ekspor .doc </a>
+      <a class="text-end btn btn-outline-danger" href="{{route('edit-post')}}"> Edit Data</a>
+      <a class="text-end btn btn-outline-info" href="{{$artikel->link}}"> Open Link </a>
     </div>
   </div>
   <div class="featured-image">

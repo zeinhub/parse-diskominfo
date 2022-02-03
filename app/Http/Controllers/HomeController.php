@@ -11,7 +11,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+    // return view('admin.home');
+    $artikel = Artikel::all()->sortByDesc('created_at');
+    return view('home', ['artikel' => $artikel]);
     }
     public function arsip()
     {
@@ -47,5 +49,39 @@ class HomeController extends Controller
             ->get();
 
         return view('hasil-filter', ['hasil' => $hasil, 'filter' => $filter]);
+    }
+
+    public function cariArtikel(request $request)
+    {
+        $judulhalaman = array(
+            "judul" => $request->judul
+        );
+        $hasil = DB::table('artikel')
+            ->where('judul', 'like', "%{$request->judul}%")
+            ->get();
+
+        return view('hasil-pencarian', ['hasil' => $hasil, 'judulhalaman' => $judulhalaman]);
+    }
+
+    public function postbyauthor($author, $id_user)
+    {
+        $judulhalaman = array(
+            "author" => $author
+        );
+        $artikel = DB::table('artikel')
+        ->where('id_user', 'like', "{$id_user}")
+        ->get();
+        return view('postby', ['artikel' => $artikel, 'judulhalaman' => $judulhalaman]);
+    }
+
+    public function postbycategory($kategori)
+    {
+        $judulhalaman = array(
+            "kategori" => $kategori
+        );
+        $artikel = DB::table('artikel')
+        ->where('kategori', 'like', "{$kategori}")
+        ->get();
+        return view('bycategory', ['artikel' => $artikel, 'judulhalaman'=>$judulhalaman]);
     }
 }
