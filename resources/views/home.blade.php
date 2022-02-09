@@ -7,9 +7,58 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
     <img src="https://tangerangkab.go.id/images/1639013612.png" alt="">
 </div>
 <div class="latest-upload-wrap">
-    <iframe width="560" height="315" src="https://tangerangkab.go.id/detail-konten/show-berita/5325" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <h3 class="latest-upload-heading">Unggahan Terbaru</h3>
     <div class="row">
+        <?php
+        $n = 0;
+        foreach ($artikel as $a) {
+            if ($n < 6) {
+        ?>
+                <div data-aos="fade-up" style="margin-top: 10px" class="col-lg-4 col-xs-12">
+                    <div class="latest-upload-wrap">
+                        <div class="latest-upload">
+                            <div loading="lazy" style="background-image:url('{{url('images/', $a->foto_utama)}}');" class="post-thumbnail"></div>
+                            <div class="info">
+                                <div class="row">
+                                    <div class="col padding-0">
+                                        <div class="author">
+                                            {{$a->created_at}} by
+                                            <a href="{{route('postbyauthor', ['author' => $a->nama_user, 'id_author' => $a->id_user])}}">{{$a->nama_user}}</a>
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col padding-0">
+                        <div class="author">
+                        <i class="fas fa-user"></i>
+                        <a href="#">Awiez Fathwa Zein</a>
+                        </div>
+                    </div>
+                    <div class="col text-end padding-0">
+                    <i class="fas fa-calendar"></i>
+                    25/01/2022</div> --}}
+                                </div>
+                            </div>
+                            <a href="{{route('postbycategory', ['kategori' => $a->kategori])}}" class="category">{{$a->kategori}}</a>
+                            <div class="title"><a href="{{route('berita', ['id' => $a->id])}}">{{$a->judul}}</a></div>
+                            <!-- <div class="content">
+                                <?php
+                                $num_char = 100;
+                                $text = "$a->deskripsi";
+                                echo substr($text, 0, $num_char) . '...';
+                                ?>
+                                <a href="{{route('berita', ['id' => $a->id])}}">[Selengkapnya...]</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+        <?php
+                $n++;
+            }
+        }
+        ?>
+
+
+    </div>
+    <!-- <div class="row">
         <?php
         for ($i = 0; $i < 5; $i++) {
         ?>
@@ -57,6 +106,6 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
         }
         ?>
 
-    </div>
+    </div> -->
 </div>
 @endsection

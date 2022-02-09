@@ -6,9 +6,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        @php
+            $isAdmin = 1;
+            $home = 'home';
+            $uploadBtn = null;
+            if($isAdmin != 0){
+              $home = 'admin';
+              $uploadBtn = "upload-btn-visible";
+            }
+        @endphp
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{route($home)}}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('statistic')}}">Statistik</a>
@@ -17,9 +26,12 @@
             <a class="nav-link" href="{{route('filter')}}">Filter</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="{{route('about')}}">About</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item {{$uploadBtn}} uploadBtn">
+            <a class="nav-link" href="{{route('upload-data')}}">Upload Data</a>
+          </li>
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Upload
             </a>
@@ -37,10 +49,11 @@
               </li>
               <li><hr class="dropdown-divider"></li>
             </ul>
-          </li>
+          </li> --}}
         </ul>
-        <form class="d-flex nav-search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form action="{{route('cari')}}" method="POST" class="d-flex nav-search">
+          {{ csrf_field() }}
+          <input class="form-control me-2" name="judul" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>
       </div>
