@@ -1,22 +1,26 @@
 @extends('app')
 @section('title')
-Arsip
+{{$artikel->judul}}
 @endsection
 @section('breadcrumb')
 <div class="breadcrumb">
-  <a href="#">Home</a> &nbsp; / &nbsp;<a href="#">Raker</a> &nbsp;/ &nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit
+  <?php if (Auth::User()->role == "admin") { ?>
+    <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('postbycategory', ['kategori' => $artikel->kategori])}}">{{$artikel->kategori}}</a> &nbsp;/&nbsp;{{$artikel->judul}}
+  <?php } else { ?>
+    <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('postbycategory', ['kategori' => $artikel->kategori])}}">{{$artikel->kategori}}</a> &nbsp;/&nbsp;{{$artikel->judul}}
+  <?php } ?>
 </div>
 <hr>
 @endsection
 @section('content')
 <div id="page-content" class="post">
-  <div class="post-title-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+  <div class="post-title-heading">{{$artikel->judul}}</div>
   <div class="row">
     <div class="col">
       <table>
         <div class="author">
-          <?php echo date('d/m/Y H:i'); ?> by
-          <a href="#">Awiez Fathwa Zein</a>
+          {{$artikel->created_at}} by
+          <a href="{{route('postbyauthor', ['author' => $artikel->nama_user, 'id_author' => $artikel->id_user])}}">{{$artikel->nama_user}}</a>
         </div>
         {{-- <tr>
               <td>
@@ -33,27 +37,24 @@ Arsip
       </table>
     </div>
     <div class="col text-end">
-      <a class="text-end btn btn-outline-danger" href="{{route('edit-post')}}"> Edit Data</a>
-      <a class="text-end btn btn-outline-info" href="{{$artikel->link}}"> Open Link </a>
+      <?php if (Auth::User()->role == "admin") { ?>
+        <a class="text-end btn btn-outline-danger" href="{{route('edit-post', ['id' => $artikel->id])}}"> Edit Data</a>
+      <?php } ?>
+      <a class="text-end btn btn-outline-info" href="{{$artikel->link}}" target="blank"> Open Link </a>
     </div>
   </div>
-  <div class="featured-image">
-    <img src="{{url('frontend/assets/image/banner2.png')}}" alt="" class="text-center">
-  </div>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ea, blanditiis, sint nam temporibus corrupti explicabo neque animi doloribus dicta incidunt deleniti nesciunt iusto odio quidem id dolorem, dolores tempora!
-    Ut nostrum incidunt impedit numquam sed voluptas deleniti iure, dolore iste! Error distinctio at eligendi, illum sed rem omnis voluptate quia fugit fugiat aut animi. Ex necessitatibus quo hic laborum. <br><br>
-    Nesciunt repellendus impedit, sed ipsam provident rerum numquam expedita atque aspernatur cumque molestias! Incidunt sapiente molestias, harum perferendis exercitationem assumenda autem vitae modi aliquid enim, et placeat? Distinctio, ullam quasi.
-    Alias sint quod modi, asperiores rerum voluptatum harum explicabo doloribus dignissimos iusto, qui expedita sequi perferendis soluta, beatae sit ipsam fuga assumenda dolorum ex laboriosam nisi id? Animi, velit totam?
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam mollitia maiores dicta hic earum ipsum deleniti dolorum sed blanditiis fugit consequuntur quod eligendi, in voluptatibus magni aspernatur? Id, quam nobis?
-    Dignissimos sit, beatae obcaecati qui dolorum ipsam incidunt minus quisquam suscipit consequuntur illo molestias odio impedit neque? Vitae, possimus excepturi, corporis, quisquam commodi eaque porro beatae deleniti corrupti ducimus illum!
-    Perferendis, excepturi facilis. <br> <br>Reiciendis, provident. Amet dolorum, in tenetur sunt esse voluptas ad dolorem ut cum corrupti illum ea vel numquam quibusdam nostrum quos accusantium quaerat aperiam expedita aspernatur placeat.
-    Temporibus eaque voluptas consectetur, iure excepturi molestias similique est soluta, debitis tempore qui aspernatur mollitia error enim delectus reiciendis nisi cum quae, nostrum ducimus esse? Totam velit iusto quibusdam error. <br><br>
-    Tempora iusto, dolor reiciendis adipisci ipsum repudiandae consectetur voluptas corporis veniam libero officiis quis dicta sed alias architecto consequuntur autem totam eaque natus amet aliquid. Dolor alias nostrum pariatur recusandae!
-  </p>
+  <iframe width="100%" height="315" src="{{$artikel->link}}" title="Berita" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <!-- <div class="featured-image">
+    <img src="{{url('images/', $artikel->foto_utama)}}" alt="" class="text-center">
+  </div> -->
+  <!-- <div>
+    <?php
+    echo $artikel->deskripsi;
+    ?>
+  </div> -->
 </div>
 <h2 class="documentation-title">
-  Dokumentasi :
+  Dokumentasi:
 </h2>
 <div class="splide">
   <div class="splide__track">
@@ -71,7 +72,7 @@ Arsip
     </ul>
   </div>
 </div>
-<h2 style="margin-top: 20px;" class="documentation-title">
+<!-- <h2 style="margin-top: 20px;" class="documentation-title">
   Lampiran :
 </h2>
 <div class="row">
@@ -84,7 +85,7 @@ Arsip
       </a>
     </div>
   <?php } ?>
-</div>
+</div> -->
 <script src="{{url('frontend/library/splide-3.6.9/dist/js/splide.min.js')}}"></script>
 <script>
   var splide = new Splide('.splide', {

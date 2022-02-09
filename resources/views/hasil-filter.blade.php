@@ -1,7 +1,11 @@
 @extends('app')
 @section('breadcrumb')
 <div class="breadcrumb">
-    <a href="{{route('home')}}">Home</a> &nbsp; / &nbsp;<a href="#">Filter</a>
+    <?php if (Auth::User()->role == "admin") { ?>
+        <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="filter">Filter</a> &nbsp;/&nbsp;<a>Hasil Filter</a>
+    <?php } else { ?>
+        <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="filter">Filter</a> &nbsp;/&nbsp;<a>Hasil Filter</a>
+    <?php } ?>
 </div>
 <hr>
 @endsection
@@ -76,7 +80,7 @@
                                     <div class="col padding-0">
                                         <div class="author">
                                             {{$h->created_at}} by
-                                            <a href="#">{{$h->nama_user}}</a>
+                                            <a href="{{route('postbyauthor', ['author' => $h->nama_user, 'id_author' => $h->id_user])}}">{{$h->nama_user}}</a>
                                         </div>
                                     </div>
                                     {{-- <div class="col padding-0">
@@ -90,8 +94,12 @@
                             25/01/2022</div> --}}
                                 </div>
                             </div>
-                            <span class="category">{{$h->kategori}}</span>
-                            <div class="title"><a href="{{route('berita', ['id' => $h->id])}}">{{$h->judul}}</a></div>
+                            <a href="{{route('postbycategory', ['kategori' => $h->kategori])}}" class="category">{{$h->kategori}}</a>
+                            <?php if (Auth::User()->role == "admin") { ?>
+                                <div class="title"><a href="{{route('admin-berita', ['id' => $h->id])}}">{{$h->judul}}</a></div>
+                            <?php } else { ?>
+                                <div class="title"><a href="{{route('berita', ['id' => $h->id])}}">{{$h->judul}}</a></div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

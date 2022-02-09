@@ -19,7 +19,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                 <div data-aos="fade-up" style="margin-top: 10px" class="col-lg-4 col-xs-12">
                     <div class="latest-upload-wrap">
                         <div class="latest-upload">
-                            <div loading="lazy" style="background-image:url('<?php echo e(url('images/', $a->foto_utama)); ?>');" class="post-thumbnail"></div>
+                            <div loading="lazy" style="background-image:url('<?php echo e(url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg', $a->foto_utama)); ?>');" class="post-thumbnail"></div>
                             <div class="info">
                                 <div class="row">
                                     <div class="col padding-0">
@@ -32,9 +32,9 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                                 </div>
                             </div>
                             <a href="<?php echo e(route('postbycategory', ['kategori' => $a->kategori])); ?>" class="category"><?php echo e($a->kategori); ?></a>
-                            <?php if (Auth::user()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('adminberita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
-                            <?php } else if (Auth::user()->role == "user") { ?>
+                            <?php if (Auth::User()->role == "admin") { ?>
+                                <div class="title"><a href="<?php echo e(route('admin-berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
+                            <?php } else { ?>
                                 <div class="title"><a href="<?php echo e(route('berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
                             <?php } ?>
                             <!-- <div class="content">

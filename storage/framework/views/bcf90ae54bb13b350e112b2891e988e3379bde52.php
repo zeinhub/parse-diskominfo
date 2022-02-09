@@ -1,20 +1,23 @@
 
+<?php $__env->startSection('title'); ?>
+Filter Berita
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
-    <?php if (Auth::user()->role == "admin") { ?>
-        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Filter</a>
-    <?php } else if (Auth::user()->role == "user") { ?>
-        <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Filter</a>
+    <?php if (Auth::User()->role == "admin") { ?>
+        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a>Filter</a>
+    <?php } else { ?>
+        <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a>Filter</a>
     <?php } ?>
 </div>
 <hr>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
-<style>
+<!-- <style>
     .nav-search {
         display: none !important;
     }
-</style>
+</style> -->
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
         <div class="row">

@@ -12,7 +12,7 @@ Unggah Dokumentasi
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
-    <a href="<?php echo e(route('adminhome')); ?>">Admin</a> &nbsp; / &nbsp;<a href="#">Upload Data</a>
+    <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a>Upload Data</a>
 </div>
 <hr>
 <?php $__env->stopSection(); ?>
@@ -76,13 +76,13 @@ Unggah Dokumentasi
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Foto</label>
-                    <input class="form-control" type="file" name="foto" accept="image/*" multiple>
+                    <input class="form-control" type="file" name="foto" placeholder="Dokumentasi Foto" accept="image/*" multiple>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Video</label>
-                    <input class="form-control" type="file" name="video" accept="video/*, audio/*" multiple>
+                    <input class="form-control" type="file" name="video" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
                 </div>
             </div>
             <!-- <div class="col-12">

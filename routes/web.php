@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,33 +16,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Account
+Route::get('/', [AccountController::class, 'index'])->name('index');
+Route::get('/login', [AccountController::class, 'login'])->name('login');
+Route::post('/action-login', [AccountController::class, 'actionlogin'])->name('actionlogin');
+Route::get('/register', [AccountController::class, 'register'])->name('register');
+Route::post('/action-register', [AccountController::class, 'actionregister'])->name('actionregister');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/actionlogout', [AccountController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 //Admin
+Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome')->middleware('auth');
+Route::get('/arsip', [HomeController::class, 'arsip'])->name('arsip')->middleware('auth');
+Route::get('/admin/upload-data', [AdminController::class, 'uploadData'])->name('upload-data')->middleware('auth');
+Route::get('/admin/edit-data/{id}', [AdminController::class, 'editData'])->name('edit-post')->middleware('auth');
+Route::get('/admin/upload-dokumentasi', [AdminController::class, 'uploadDokumentasi'])->name('upload-file')->middleware('auth');
+Route::get('/admin/berita/{id}', [AdminController::class, 'berita'])->name('admin-berita')->middleware('auth');
+Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('auth');
 
 //User
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/admin', [HomeController::class, 'index'])->name('admin');
-Route::get('/arsip', [HomeController::class, 'arsip'])->name('arsip');
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-Route::get('/statistik', [HomeController::class, 'statistic'])->name('statistic');
-Route::get('/filter-pencarian', [HomeController::class, 'filter'])->name('filter');
-Route::get('/hasil-filter-pencarian', [HomeController::class, 'hasilFilter'])->name('hasil-filter');
-Route::post('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter');
-Route::post('/cari', [HomeController::class, 'cariArtikel'])->name('cari');
-Route::get('/author/{author}/{id_author}', [HomeController::class, 'postbyauthor'])->name('postbyauthor');
-Route::get('/category/{kategori}', [HomeController::class, 'postbycategory'])->name('postbycategory');
-
-// Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-Route::get('/admin/upload-data', [AdminController::class, 'uploadData'])->name('upload-data');
-Route::get('/admin/edit-data/{id}', [AdminController::class, 'editData'])->name('edit-post');
-Route::get('/admin/upload-dokumentasi', [AdminController::class, 'uploadDokumentasi'])->name('upload-file');
-Route::get('/admin/berita/{id}', [AdminController::class, 'berita'])->name('berita');
-
-
-Route::post('/admin/store-artikel', [AdminController::class, 'store'])->name('store-file');
+Route::get('/statistik', [HomeController::class, 'statistic'])->name('statistic')->middleware('auth');
+Route::get('/filter-pencarian', [HomeController::class, 'filter'])->name('filter')->middleware('auth');
+Route::get('/hasil-filter-pencarian', [HomeController::class, 'hasilFilter'])->name('hasil-filter')->middleware('auth');
+Route::post('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter')->middleware('auth');
+Route::post('/cari', [HomeController::class, 'cariArtikel'])->name('cari')->middleware('auth');
+Route::get('/berita/{id}', [HomeController::class, 'berita'])->name('berita')->middleware('auth');
+Route::get('/author/{author}/{id_author}', [HomeController::class, 'postbyauthor'])->name('postbyauthor')->middleware('auth');
+Route::get('/category/{kategori}', [HomeController::class, 'postbycategory'])->name('postbycategory')->middleware('auth');
+Route::get('/about', [HomeController::class, 'about'])->name('about')->middleware('auth');

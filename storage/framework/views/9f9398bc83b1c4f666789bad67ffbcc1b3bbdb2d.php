@@ -35,7 +35,7 @@
                         <div class="row">
                             <style>
                                 .bg-login-image {
-                                    background-image: url('images/bukantimothy-eberly-VgvMDrPoCN4-unsplash.jpg');
+                                    background-image: url('');
                                 }
 
                                 form {
@@ -48,26 +48,23 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">PARSE - Login</h1>
                                     </div>
-                                    <form class="user" action="<?php echo e(route('actionlogin')); ?>" method="post">
+                                    <form class="user" method="post" action="<?php echo e(route('actionlogin')); ?>">
                                         <?php echo e(csrf_field()); ?>
 
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                        <div class=" form-group">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="emailusername" aria-describedby="emailHelp" placeholder="Email/ Username" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Log in
-                                        </button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Log In</button>
                                         <hr>
                                         <a href="<?php echo e(route('register')); ?>" class="btn btn-google btn-user btn-block">
                                             Register
                                         </a>
                                         
-                                    </form>
-                                    
-                                    
+                                        
+                                        
                                 </div>
                             </div>
                         </div>

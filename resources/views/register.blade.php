@@ -12,11 +12,11 @@
     <title>PARSE - Register</title>
 
     <!-- Custom fonts for this template-->
-    <link href="<?php echo e(url('frontend/library/sbadmin2/vendor/fontawesome-free/css/all.min.css')); ?>" rel="stylesheet" type="text/css">
+    <link href="{{url('frontend/library/sbadmin2/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?php echo e(url('frontend/library/sbadmin2/css/sb-admin-2.min.css')); ?>" rel="stylesheet">
+    <link href="{{url('frontend/library/sbadmin2/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -48,9 +48,8 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">PARSE - Register</h1>
                                     </div>
-                                    <form class="user" method="post" action="<?php echo e(route('actionregister')); ?>">
-                                        <?php echo e(csrf_field()); ?>
-
+                                    <form class="user" method="post" action="{{route('actionregister')}}">
+                                        {{ csrf_field() }}
                                         <div class=" form-group">
                                             <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" required>
                                         </div>
@@ -71,13 +70,20 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
                                         <hr>
-                                        <a href="<?php echo e(route('login')); ?>" class="btn btn-google btn-user btn-block">
+                                        <a href="{{route('login')}}" class="btn btn-google btn-user btn-block">
                                             Log in
                                         </a>
-                                        
+                                        {{-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a> --}}
                                     </form>
-                                    
-                                    
+                                    {{-- <hr> --}}
+                                    {{-- <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">Create an Account!</a>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -91,15 +97,15 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo e(url('frontend/library/sbadmin2/vendor/jquery/jquery.min.js')); ?>"></script>
-    <script src="<?php echo e(url('frontend/library/sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+    <script src="{{url('frontend/library/sbadmin2/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url('frontend/library/sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="<?php echo e(url('frontend/library/sbadmin2/vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
+    <script src="{{url('frontend/library/sbadmin2/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="<?php echo e(url('frontend/library/sbadmin2/js/sb-admin-2.min.js')); ?>"></script>
+    <script src="{{url('frontend/library/sbadmin2/js/sb-admin-2.min.js')}}"></script>
 
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/register.blade.php ENDPATH**/ ?>
+</html>

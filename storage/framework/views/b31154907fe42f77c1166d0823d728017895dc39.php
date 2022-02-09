@@ -1,10 +1,10 @@
 
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
-    <?php if (Auth::user()->role == "admin") { ?>
-        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Filter</a>
-    <?php } else if (Auth::user()->role == "user") { ?>
-        <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Filter</a>
+    <?php if (Auth::User()->role == "admin") { ?>
+        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="filter">Filter</a> &nbsp;/&nbsp;<a href="#">Hasil Filter</a>
+    <?php } else { ?>
+        <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="filter">Filter</a> &nbsp;/&nbsp;<a href="#">Hasil Filter</a>
     <?php } ?>
 </div>
 <hr>
@@ -87,9 +87,9 @@
                                 </div>
                             </div>
                             <a href="<?php echo e(route('postbycategory', ['kategori' => $h->kategori])); ?>" class="category"><?php echo e($h->kategori); ?></a>
-                            <?php if (Auth::user()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('adminberita', ['id' => $h->id])); ?>"><?php echo e($h->judul); ?></a></div>
-                            <?php } else if (Auth::user()->role == "user") { ?>
+                            <?php if (Auth::User()->role == "admin") { ?>
+                                <div class="title"><a href="<?php echo e(route('admin-berita', ['id' => $h->id])); ?>"><?php echo e($h->judul); ?></a></div>
+                            <?php } else { ?>
                                 <div class="title"><a href="<?php echo e(route('berita', ['id' => $h->id])); ?>"><?php echo e($h->judul); ?></a></div>
                             <?php } ?>
                         </div>

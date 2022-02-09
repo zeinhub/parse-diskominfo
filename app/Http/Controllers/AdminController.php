@@ -9,9 +9,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        // return view('admin.home');
         $artikel = Artikel::all()->sortByDesc('created_at');
-        return view('admin.home', ['artikel' => $artikel]);
+        return view('home', ['artikel' => $artikel]);
     }
     public function uploadData()
     {
@@ -29,7 +28,7 @@ class AdminController extends Controller
     public function berita($id)
     {
         $artikel = Artikel::find($id);
-        return view('admin.post', ['artikel' => $artikel]);
+        return view('post', ['artikel' => $artikel]);
     }
     public function store(Request $request)
     {

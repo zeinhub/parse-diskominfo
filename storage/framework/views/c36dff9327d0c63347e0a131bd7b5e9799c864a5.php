@@ -4,10 +4,10 @@ Statistik Arsip
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
-  <?php if (Auth::user()->role == "admin") { ?>
-    <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Statistik</a>
-  <?php } else if (Auth::user()->role == "user") { ?>
-    <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Statistik</a>
+  <?php if (Auth::User()->role == "admin") { ?>
+    <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a>Statistik</a>
+  <?php } else { ?>
+    <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a>Statistik</a>
   <?php } ?>
 </div>
 <hr>

@@ -5,11 +5,11 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
-  <?php if (Auth::user()->role == "admin") { ?>
-    <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp; / &nbsp;<a href="#"><?php echo e($artikel->kategori); ?></a> &nbsp;/ &nbsp;<?php echo e($artikel->judul); ?>
+  <?php if (Auth::User()->role == "admin") { ?>
+    <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('postbycategory', ['kategori' => $artikel->kategori])); ?>"><?php echo e($artikel->kategori); ?></a> &nbsp;/&nbsp;<?php echo e($artikel->judul); ?>
 
-  <?php } else if (Auth::user()->role == "user") { ?>
-    <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp; / &nbsp;<a href="#"><?php echo e($artikel->kategori); ?></a> &nbsp;/ &nbsp;<?php echo e($artikel->judul); ?>
+  <?php } else { ?>
+    <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('postbycategory', ['kategori' => $artikel->kategori])); ?>"><?php echo e($artikel->kategori); ?></a> &nbsp;/&nbsp;<?php echo e($artikel->judul); ?>
 
   <?php } ?>
 </div>
@@ -23,16 +23,19 @@
       <table>
         <div class="author">
           <?php echo e($artikel->created_at); ?> by
-          <a href="#"><?php echo e($artikel->nama_user); ?></a>
+          <a href="<?php echo e(route('postbyauthor', ['author' => $artikel->nama_user, 'id_author' => $artikel->id_user])); ?>"><?php echo e($artikel->nama_user); ?></a>
         </div>
         
       </table>
     </div>
     <div class="col text-end">
-      <a class="text-end btn btn-outline-info" href="<?php echo e($artikel->link); ?>"> Open Link </a>
+      <?php if (Auth::User()->role == "admin") { ?>
+        <a class="text-end btn btn-outline-danger" href="<?php echo e(route('edit-post', ['id' => $artikel->id])); ?>"> Edit Data</a>
+      <?php } ?>
+      <a class="text-end btn btn-outline-info" href="<?php echo e($artikel->link); ?>" target="blank"> Open Link </a>
     </div>
   </div>
-  <iframe width="100%" height="315" src="https://tangerangkab.go.id/detail-konten/show-berita/5325" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="<?php echo e($artikel->link); ?>" title="Berita" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <!-- <div class="featured-image">
     <img src="<?php echo e(url('images/', $artikel->foto_utama)); ?>" alt="" class="text-center">
   </div> -->
@@ -43,7 +46,7 @@
   </div> -->
 </div>
 <h2 class="documentation-title">
-  Dokumentasi :
+  Dokumentasi:
 </h2>
 <div class="splide">
   <div class="splide__track">

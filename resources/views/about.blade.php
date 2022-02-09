@@ -1,13 +1,18 @@
 @extends('app')
 @section('title')
-    About Developer
+About Developer
 @endsection
 @section('class-body')
-    about-body    
+about-body
 @endsection
 @section('content')
 <style>
-    .sidebar, .navbar, footer, .line-footer, .navbar-line, .col-lg-3{
+    .sidebar,
+    .navbar,
+    footer,
+    .line-footer,
+    .navbar-line,
+    .col-lg-3 {
         display: none;
     }
 </style>
@@ -20,7 +25,10 @@
             </div>
             <div class="app-desc">
                 <p>PARSE merupakan aplikasi berbasis website yang digunakan oleh bidang Informasi dan Komunikasi Publik (IKP) Diskominfo Kabupaten Tangerang sebagai pusat penyimpanan data berupa artikel, dokumentasi, maupun file yang berhubungan dengan kegiatan yang dilaksanakan oleh Pemerintah Kabupaten Tangerang.</p>
-                <a href="{{route('home')}}" style="margin-bottom:20px;" class="btn btn-outline-primary">Kembali ke Home</a>
+                <?php if (Auth::User()->role == "admin") { ?>
+                    <a href="{{route('adminhome')}}" style="margin-bottom:20px;" class="btn btn-outline-primary">Kembali ke Home</a>
+                <?php } else { ?>
+                    <a href="{{route('home')}}" style="margin-bottom:20px;" class="btn btn-outline-primary">Kembali ke Home</a> <?php } ?>
             </div>
         </div>
         <div class="about-developer">
@@ -41,7 +49,7 @@
                         <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">www.awiez.com</a> <br>
                         <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">AWIEZ FATHWA ZEIN</a> <br>
                         <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:awiezfathwa@gmail.com">awiezfathwa@gmail.com</a> <br>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
@@ -59,7 +67,7 @@
                         <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">www.awiez.com</a> <br>
                         <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">AWIEZ FATHWA ZEIN</a> <br>
                         <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:awiezfathwa@gmail.com">awiezfathwa@gmail.com</a> <br>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
@@ -77,7 +85,7 @@
                         <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">www.awiez.com</a> <br>
                         <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">AWIEZ FATHWA ZEIN</a> <br>
                         <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:awiezfathwa@gmail.com">awiezfathwa@gmail.com</a> <br>
-                        
+
                     </div>
                 </div>
             </div>

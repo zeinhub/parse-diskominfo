@@ -12,7 +12,7 @@ Unggah Dokumentasi
 @endsection
 @section('breadcrumb')
 <div class="breadcrumb">
-    <a href="{{route('admin')}}">Admin</a> &nbsp; / &nbsp;<a href="#">Upload Data</a>
+    <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a>Upload Data</a>
 </div>
 <hr>
 @endsection
@@ -74,8 +74,14 @@ Unggah Dokumentasi
             </div> -->
             <div class="col">
                 <div class="form-group">
-                    <label for="featured-image">Lampiran</label>
-                    <input class="form-control" type="file" placeholder="Hasil" multiple>
+                    <label for="featured-image">Dokumentasi Foto</label>
+                    <input class="form-control" type="file" name="foto" placeholder="Dokumentasi Foto" accept="image/*" multiple>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="featured-image">Dokumentasi Video</label>
+                    <input class="form-control" type="file" name="video" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
                 </div>
             </div>
             <!-- <div class="col-12">

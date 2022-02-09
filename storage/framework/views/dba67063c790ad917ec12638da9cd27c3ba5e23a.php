@@ -25,11 +25,10 @@ about-body
             </div>
             <div class="app-desc">
                 <p>PARSE merupakan aplikasi berbasis website yang digunakan oleh bidang Informasi dan Komunikasi Publik (IKP) Diskominfo Kabupaten Tangerang sebagai pusat penyimpanan data berupa artikel, dokumentasi, maupun file yang berhubungan dengan kegiatan yang dilaksanakan oleh Pemerintah Kabupaten Tangerang.</p>
-                <?php if (Auth::user()->role == "admin") { ?>
+                <?php if (Auth::User()->role == "admin") { ?>
                     <a href="<?php echo e(route('adminhome')); ?>" style="margin-bottom:20px;" class="btn btn-outline-primary">Kembali ke Home</a>
-                <?php } else if (Auth::user()->role == "user") { ?>
-                    <a href="<?php echo e(route('home')); ?>" style="margin-bottom:20px;" class="btn btn-outline-primary">Kembali ke Home</a>
-                <?php } ?>
+                <?php } else { ?>
+                    <a href="<?php echo e(route('home')); ?>" style="margin-bottom:20px;" class="btn btn-outline-primary">Kembali ke Home</a> <?php } ?>
             </div>
         </div>
         <div class="about-developer">

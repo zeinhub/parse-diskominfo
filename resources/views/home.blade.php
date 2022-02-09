@@ -8,16 +8,17 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
 </div>
 <div class="latest-upload-wrap">
     <h3 class="latest-upload-heading">Unggahan Terbaru</h3>
+    {{ Auth::user()->name }}
     <div class="row">
         <?php
         $n = 0;
         foreach ($artikel as $a) {
-            if ($n < 6) {
+            if ($n < 5) {
         ?>
                 <div data-aos="fade-up" style="margin-top: 10px" class="col-lg-4 col-xs-12">
                     <div class="latest-upload-wrap">
                         <div class="latest-upload">
-                            <div loading="lazy" style="background-image:url('{{url('images/', $a->foto_utama)}}');" class="post-thumbnail"></div>
+                            <div loading="lazy" style="background-image:url('{{url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg', $a->foto_utama)}}');" class="post-thumbnail"></div>
                             <div class="info">
                                 <div class="row">
                                     <div class="col padding-0">
@@ -38,7 +39,11 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                                 </div>
                             </div>
                             <a href="{{route('postbycategory', ['kategori' => $a->kategori])}}" class="category">{{$a->kategori}}</a>
-                            <div class="title"><a href="{{route('berita', ['id' => $a->id])}}">{{$a->judul}}</a></div>
+                            <?php if (Auth::User()->role == "admin") { ?>
+                                <div class="title"><a href="{{route('admin-berita', ['id' => $a->id])}}">{{$a->judul}}</a></div>
+                            <?php } else { ?>
+                                <div class="title"><a href="{{route('berita', ['id' => $a->id])}}">{{$a->judul}}</a></div>
+                            <?php } ?>
                             <!-- <div class="content">
                                 <?php
                                 $num_char = 100;

@@ -1,16 +1,23 @@
 @extends('app')
+@section('title')
+Filter Berita
+@endsection
 @section('breadcrumb')
 <div class="breadcrumb">
-    <a href="{{route('home')}}">Home</a> &nbsp; / &nbsp;<a href="#">Filter</a>
+    <?php if (Auth::User()->role == "admin") { ?>
+        <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a>Filter</a>
+    <?php } else { ?>
+        <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a>Filter</a>
+    <?php } ?>
 </div>
 <hr>
 @endsection
 @section('content')
-<style>
+<!-- <style>
     .nav-search {
         display: none !important;
     }
-</style>
+</style> -->
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
         <div class="row">

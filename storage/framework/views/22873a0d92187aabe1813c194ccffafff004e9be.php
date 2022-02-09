@@ -1,15 +1,15 @@
 
 <?php $__env->startSection('title'); ?>
-Kategori : <?php echo e(strtoUpper($kategori['kategori'])); ?>
+Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
-    <?php if (Auth::user()->role == "admin") { ?>
-        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a href=""><?php echo e(strtoUpper($kategori['kategori'])); ?>
+    <?php if (Auth::User()->role == "admin") { ?>
+        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a href="#"><?php echo e(strtoUpper($kategori['kategori'])); ?>
 
-        <?php } else if (Auth::user()->role == "user") { ?>
-            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp; / &nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a href=""><?php echo e(strtoUpper($kategori['kategori'])); ?>
+        <?php } else { ?>
+            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a href="#"><?php echo e(strtoUpper($kategori['kategori'])); ?>
 
             <?php } ?>
 </div></a>
@@ -18,7 +18,9 @@ Kategori : <?php echo e(strtoUpper($kategori['kategori'])); ?>
 <?php $__env->startSection('content'); ?>
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Kategori: <?php echo e($kategori['kategori']); ?></h2>
+        <h2 class="filter-title">Kategori: <?php echo e($kategori['kategori']); ?>
+
+        </h2>
         <div class="row">
             <?php
             foreach ($artikel as $a) {
@@ -38,10 +40,10 @@ Kategori : <?php echo e(strtoUpper($kategori['kategori'])); ?>
                                     
                                 </div>
                             </div>
-                            <a href="#" class="category"><?php echo e($a->kategori); ?></a>
-                            <?php if (Auth::user()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('adminberita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
-                            <?php } else if (Auth::user()->role == "user") { ?>
+                            <a href="#"><?php echo e($a->kategori); ?></a>
+                            <?php if (Auth::User()->role == "admin") { ?>
+                                <div class="title"><a href="<?php echo e(route('admin-berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
+                            <?php } else { ?>
                                 <div class="title"><a href="<?php echo e(route('berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
                             <?php } ?>
                         </div>
