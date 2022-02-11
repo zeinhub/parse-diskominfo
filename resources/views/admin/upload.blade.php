@@ -21,43 +21,43 @@ Unggah Dokumentasi
     <h2>
         Input Data
     </h2>
-    <form method="post" action="{{route('store-file')}}">
+    <form method="post" action="{{route('store-file')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
                     <label for="judul">Judul</label>
-                    <input placeholder="Judul" type="text" class="form-control" name="judul" id="">
+                    <input placeholder="Judul" type="text" class="form-control" name="judul" id="" required>
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <label for="judul">Link Berita</label>
-                    <input placeholder="Link" type="text" class="form-control" name="link" id="">
+                    <input placeholder="Link" type="text" class="form-control" name="link" id="" required>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
-                    <input placeholder="Kategori" type="text" class="form-control" name="kategori" id="">
+                    <input placeholder="Kategori" type="text" class="form-control" name="kategori" id="" required>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="tahun">Tahun</label>
-                    <input type="text" class="form-control" placeholder="tahun" name="tahun" id="">
+                    <input type="text" class="form-control" placeholder="tahun" name="tahun" id="" required>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="wilayah">Wilayah</label>
                 </div>
-                <input placeholder="Wilayah" type="text" class="form-control" name="wilayah" id="">
+                <input placeholder="Wilayah" type="text" class="form-control" name="wilayah" id="" required>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="dinas">Dinas</label>
-                    <input placeholder="Dinas" type="text" class="form-control" name="dinas" id="">
+                    <input placeholder="Dinas" type="text" class="form-control" name="dinas" id="" required>
                 </div>
             </div>
             <!-- <div class="col">
@@ -75,13 +75,13 @@ Unggah Dokumentasi
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Foto</label>
-                    <input class="form-control" type="file" name="foto" placeholder="Dokumentasi Foto" accept="image/*" multiple>
+                    <input class="form-control" type="file" name="foto[]" placeholder="Dokumentasi Foto" accept="image/*" multiple>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Video</label>
-                    <input class="form-control" type="file" name="video" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
+                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
                 </div>
             </div>
             <!-- <div class="col-12">

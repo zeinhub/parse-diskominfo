@@ -20,17 +20,22 @@ Kategori: {{ strtoUpper($kategori['kategori'])}}
         <div class="row">
             <?php
             foreach ($artikel as $a) {
+                $foto = DB::table('file')->where('artikel_id', $a->id)->where('jenis_file', "foto")->first();
             ?>
                 <div class="col-lg-4 col-md-5 col-sm-12 mb-20-px">
                     <div class="latest-upload-wrap">
                         <div class="latest-upload">
-                            <div loading="lazy" style="background-image:url('{{url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg')}}');" class="post-thumbnail"></div>
+                            <?php if (is_object($foto)) { ?>
+                                <div loading="lazy" style="background-image:url('{{url('files/', $foto->nama_file)}}');" class="post-thumbnail"></div>
+                            <?php } else { ?>
+                                <div loading="lazy" style="background-image:url('{{url('files/kosong.png')}}');" class="post-thumbnail"></div>
+                            <?php } ?>
                             <div class="info">
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
                                             {{$a->created_at}} by
-                                            <a href="{{route('postbyauthor', ['author' => $a->nama_user, 'id_author' => $a->id_user])}}">{{$a->nama_user}}</a>
+                                            <a href="{{route('postbyauthor', ['username' => $a->username])}}">{{$a->nama_admin}}</a>
                                         </div>
                                     </div>
                                     {{-- <div class="col padding-0">
@@ -44,7 +49,7 @@ Kategori: {{ strtoUpper($kategori['kategori'])}}
                             25/01/2022</div> --}}
                                 </div>
                             </div>
-                            <a href="#">{{$a->kategori}}</a>
+                            <a href="#" class="category">{{$a->kategori}}</a>
                             <?php if (Auth::User()->role == "admin") { ?>
                                 <div class="title"><a href="{{route('admin-berita', ['id' => $a->id])}}">{{$a->judul}}</a></div>
                             <?php } else { ?>

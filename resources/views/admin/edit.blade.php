@@ -12,7 +12,7 @@ Ubah Data
 @endsection
 @section('breadcrumb')
 <div class="breadcrumb">
-    <a href="{{route('admin')}}">Admin</a> &nbsp; / &nbsp;<a href="#">Ubah Data</a>
+    <a href="{{route('adminhome')}}">Admin</a> &nbsp; / &nbsp;<a href="#">Ubah Data</a>
 </div>
 <hr>
 @endsection
@@ -21,7 +21,7 @@ Ubah Data
     <h2>
         Ubah Data
     </h2>
-    <form method="post" action="{{route('store-file')}}">
+    <form method="post" action="{{route('store-edit')}}">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-12">
@@ -81,22 +81,22 @@ Ubah Data
             <div class="col-12">
                 <table class="table">
                     <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">File</th>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Aksi</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">File</th>
+                            <th scope="col">Preview</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>test.jpg</td>
-                        <td><img width="50px" src="{{url('images/timothy-eberly-VgvMDrPoCN4-unsplash.jpg')}}" alt=""></td>
-                        <td><a href="#" class="btn btn-outline-danger">Hapus</a></td>
-                      </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>test.jpg</td>
+                            <td><img width="50px" src="{{url('images/timothy-eberly-VgvMDrPoCN4-unsplash.jpg')}}" alt=""></td>
+                            <td><a href="#" class="btn btn-outline-danger">Hapus</a></td>
+                        </tr>
                     </tbody>
-                  </table>
+                </table>
             </div>
             <!-- <div class="col-12">
                 <div class="form-group">

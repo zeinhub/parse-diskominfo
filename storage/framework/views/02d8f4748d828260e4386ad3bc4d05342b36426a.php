@@ -14,18 +14,23 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
         <?php
         $n = 0;
         foreach ($artikel as $a) {
+            $foto = DB::table('file')->where('artikel_id', $a->uuid)->where('jenis_file', "foto")->first();
             if ($n < 5) {
         ?>
                 <div data-aos="fade-up" style="margin-top: 10px" class="col-lg-4 col-xs-12">
                     <div class="latest-upload-wrap">
                         <div class="latest-upload">
-                            <div loading="lazy" style="background-image:url('<?php echo e(url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg', $a->foto_utama)); ?>');" class="post-thumbnail"></div>
+                            <?php if (is_object($foto)) { ?>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/', $foto->nama_file)); ?>');" class="post-thumbnail"></div>
+                            <?php } else { ?>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/kosong.png')); ?>');" class="post-thumbnail"></div>
+                            <?php } ?>
                             <div class="info">
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
                                             <?php echo e($a->created_at); ?> by
-                                            <a href="<?php echo e(route('postbyauthor', ['author' => $a->nama_user, 'id_author' => $a->id_user])); ?>"><?php echo e($a->nama_user); ?></a>
+                                            <a href=" <?php echo e(route('postbyauthor', ['username' => $a->username])); ?>"><?php echo e($a->nama_admin); ?></a>
                                         </div>
                                     </div>
                                     
@@ -33,9 +38,9 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                             </div>
                             <a href="<?php echo e(route('postbycategory', ['kategori' => $a->kategori])); ?>" class="category"><?php echo e($a->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('admin-berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="<?php echo e(route('berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
                             <?php } ?>
                             <!-- <div class="content">
                                 <?php
@@ -43,7 +48,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                                 $text = "$a->deskripsi";
                                 echo substr($text, 0, $num_char) . '...';
                                 ?>
-                                <a href="<?php echo e(route('berita', ['id' => $a->id])); ?>">[Selengkapnya...]</a>
+                                <a href="">[Selengkapnya...]</a>
                             </div> -->
                         </div>
                     </div>
@@ -76,7 +81,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                             </div>
                         </div>
                         <span class="category">Raker</span>
-                        <div class="title"><a href="<?php echo e(route('arsip')); ?>">Lorem ipsum dolor</a></div>
+                        <div class="title"><a href="">Lorem ipsum dolor</a></div>
                         <div class="content">
                             <?php
                             $num_char = 100;
@@ -87,7 +92,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                             Deleniti a soluta dolore aliquam fuga ut neque excepturi, tenetur aut atque rerum laudantium maiores alias iste nesciunt sed nam expedita. Praesentium quaerat assumenda repellendus illo! Perspiciatis aliquid atque nam!";
                             echo substr($text, 0, $num_char) . '...';
                             ?>
-                            <a href="<?php echo e(route('arsip')); ?>">[Selengkapnya...]</a>
+                            <a href="">[Selengkapnya...]</a>
                         </div>
                     </div>
                 </div>

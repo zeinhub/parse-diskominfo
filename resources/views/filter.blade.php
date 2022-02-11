@@ -44,10 +44,10 @@ Filter Berita
                     <div class="col-6">
                         <div class="form-group">
                             <label for="kategori">Kategori</label>
-                            <select class="form-control" name="kategori" id="">
-                                <option value="" disabled selected>Pilih Kategori</option>
-                                <option value="">Pembangunan</option>
-                            </select>
+                            <input class="form-control" type="text" name="kategori" placeholder="Kategori">
+                            <!-- <option value="" disabled selected>Pilih Kategori</option>
+                                <option value="">Pembangunan</option> -->
+                            </input>
                         </div>
                     </div>
                     <div class="col-6">

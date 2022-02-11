@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Artikel;
+use App\Models\File;
 
 class HomeController extends Controller
 {
@@ -22,10 +23,6 @@ class HomeController extends Controller
             }
         }
     }
-    public function arsip()
-    {
-        return view('post');
-    }
     public function statistic()
     {
         return view('statistic');
@@ -38,10 +35,11 @@ class HomeController extends Controller
     {
         return view('about');
     }
-    public function berita($id)
+    public function berita($uuid)
     {
-        $artikel = Artikel::find($id);
-        return view('post', ['artikel' => $artikel]);
+        $artikel = Artikel::where('uuid', $uuid)->first();
+        $files = File::where('artikel_id', $uuid)->get();
+        return view('post', ['artikel' => $artikel, 'files' => $files]);
     }
     // public function hasilFilter()
     // {
@@ -54,7 +52,7 @@ class HomeController extends Controller
             "kategori" => $request->kategori,
             "tahun" => $request->tahun,
             "wilayah" => $request->wilayah,
-            "dinas" => $request->dinas
+            "dinas" => $request->dinas,
         );
         $hasil = DB::table('artikel')
             ->where('judul', 'like', "%{$request->judul}%")
@@ -79,15 +77,16 @@ class HomeController extends Controller
         return view('hasil-pencarian', ['hasil' => $hasil, 'judulhalaman' => $judulhalaman]);
     }
 
-    public function postbyauthor($parseauthor, $id_user)
+    public function postbyauthor($parseusername)
     {
-        $author = array(
-            "author" => $parseauthor
-        );
+        $nama = DB::table('users')
+            ->where('username', 'like', "{$parseusername}")
+            ->get('name');
+
         $artikel = DB::table('artikel')
-            ->where('id_user', 'like', "{$id_user}")
+            ->where('username', 'like', "{$parseusername}")
             ->get();
-        return view('bypost', ['artikel' => $artikel, 'author' => $author]);
+        return view('bypost', ['artikel' => $artikel, 'nama' => $nama]);
     }
 
     public function postbycategory($parsekategori)

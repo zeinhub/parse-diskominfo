@@ -20,7 +20,7 @@
       <table>
         <div class="author">
           {{$artikel->created_at}} by
-          <a href="{{route('postbyauthor', ['author' => $artikel->nama_user, 'id_author' => $artikel->id_user])}}">{{$artikel->nama_user}}</a>
+          <a href="{{route('postbyauthor', ['username' => $artikel->username])}}">{{$artikel->nama_admin}}</a>
         </div>
         {{-- <tr>
               <td>
@@ -38,7 +38,7 @@
     </div>
     <div class="col text-end">
       <?php if (Auth::User()->role == "admin") { ?>
-        <a class="text-end btn btn-outline-danger" href="{{route('edit-post', ['id' => $artikel->id])}}"> Edit Data</a>
+        <a class="text-end btn btn-outline-danger" href="{{route('edit-post', ['uuid' => $artikel->uuid])}}"> Edit Data</a>
       <?php } ?>
       <a class="text-end btn btn-outline-info" href="{{$artikel->link}}" target="blank"> Open Link </a>
     </div>
@@ -49,26 +49,25 @@
   </div> -->
   <!-- <div>
     <?php
-    echo $artikel->deskripsi;
+    // echo $artikel->deskripsi;
     ?>
   </div> -->
 </div>
 <h2 class="documentation-title">
+  <br>
   Dokumentasi:
 </h2>
 <div class="splide">
   <div class="splide__track">
     <ul class="splide__list">
       <?php
-      for ($i = 0; $i < 5; $i++) { ?>
+      foreach ($files as $f) { ?>
         <li class="splide__slide text-center"> <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <div class="img-thumbnail-box">
-              <div class="img-thumbnail" style="background-image: url('{{url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg')}}');"></div>
+              <div class="img-thumbnail" style="background-image:url('{{url('files/', $f->nama_file)}}');"></div>
             </div>
           </a></li>
-      <?php
-      }
-      ?>
+      <?php } ?>
     </ul>
   </div>
 </div>

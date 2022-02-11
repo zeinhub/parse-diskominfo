@@ -6,10 +6,10 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
-        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a href="#"><?php echo e(strtoUpper($kategori['kategori'])); ?>
+        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($kategori['kategori'])); ?>
 
         <?php } else { ?>
-            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a href="#"><?php echo e(strtoUpper($kategori['kategori'])); ?>
+            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($kategori['kategori'])); ?>
 
             <?php } ?>
 </div></a>
@@ -24,23 +24,28 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
         <div class="row">
             <?php
             foreach ($artikel as $a) {
+                $foto = DB::table('file')->where('artikel_id', $a->id)->where('jenis_file', "foto")->first();
             ?>
                 <div class="col-lg-4 col-md-5 col-sm-12 mb-20-px">
                     <div class="latest-upload-wrap">
                         <div class="latest-upload">
-                            <div loading="lazy" style="background-image:url('<?php echo e(url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg')); ?>');" class="post-thumbnail"></div>
+                            <?php if (is_object($foto)) { ?>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/', $foto->nama_file)); ?>');" class="post-thumbnail"></div>
+                            <?php } else { ?>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/kosong.png')); ?>');" class="post-thumbnail"></div>
+                            <?php } ?>
                             <div class="info">
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
                                             <?php echo e($a->created_at); ?> by
-                                            <a href="<?php echo e(route('postbyauthor', ['author' => $a->nama_user, 'id_author' => $a->id_user])); ?>"><?php echo e($a->nama_user); ?></a>
+                                            <a href="<?php echo e(route('postbyauthor', ['username' => $a->username])); ?>"><?php echo e($a->nama_admin); ?></a>
                                         </div>
                                     </div>
                                     
                                 </div>
                             </div>
-                            <a href="#"><?php echo e($a->kategori); ?></a>
+                            <a href="#" class="category"><?php echo e($a->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
                                 <div class="title"><a href="<?php echo e(route('admin-berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
                             <?php } else { ?>

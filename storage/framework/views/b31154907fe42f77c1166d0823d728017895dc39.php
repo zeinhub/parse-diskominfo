@@ -2,9 +2,9 @@
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
-        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="filter">Filter</a> &nbsp;/&nbsp;<a href="#">Hasil Filter</a>
+        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('filter')); ?>">Filter</a> &nbsp;/&nbsp;<a>Hasil Filter</a>
     <?php } else { ?>
-        <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="filter">Filter</a> &nbsp;/&nbsp;<a href="#">Hasil Filter</a>
+        <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('filter')); ?>">Filter</a> &nbsp;/&nbsp;<a>Hasil Filter</a>
     <?php } ?>
 </div>
 <hr>
@@ -70,17 +70,22 @@
         <div class="row">
             <?php
             foreach ($hasil as $h) {
+                $foto = DB::table('file')->where('artikel_id', $h->id)->where('jenis_file', "foto")->first();
             ?>
                 <div class="col-lg-4 col-md-5 col-sm-12 mb-20-px">
                     <div class="latest-upload-wrap">
                         <div class="latest-upload">
-                            <div loading="lazy" style="background-image:url('<?php echo e(url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg')); ?>');" class="post-thumbnail"></div>
+                            <?php if (is_object($foto)) { ?>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/', $foto->nama_file)); ?>');" class="post-thumbnail"></div>
+                            <?php } else { ?>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/kosong.png')); ?>');" class="post-thumbnail"></div>
+                            <?php } ?>
                             <div class="info">
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
                                             <?php echo e($h->created_at); ?> by
-                                            <a href="<?php echo e(route('postbyauthor', ['author' => $h->nama_user, 'id_author' => $h->id_user])); ?>"><?php echo e($h->nama_user); ?></a>
+                                            <a href=" <?php echo e(route('postbyauthor', ['username' => $h->username])); ?>"><?php echo e($h->nama_admin); ?></a>
                                         </div>
                                     </div>
                                     

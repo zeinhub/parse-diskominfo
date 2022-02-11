@@ -20,17 +20,22 @@ Pencarian Judul: {{$judulhalaman['judul']}}
         <div class="row">
             <?php
             foreach ($hasil as $h) {
+                $foto = DB::table('file')->where('artikel_id', $h->id)->where('jenis_file', "foto")->first();
             ?>
                 <div class="col-lg-4 col-md-5 col-sm-12 mb-20-px">
                     <div class="latest-upload-wrap">
                         <div class="latest-upload">
-                            <div loading="lazy" style="background-image:url('{{url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg')}}');" class="post-thumbnail"></div>
+                            <?php if (is_object($foto)) { ?>
+                                <div loading="lazy" style="background-image:url('{{url('files/', $foto->nama_file)}}');" class="post-thumbnail"></div>
+                            <?php } else { ?>
+                                <div loading="lazy" style="background-image:url('{{url('files/kosong.png')}}');" class="post-thumbnail"></div>
+                            <?php } ?>
                             <div class="info">
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
                                             {{$h->created_at}} by
-                                            <a href="{{route('postbyauthor', ['author' => $h->nama_user, 'id_author' => $h->id_user])}}">{{$h->nama_user}}</a>
+                                            <a href=" {{route('postbyauthor', ['username' => $h->username])}}">{{$h->nama_admin}}</a>
                                         </div>
                                     </div>
                                     {{-- <div class="col padding-0">
