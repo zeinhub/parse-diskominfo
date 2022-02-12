@@ -24,7 +24,7 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
         <div class="row">
             <?php
             foreach ($artikel as $a) {
-                $foto = DB::table('file')->where('artikel_id', $a->id)->where('jenis_file', "foto")->first();
+                $foto = DB::table('file')->where('artikel_id', $a->uuid)->where('jenis_file', "foto")->first();
             ?>
                 <div class="col-lg-4 col-md-5 col-sm-12 mb-20-px">
                     <div class="latest-upload-wrap">
@@ -38,7 +38,7 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
-                                            <?php echo e($a->created_at); ?> by
+                                            <?php echo e(date('d-m-Y', strtotime($a->created_at))); ?> by
                                             <a href="<?php echo e(route('postbyauthor', ['username' => $a->username])); ?>"><?php echo e($a->nama_admin); ?></a>
                                         </div>
                                     </div>
@@ -47,9 +47,9 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
                             </div>
                             <a href="#" class="category"><?php echo e($a->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('admin-berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="<?php echo e(route('berita', ['id' => $a->id])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
                             <?php } ?>
                         </div>
                     </div>

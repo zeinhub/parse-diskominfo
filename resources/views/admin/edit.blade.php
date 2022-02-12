@@ -1,6 +1,10 @@
 @extends('app')
 @section('addon-script-top')
 <script src="https://cdn.tiny.cloud/1/g30aj0fetx2ms7ttb105k6vsyqvgclb7sfxpk92vzasxp45g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     tinymce.init({
         selector: '#isi'
@@ -21,43 +25,43 @@ Ubah Data
     <h2>
         Ubah Data
     </h2>
-    <form method="post" action="{{route('store-edit')}}">
+    <form method="post" action="{{route('store-edit', ['uuid' => $artikel->uuid])}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
                     <label for="judul">Judul</label>
-                    <input placeholder="Judul" type="text" value="{{$artikel->judul}}" class="form-control" name="judul" id="">
+                    <input placeholder="Judul" type="text" value="{{$artikel->judul}}" class="form-control" name="judul" id="" required>
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <label for="judul">Link Berita</label>
-                    <input placeholder="Link" type="text" value="{{$artikel->link}}" class="form-control" name="link" id="">
+                    <input placeholder="Link" type="text" value="{{$artikel->link}}" class="form-control" name="link" id="" required>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
-                    <input placeholder="Kategori" type="text" value="{{$artikel->kategori}}" class="form-control" name="kategori" id="">
+                    <input placeholder="Kategori" type="text" value="{{$artikel->kategori}}" class="form-control" name="kategori" id="" required>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="tahun">Tahun</label>
-                    <input type="text" class="form-control" value="{{$artikel->tahun}}" placeholder="tahun" name="tahun" id="">
+                    <input type="text" class="form-control" value="{{$artikel->tahun}}" placeholder="tahun" name="tahun" id="" required>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="wilayah">Wilayah</label>
                 </div>
-                <input placeholder="Wilayah" type="text" value="{{$artikel->wilayah}}" class="form-control" name="wilayah" id="">
+                <input placeholder="Wilayah" type="text" value="{{$artikel->wilayah}}" class="form-control" name="wilayah" id="" required>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="dinas">Dinas</label>
-                    <input placeholder="Dinas" type="text" value="{{$artikel->dinas}}" class="form-control" name="dinas" id="">
+                    <input placeholder="Dinas" type="text" value="{{$artikel->dinas}}" class="form-control" name="dinas" id="" required>
                 </div>
             </div>
             <!-- <div class="col">
@@ -72,12 +76,22 @@ Ubah Data
                     <input class="form-control" type="file" name="foto_utama" placeholder="Hasil">
                 </div>
             </div> -->
+            <br>
+            <h4>Tambah Dokumentasi</h4>
+
             <div class="col">
                 <div class="form-group">
-                    <label for="featured-image">Lampiran</label>
-                    <input class="form-control" type="file" placeholder="Hasil" multiple>
+                    <label for="featured-image">Dokumentasi Foto</label>
+                    <input class="form-control" type="file" name="foto[]" placeholder="Dokumentasi Foto" accept="image/*" multiple>
                 </div>
             </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="featured-image">Dokumentasi Video</label>
+                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
+                </div>
+            </div>
+            <h4>Hapus Dokumentasi</h4>
             <div class="col-12">
                 <table class="table">
                     <thead>
@@ -89,12 +103,21 @@ Ubah Data
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>test.jpg</td>
-                            <td><img width="50px" src="{{url('images/timothy-eberly-VgvMDrPoCN4-unsplash.jpg')}}" alt=""></td>
-                            <td><a href="#" class="btn btn-outline-danger">Hapus</a></td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($files as $f) {
+                            if ($f->jenis_file == "foto") { ?>
+                                <tr>
+                                    <th scope="row">{{$no}}</th>
+                                    <td>{{$f->nama_file}}</td>
+                                    <td><img width="50px" src="{{url('files/', $f->nama_file)}}" alt=""></td>
+                                    <td><a href="javascript:void(0)" onclick="deleteDokumentasi({{$f->id}})" class=" btn btn-outline-danger">Hapus</a></td>
+                                </tr>
+                        <?php
+                            }
+                            $no++;
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -115,6 +138,8 @@ Ubah Data
             </div>
         </div>
     </form>
+    <br>
+
     <script>
         function sukses() {
             Swal.fire(
@@ -122,6 +147,59 @@ Ubah Data
                 'Data berhasil disimpan!',
                 'success'
             )
+        }
+
+        // $(document).ready(function() {
+
+        //     $("body").on("click", "#deleteCompany", function(e) {
+
+        //         if (!confirm("Do you really want to do this?")) {
+        //             return false;
+        //         }
+
+        //         e.preventDefault();
+        //         var id = $(this).data("id");
+        //         // var id = $(this).attr('data-id');
+        //         var token = $("meta[name='csrf-token']").attr("content");
+        //         var url = e.target;
+
+        //         $.ajax({
+        //             url: url.href, //or you can use url: "company/"+id,
+        //             type: 'DELETE',
+        //             data: {
+        //                 _token: token,
+        //                 id: id
+        //             },
+        //             success: function(response) {
+
+        //                 $("#success").html(response.message)
+
+        //                 Swal.fire(
+        //                     'Remind!',
+        //                     'Company deleted successfully!',
+        //                     'success'
+        //                 )
+        //             }
+        //         });
+        //         return false;
+        //     });
+        // });
+    </script>
+    <script>
+        function deleteDokumentasi(id) {
+            if (confirm("Do you really want to do this?")) {
+                $.ajax({
+                    url: '/admin/delete-dokumentasi/' + id,
+                    type: 'DELETE',
+                    data: {
+                        _token: $("input[name=_token").val()
+                    },
+                    success: function(response) {
+                        $("#sid" + id).remove();
+                    }
+                });
+
+            }
         }
     </script>
 </div>

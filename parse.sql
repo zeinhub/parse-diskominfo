@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Feb 2022 pada 18.00
+-- Waktu pembuatan: 12 Feb 2022 pada 07.20
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.7
 
@@ -46,11 +46,10 @@ CREATE TABLE `artikel` (
 --
 
 INSERT INTO `artikel` (`uuid`, `username`, `nama_admin`, `judul`, `link`, `kategori`, `tahun`, `wilayah`, `dinas`, `created_at`, `updated_at`) VALUES
-('4ebb2e5e8b4011eca47b00fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Gelar Musrenbang, 50 Usulan Jadi Prioritas Kecamatan Mekar Baru', 'https://tangerangkab.go.id/detail-konten/show-berita/5370', 'Surat', 2022, 'Tangerang', 'Kominfo', '2022-02-11 13:41:25', '2022-02-11 13:41:25'),
-('5b225dd88b1911eca1b400fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Aturan Baru PPKM, Perangkat Daerah Diminta Atur WFO 50 Persen dari Jumlah ASN', 'https://tangerangkab.go.id/detail-konten/show-berita/5368', 'Surat', 2022, 'Tangerang', 'kominfo', '2022-02-11 09:02:36', '2022-02-11 09:02:36'),
-('63f8ed188b1f11ec828a00fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Puskesmas Tegalangus Targetkan 3.713 Anak Balita Mendapatkan Vitamin A', 'https://tangerangkab.go.id/detail-konten/show-berita/5373', 'Kesehatan', 2022, 'Tangerang', 'kominfo', '2022-02-11 09:45:48', '2022-02-11 09:45:48'),
-('79151c2c8b4111ecbebe00fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Camat Mekar Baru Minta Bappeda Prioritaskan Pembangunan Jalan Bendung', 'https://tangerangkab.go.id/detail-konten/show-berita/5371', 'Aplikasi', 2022, 'Depok', 'Kominfo', '2022-02-11 13:49:46', '2022-02-11 13:49:46'),
-('9f531c5e8b4111ecb1ed00fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Bapenda Targetkan Pendapatan Daerah Lebih Rp1 Triliun dari PBB BPHTB', 'https://tangerangkab.go.id/detail-konten/show-berita/5367', 'Kebijakan', 2022, 'Bekasi', 'kominfo', '2022-02-11 13:50:50', '2022-02-11 13:50:50');
+('22f463228bc611ec8c2300fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Bupati Zaki Keluarkan Kebijakan terkait Pemberlakuan PPKM Level 3 Kabupaten Tangerang', 'https://tangerangkab.go.id/detail-konten/show-berita/5375', 'Pemerintahan', 2020, 'Tangerang', 'kominfo', '2022-02-12 05:39:26', '2022-02-12 05:43:03'),
+('3e92bb608bc611ec823600fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Aturan Baru PPKM, Perangkat Daerah Diminta Atur WFO 50 Persen dari Jumlah ASN', 'https://tangerangkab.go.id/detail-konten/show-berita/5368', 'Pengumuman', 2022, 'Tangerang', 'kominfo', '2022-02-12 05:40:11', '2022-02-12 05:40:11'),
+('651ef1688bc611ecadef00fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Camat Mekar Baru Minta Bappeda Prioritaskan Pembangunan Jalan Bendung', 'https://tangerangkab.go.id/detail-konten/show-berita/5371', 'Pembangunan', 2022, 'Tangerang', 'kominfo', '2022-02-12 05:41:16', '2022-02-12 05:41:16'),
+('8ccb9b768bc611ec9b6300fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Bapenda Targetkan Pendapatan Daerah Lebih Rp1 Triliun dari PBB BPHTB', 'https://tangerangkab.go.id/detail-konten/show-berita/5367', 'Umum', 2022, 'Tangerang', 'kominfo', '2022-02-12 05:42:22', '2022-02-12 05:42:22');
 
 -- --------------------------------------------------------
 
@@ -88,16 +87,15 @@ CREATE TABLE `file` (
 --
 
 INSERT INTO `file` (`id`, `artikel_id`, `nama_file`, `jenis_file`, `created_at`, `updated_at`) VALUES
-(3, '5b225dd88b1911eca1b400fff77bfb78', '1644570156356-jordan-wozniak-xP_AGmeEa6s-unsplash.jpg', 'foto', NULL, NULL),
-(4, '5b225dd88b1911eca1b400fff77bfb78', '1644570156360-kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg', 'foto', NULL, NULL),
-(5, '5b225dd88b1911eca1b400fff77bfb78', '1644570156522-Aboriginal-Dance-1.mp4', 'video', NULL, NULL),
-(6, '5b225dd88b1911eca1b400fff77bfb78', '1644570156568-LINE_MOVIE_1531321645543.mp4', 'video', NULL, NULL),
-(7, '63f8ed188b1f11ec828a00fff77bfb78', '1644572748420-kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg', 'foto', NULL, NULL),
-(8, '63f8ed188b1f11ec828a00fff77bfb78', '1644572748425-timothy-eberly-VgvMDrPoCN4-unsplash.jpg', 'foto', NULL, NULL),
-(9, '63f8ed188b1f11ec828a00fff77bfb78', '1644572748711-LINE_MOVIE_1531321645543.mp4', 'video', NULL, NULL),
-(11, '4ebb2e5e8b4011eca47b00fff77bfb78', '1644586885791-timothy-eberly-VgvMDrPoCN4-unsplash.jpg', 'foto', NULL, NULL),
-(12, '79151c2c8b4111ecbebe00fff77bfb78', '1644587386693-kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg', 'foto', NULL, NULL),
-(13, '9f531c5e8b4111ecb1ed00fff77bfb78', '1644587450500-LINE_MOVIE_1531321645543.mp4', 'video', NULL, NULL);
+(25, '22f463228bc611ec8c2300fff77bfb78', '1644644365770-kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg', 'foto', '2022-02-12 05:39:25', '2022-02-12 05:39:25'),
+(26, '22f463228bc611ec8c2300fff77bfb78', '1644644366029-Aboriginal-Dance-1.mp4', 'video', '2022-02-12 05:39:26', '2022-02-12 05:39:26'),
+(27, '22f463228bc611ec8c2300fff77bfb78', '1644644366031-LINE_MOVIE_1531321645543.mp4', 'video', '2022-02-12 05:39:26', '2022-02-12 05:39:26'),
+(28, '3e92bb608bc611ec823600fff77bfb78', '1644644411193-jordan-wozniak-xP_AGmeEa6s-unsplash.jpg', 'foto', '2022-02-12 05:40:11', '2022-02-12 05:40:11'),
+(29, '3e92bb608bc611ec823600fff77bfb78', '1644644411361-timothy-eberly-VgvMDrPoCN4-unsplash.jpg', 'foto', '2022-02-12 05:40:11', '2022-02-12 05:40:11'),
+(30, '651ef1688bc611ecadef00fff77bfb78', '1644644475839-kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg', 'foto', '2022-02-12 05:41:15', '2022-02-12 05:41:15'),
+(31, '651ef1688bc611ecadef00fff77bfb78', '1644644475964-Aboriginal-Dance-1.mp4', 'video', '2022-02-12 05:41:15', '2022-02-12 05:41:15'),
+(32, '8ccb9b768bc611ec9b6300fff77bfb78', '1644644542436-Aboriginal-Dance-1.mp4', 'video', '2022-02-12 05:42:22', '2022-02-12 05:42:22'),
+(33, '8ccb9b768bc611ec9b6300fff77bfb78', '1644644542438-LINE_MOVIE_1531321645543.mp4', 'video', '2022-02-12 05:42:22', '2022-02-12 05:42:22');
 
 -- --------------------------------------------------------
 
@@ -246,7 +244,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`

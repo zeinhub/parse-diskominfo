@@ -29,10 +29,10 @@ Route::get('/actionlogout', [AccountController::class, 'actionlogout'])->name('l
 Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome')->middleware('auth');
 Route::get('/admin/upload-data', [AdminController::class, 'uploadData'])->name('upload-data')->middleware('auth');
 Route::get('/admin/edit-data/{uuid}', [AdminController::class, 'editData'])->name('edit-post')->middleware('auth');
-Route::get('/admin/upload-dokumentasi', [AdminController::class, 'uploadDokumentasi'])->name('upload-file')->middleware('auth');
 Route::get('/admin/berita/{uuid}', [AdminController::class, 'berita'])->name('admin-berita')->middleware('auth');
 Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('auth');
-Route::post('/admin/store-edit', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('auth');
+Route::post('/admin/store-edit/{uuid}', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('auth');
+Route::delete('/admin/delete-dokumentasi/{id}', [AdminController::class, 'deleteDokumentasi'])->name('delete-dokumentasi')->middleware('auth');
 
 //User
 Route::get('/statistik', [HomeController::class, 'statistic'])->name('statistic')->middleware('auth');

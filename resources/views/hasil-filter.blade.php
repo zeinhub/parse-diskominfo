@@ -70,7 +70,7 @@
         <div class="row">
             <?php
             foreach ($hasil as $h) {
-                $foto = DB::table('file')->where('artikel_id', $h->id)->where('jenis_file', "foto")->first();
+                $foto = DB::table('file')->where('artikel_id', $h->uuid)->where('jenis_file', "foto")->first();
             ?>
                 <div class="col-lg-4 col-md-5 col-sm-12 mb-20-px">
                     <div class="latest-upload-wrap">
@@ -84,7 +84,7 @@
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
-                                            {{$h->created_at}} by
+                                            {{date('d-m-Y', strtotime($h->created_at))}} by
                                             <a href=" {{route('postbyauthor', ['username' => $h->username])}}">{{$h->nama_admin}}</a>
                                         </div>
                                     </div>
@@ -101,9 +101,9 @@
                             </div>
                             <a href="{{route('postbycategory', ['kategori' => $h->kategori])}}" class="category">{{$h->kategori}}</a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="{{route('admin-berita', ['id' => $h->id])}}">{{$h->judul}}</a></div>
+                                <div class="title"><a href="{{route('admin-berita', ['uuid' => $h->uuid])}}">{{$h->judul}}</a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="{{route('berita', ['id' => $h->id])}}">{{$h->judul}}</a></div>
+                                <div class="title"><a href="{{route('berita', ['uuid' => $h->uuid])}}">{{$h->judul}}</a></div>
                             <?php } ?>
                         </div>
                     </div>

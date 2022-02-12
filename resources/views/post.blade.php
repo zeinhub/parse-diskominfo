@@ -19,7 +19,7 @@
     <div class="col">
       <table>
         <div class="author">
-          {{$artikel->created_at}} by
+          {{$artikel->created_at->format('d F Y, h:i:s A')}} by
           <a href="{{route('postbyauthor', ['username' => $artikel->username])}}">{{$artikel->nama_admin}}</a>
         </div>
         {{-- <tr>
@@ -61,12 +61,14 @@
   <div class="splide__track">
     <ul class="splide__list">
       <?php
-      foreach ($files as $f) { ?>
-        <li class="splide__slide text-center"> <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <div class="img-thumbnail-box">
-              <div class="img-thumbnail" style="background-image:url('{{url('files/', $f->nama_file)}}');"></div>
-            </div>
-          </a></li>
+      foreach ($files as $f) {
+        if ($f->jenis_file == "foto") { ?>
+          <li class="splide__slide text-center"> <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <div class="img-thumbnail-box">
+                <div class="img-thumbnail" style="background-image:url('{{url('files/', $f->nama_file)}}');"></div>
+              </div>
+            </a></li>
+        <?php } ?>
       <?php } ?>
     </ul>
   </div>

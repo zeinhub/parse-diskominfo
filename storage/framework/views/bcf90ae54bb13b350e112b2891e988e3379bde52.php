@@ -115,7 +115,7 @@ Filter Berita
                                 </div>
                             </div>
                             <span class="category">Raker</span>
-                            <div class="title"><a href="<?php echo e(route('arsip')); ?>">Lorem ipsum dolor</a></div>
+                            <div class="title"><a href="">Lorem ipsum dolor</a></div>
                             <div class="content">
                                 <?php
                                 $num_char = 100;
@@ -126,7 +126,7 @@ Filter Berita
                                 Deleniti a soluta dolore aliquam fuga ut neque excepturi, tenetur aut atque rerum laudantium maiores alias iste nesciunt sed nam expedita. Praesentium quaerat assumenda repellendus illo! Perspiciatis aliquid atque nam!";
                                 echo substr($text, 0, $num_char) . '...';
                                 ?>
-                                <a href="<?php echo e(route('arsip')); ?>">[Selengkapnya...]</a>
+                                <a href="">[Selengkapnya...]</a>
                             </div>
                         </div>
                     </div>

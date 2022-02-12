@@ -22,7 +22,7 @@
     <div class="col">
       <table>
         <div class="author">
-          <?php echo e($artikel->created_at); ?> by
+          <?php echo e($artikel->created_at->format('d F Y, h:i:s A')); ?> by
           <a href="<?php echo e(route('postbyauthor', ['username' => $artikel->username])); ?>"><?php echo e($artikel->nama_admin); ?></a>
         </div>
         
@@ -53,12 +53,14 @@
   <div class="splide__track">
     <ul class="splide__list">
       <?php
-      foreach ($files as $f) { ?>
-        <li class="splide__slide text-center"> <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <div class="img-thumbnail-box">
-              <div class="img-thumbnail" style="background-image:url('<?php echo e(url('files/', $f->nama_file)); ?>');"></div>
-            </div>
-          </a></li>
+      foreach ($files as $f) {
+        if ($f->jenis_file == "foto") { ?>
+          <li class="splide__slide text-center"> <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <div class="img-thumbnail-box">
+                <div class="img-thumbnail" style="background-image:url('<?php echo e(url('files/', $f->nama_file)); ?>');"></div>
+              </div>
+            </a></li>
+        <?php } ?>
       <?php } ?>
     </ul>
   </div>
@@ -88,25 +90,22 @@
 </script>
 
 <!-- Modal -->
-
-<?php foreach ($files as $f) { ?>
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div id="modal-thumbnail" class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Lorem Ipsum Dolor</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="<?php echo e(url('files/', $f->nama_file)); ?>" alt="">
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn btn-danger">Hapus</a>
-          <a href="#" class="btn btn-success">Unduh</a>
-        </div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div id="modal-thumbnail" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Lorem Ipsum Dolor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="<?php echo e(url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg')); ?>" alt="">
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-danger">Hapus</a>
+        <a href="#" class="btn btn-success">Unduh</a>
       </div>
     </div>
   </div>
-<?php } ?>
+</div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/post.blade.php ENDPATH**/ ?>

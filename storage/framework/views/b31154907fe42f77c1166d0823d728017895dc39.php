@@ -70,7 +70,7 @@
         <div class="row">
             <?php
             foreach ($hasil as $h) {
-                $foto = DB::table('file')->where('artikel_id', $h->id)->where('jenis_file', "foto")->first();
+                $foto = DB::table('file')->where('artikel_id', $h->uuid)->where('jenis_file', "foto")->first();
             ?>
                 <div class="col-lg-4 col-md-5 col-sm-12 mb-20-px">
                     <div class="latest-upload-wrap">
@@ -84,7 +84,7 @@
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
-                                            <?php echo e($h->created_at); ?> by
+                                            <?php echo e(date('d-m-Y', strtotime($h->created_at))); ?> by
                                             <a href=" <?php echo e(route('postbyauthor', ['username' => $h->username])); ?>"><?php echo e($h->nama_admin); ?></a>
                                         </div>
                                     </div>
@@ -93,9 +93,9 @@
                             </div>
                             <a href="<?php echo e(route('postbycategory', ['kategori' => $h->kategori])); ?>" class="category"><?php echo e($h->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('admin-berita', ['id' => $h->id])); ?>"><?php echo e($h->judul); ?></a></div>
+                                <div class="title"><a href="<?php echo e(route('admin-berita', ['uuid' => $h->uuid])); ?>"><?php echo e($h->judul); ?></a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="<?php echo e(route('berita', ['id' => $h->id])); ?>"><?php echo e($h->judul); ?></a></div>
+                                <div class="title"><a href="<?php echo e(route('berita', ['uuid' => $h->uuid])); ?>"><?php echo e($h->judul); ?></a></div>
                             <?php } ?>
                         </div>
                     </div>

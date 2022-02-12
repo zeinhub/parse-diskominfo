@@ -8,8 +8,6 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
 </div>
 <div class="latest-upload-wrap">
     <h3 class="latest-upload-heading">Unggahan Terbaru</h3>
-    <?php echo e(Auth::user()->name); ?>
-
     <div class="row">
         <?php
         $n = 0;
@@ -29,7 +27,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                                 <div class="row">
                                     <div class="col padding-0">
                                         <div class="author">
-                                            <?php echo e($a->created_at); ?> by
+                                            <?php echo e(date('d-m-Y', strtotime($a->created_at))); ?> by
                                             <a href=" <?php echo e(route('postbyauthor', ['username' => $a->username])); ?>"><?php echo e($a->nama_admin); ?></a>
                                         </div>
                                     </div>
