@@ -2,8 +2,6 @@
 @section('addon-script-top')
 <script src="https://cdn.tiny.cloud/1/g30aj0fetx2ms7ttb105k6vsyqvgclb7sfxpk92vzasxp45g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     tinymce.init({
@@ -16,7 +14,7 @@ Ubah Data
 @endsection
 @section('breadcrumb')
 <div class="breadcrumb">
-    <a href="{{route('adminhome')}}">Admin</a> &nbsp; / &nbsp;<a href="#">Ubah Data</a>
+    <a href="{{route('adminhome')}}">Admin</a> &nbsp;/&nbsp;<a href="#">Ubah Data</a>
 </div>
 <hr>
 @endsection
@@ -77,7 +75,7 @@ Ubah Data
                 </div>
             </div> -->
             <br>
-            <h4>Tambah Dokumentasi</h4>
+            <h5 class="mt-4">Tambah Dokumentasi</h5>
 
             <div class="col">
                 <div class="form-group">
@@ -91,13 +89,14 @@ Ubah Data
                     <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
                 </div>
             </div>
-            <h4>Hapus Dokumentasi</h4>
-            <div class="col-12">
+            <h5 class="mt-4">Hapus Dokumentasi</h5>
+<!--             <a onclick="per()" class=" btn btn-outline-danger">tombol alert</a>
+ -->            <div class="col-12">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">File</th>
+                            <th scope="col">File</th> <!--kecilin row-->
                             <th scope="col">Preview</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -107,7 +106,7 @@ Ubah Data
                         $no = 1;
                         foreach ($files as $f) {
                             if ($f->jenis_file == "foto") { ?>
-                                <tr>
+                                <tr id="sid{{$f->id}}">
                                     <th scope="row">{{$no}}</th>
                                     <td>{{$f->nama_file}}</td>
                                     <td><img width="50px" src="{{url('files/', $f->nama_file)}}" alt=""></td>
@@ -139,6 +138,9 @@ Ubah Data
         </div>
     </form>
     <br>
+    <script>
+        alert('Sukses!')
+    </script>
 
     <script>
         function sukses() {
@@ -148,6 +150,15 @@ Ubah Data
                 'success'
             )
         }
+
+        function per() {
+            alert(
+                'Sukses!',
+                'Data berhasil disimpan!',
+                'success'
+            )
+        }
+
 
         // $(document).ready(function() {
 
@@ -164,7 +175,7 @@ Ubah Data
         //         var url = e.target;
 
         //         $.ajax({
-        //             url: url.href, //or you can use url: "company/"+id,
+        //             url: '/admin/delete-dokumentasi/'+ id, //or you can use url: "company/"+id,
         //             type: 'DELETE',
         //             data: {
         //                 _token: token,
@@ -185,6 +196,7 @@ Ubah Data
         //     });
         // });
     </script>
+
     <script>
         function deleteDokumentasi(id) {
             if (confirm("Do you really want to do this?")) {

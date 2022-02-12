@@ -178,8 +178,8 @@ class AdminController extends Controller
     {
         File::find($id)->delete($id);
 
-        return response()->json([
-            'success' => 'Record deleted successfully!'
-        ]);
+        // return response()->json([
+        //     'success' => 'Record deleted successfully!'
+        // ]);
     }
 }
