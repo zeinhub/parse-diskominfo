@@ -109,8 +109,10 @@
                     </div>
                 </div>
             <?php } ?>
-
         </div>
+    </div>
+    <div class="pagination">
+        {{$hasil->links()}}
     </div>
 </div>
 @endsection

@@ -1,4 +1,15 @@
 <div class="sidebar">
+  <div class="sidebar-title mb-3">
+    PENCARIAN
+    <div class="line-sidebar-title"></div>
+  </div>
+  <div class="sidebar-content mb-3">
+    <form action="{{route('cari')}}" method="POST" class="d-flex nav-search">
+      {{ csrf_field() }}
+      <input class="form-control me-2" name="judul" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+  </div>
     <div class="sidebar-title">
         STATISTIK
         <div class="line-sidebar-title"></div>
@@ -23,81 +34,6 @@
 
             chart.render();
         </script>
-    </div>
-    <div class="sidebar-title">
-        KALENDER
-        <div class="line-sidebar-title"></div>
-    </div>
-    <div class="sidebar-content">
-      <iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=2&bgcolor=%23ffffff&ctz=Asia%2FJakarta&showCalendars=0&showDate=1&showPrint=0&showTabs=0&showTitle=1&showNav=1&showTz=1&hl=id&mode=MONTH&title=Diskominfo%20Kabupaten%20Tangerang&src=aWQuaW5kb25lc2lhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%230B8043" style="border:solid 1px #777" width="300" height="300" frameborder="0" scrolling="no"></iframe>
-    </div>
-    <div class="sidebar-title">
-        PENYEBARAN COVID
-        <div class="line-sidebar-title"></div>
-    </div>
-    <div class="sidebar-content">
-      @php
-        $api_url = 'https://api.kawalcorona.com/indonesia';
-        $json_data = file_get_contents($api_url);
-        $response_data = json_decode($json_data);
-      @endphp
-      <table>
-        <tr>
-          <td>Wilayah</td>
-          <td>&nbsp;&nbsp;:</td>
-          <td>
-            @php
-            foreach ($response_data as $covid) {
-              echo $covid->name;
-            }
-            @endphp
-          </td>
-        </tr>
-        <tr>
-          <td>Positif</td>
-          <td>&nbsp;&nbsp;:</td>
-          <td>
-            @php
-            foreach ($response_data as $covid) {
-              echo $covid->positif;
-            }
-            @endphp
-          </td>
-        </tr>
-        <tr>
-          <td>Sembuh</td>
-          <td>&nbsp;&nbsp;:</td>
-          <td>
-            @php
-            foreach ($response_data as $covid) {
-              echo $covid->sembuh;
-            }
-            @endphp
-          </td>
-        </tr>
-        <tr>
-          <td>Dirawat</td>
-          <td>&nbsp;&nbsp;:</td>
-          <td>
-            @php
-            foreach ($response_data as $covid) {
-              echo $covid->dirawat;
-            }
-            @endphp
-          </td>
-        </tr>
-        <tr>
-          <td>Meninggal</td>
-          <td>&nbsp;&nbsp;:</td>
-          <td>
-            @php
-            foreach ($response_data as $covid) {
-              echo $covid->meninggal;
-            }
-            @endphp
-          </td>
-        </tr>
-      </table>
     </div>
     <div class="sidebar-title">BERITA TERBARU
       <div class="line-sidebar-title"></div>

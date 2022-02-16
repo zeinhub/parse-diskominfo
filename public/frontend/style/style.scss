@@ -98,6 +98,38 @@ About style
     }
 }
 
+.w-5{
+    width: 20px;
+}
+
+nav{
+    .flex{
+        display: none;
+    }
+}
+.category-box{
+    width: 230px;
+    height: 50px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border: 2px solid orangered;
+    padding: 3px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.user-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+.pagination{
+    margin-top: 50px;
+    justify-content: center;
+}
 #myBtn {
     display: none;
     position: fixed;
@@ -366,17 +398,31 @@ body{
         background-color: white !important;
     }
 }
+.splide__arrow{
+    display: none;
+}
 .splide{
     max-width: 800px;
     .img-thumbnail-box, .splide__slide{
         width: 250px;
         height: 200px;
+        margin-right: 10px;
+        // margin-left: 10px;
+        margin-bottom: 10px;
     }
     .img-thumbnail{
         width: 100%;
         height: 100%;
         background-size: cover;
         background-repeat: no-repeat;
+    }
+}
+.splidevideo{
+    max-width: 800px;
+    .video-thumbnail-box, .splide__slide{
+        margin-right: 10px;
+        // margin-left: 10px;
+        margin-top: 10px;
     }
 }
 

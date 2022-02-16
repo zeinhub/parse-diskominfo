@@ -1,0 +1,64 @@
+{
+    "category": [
+        {
+            "category": "Pendidikan"
+        },
+        {
+            "category": "Informasi Umum"
+        },
+        {
+            "category": "Teknologi Informasi"
+        },
+        {
+            "category": "Kesehatan"
+        },
+        {
+            "category": "Olahraga"
+        },
+        {
+            "category": "Event"
+        },
+        {
+            "category": "Pariwisata"
+        },
+        {
+            "category": "Ekonomi"
+        },
+        {
+            "category": "Pengumuman"
+        },
+        {
+            "category": "Keagamaan"
+        },
+        {
+            "category": "Pelayanan"
+        },
+        {
+            "category": "Kerjasama"
+        },
+        {
+            "category": "Pemerintahan"
+        },
+        {
+            "category": "Prestasi"
+        },
+        {
+            "category": "Program Unggulan"
+        },
+        {
+            "category": "Bantuan/Kemanusiaan"
+        },
+        {
+            "category": "Pertanian"
+        },
+        {
+            "category": "Lingkungan"
+        },
+        {
+            "category": "Bencana Alam"
+        },
+        {
+            "category": "Covid"
+        }
+    ]
+}

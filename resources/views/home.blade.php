@@ -7,7 +7,14 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
     <img src="https://tangerangkab.go.id/images/1639013612.png" alt="">
 </div>
 <div class="latest-upload-wrap">
-    <h3 class="latest-upload-heading">Unggahan Terbaru</h3>
+    <div class="row">
+        <div class="col">
+            <h3 style="display: inline-block" class="latest-upload-heading">Unggahan Terbaru</h3> 
+        </div>
+        <div class="col text-end">
+            <a href="{{route('allpost')}}" style="margin-top: 20px" class="btn btn-outline-primary ">Semua Post</a>
+        </div>
+    </div>
     <div class="row">
         <?php
         $n = 0;
@@ -44,9 +51,9 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                             </div>
                             <a href="{{route('postbycategory', ['kategori' => $a->kategori])}}" class="category">{{$a->kategori}}</a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="{{route('admin-berita', ['uuid' => $a->uuid])}}">{{$a->judul}}</a></div>
+                                <div class="title" title="{{$a->judul}}"><a href="{{route('admin-berita', ['uuid' => $a->uuid])}}">{{substr($a->judul, 0, 40)."... [Selengkapnya]"}}</a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="{{route('berita', ['uuid' => $a->uuid])}}">{{$a->judul}}</a></div>
+                                <div class="title" title="{{$a->judul}}"><a href="{{route('berita', ['uuid' => $a->uuid])}}">{{substr($a->judul, 0, 40)."... [Selengkapnya]"}}</a></div>
                             <?php } ?>
                             <!-- <div class="content">
                                 <?php

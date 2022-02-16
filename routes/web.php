@@ -30,6 +30,7 @@ Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome')-
 Route::get('/admin/upload-data', [AdminController::class, 'uploadData'])->name('upload-data')->middleware('auth');
 Route::get('/admin/edit-data/{uuid}', [AdminController::class, 'editData'])->name('edit-post')->middleware('auth');
 Route::get('/admin/berita/{uuid}', [AdminController::class, 'berita'])->name('admin-berita')->middleware('auth');
+Route::get('/admin/berita/{uuid}/download/{id}', [AdminController::class, 'download'])->name('download')->middleware('auth');
 Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('auth');
 Route::post('/admin/store-edit/{uuid}', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('auth');
 Route::delete('/admin/delete-dokumentasi/{id}', [AdminController::class, 'deleteDokumentasi'])->name('delete-dokumentasi')->middleware('auth');
@@ -43,4 +44,6 @@ Route::post('/cari-berita', [HomeController::class, 'cariArtikel'])->name('cari'
 Route::get('/berita/{uuid}', [HomeController::class, 'berita'])->name('berita')->middleware('auth');
 Route::get('/author/{username}', [HomeController::class, 'postbyauthor'])->name('postbyauthor')->middleware('auth');
 Route::get('/category/{kategori}', [HomeController::class, 'postbycategory'])->name('postbycategory')->middleware('auth');
+Route::get('/category', [HomeController::class, 'allcategory'])->name('allcategory')->middleware('auth');
+Route::get('/allpost', [HomeController::class, 'allpost'])->name('allpost')->middleware('auth');
 Route::get('/about', [HomeController::class, 'about'])->name('about')->middleware('auth');

@@ -60,7 +60,8 @@ class HomeController extends Controller
             ->where('tahun', 'like', "%{$request->tahun}%")
             ->where('wilayah', 'like', "%{$request->wilayah}%")
             ->where('dinas', 'like', "%{$request->dinas}%")
-            ->get();
+            ->orderByDesc('created_at')
+            ->paginate(3);
 
         return view('hasil-filter', ['hasil' => $hasil, 'filter' => $filter]);
     }
@@ -98,5 +99,20 @@ class HomeController extends Controller
             ->where('kategori', 'like', "{$parsekategori}")
             ->get();
         return view('bycategory', ['artikel' => $artikel, 'kategori' => $kategori]);
+    }
+
+    public function allpost()
+    {
+        $artikel = DB::table('artikel')
+        ->orderByDesc('created_at')
+        ->paginate(9);
+        return view('allpost', ['artikel' => $artikel]);
+    }
+    public function allcategory()
+    {
+        $artikel = DB::table('artikel')
+            // ->paginate(9);
+            ->pluck('kategori');
+        return view('allcategory', ['artikel' => $artikel]);
     }
 }

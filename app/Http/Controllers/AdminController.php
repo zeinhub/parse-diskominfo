@@ -10,6 +10,8 @@ use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\File as Files;
 
 class AdminController extends Controller
 {
@@ -176,10 +178,21 @@ class AdminController extends Controller
 
     public function deleteDokumentasi($id)
     {
+        $gambar = File::find($id);
         File::find($id)->delete($id);
+        Files::delete('files/'.$gambar->nama_file);
+        
 
         // return response()->json([
         //     'success' => 'Record deleted successfully!'
         // ]);
+    }
+
+    public function download($uuid, $id)
+    {
+        $nama = File::find($id);
+        $file = public_path()."/files/". $nama->nama_file;
+
+        return Response::download($file, $nama->nama_file);
     }
 }

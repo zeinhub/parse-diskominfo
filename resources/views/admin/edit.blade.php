@@ -19,6 +19,12 @@ Ubah Data
 <hr>
 @endsection
 @section('content')
+
+<style>
+    .col, .col-6, .col-12{
+        margin-top: 10px !important;
+    }
+</style>
 <div class="latest-upload-wrap pt-fs">
     <h2>
         Ubah Data
@@ -138,9 +144,9 @@ Ubah Data
         </div>
     </form>
     <br>
-    <script>
+    {{-- <script>
         alert('Sukses!')
-    </script>
+    </script> --}}
 
     <script>
         function sukses() {
