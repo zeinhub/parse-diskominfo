@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/arsip', [HomeController::class, 'arsip'])->name('arsip');
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', function(){
+Route::get('/about', function () {
     return view('about');
 })->name('about');
 Route::get('/statistik', [HomeController::class, 'statistic'])->name('statistic');
