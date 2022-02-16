@@ -27,7 +27,7 @@ About style
         margin-top: 20px;
         border-radius: 20px;
         border: 1px solid black;
-        background-color: rgba(255, 255, 255, 0.53);
+        background-color: rgba(255, 255, 255, 0.9);
         .app-title{
             text-align: center;
             p{
@@ -46,7 +46,7 @@ About style
     .about-developer{
         margin-top: 30px;
         .developer-profile{
-            background-color: rgba(255, 255, 255, 0.53);
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 10px 15px 20px 15px;
             border: 1px solid black;
             border-radius: 20px;
@@ -123,6 +123,12 @@ body{
     font-family: $quicksand;
     scroll-behavior: smooth;
 }
+.uploadBtn{
+    display: none;
+}
+.upload-btn-visible{
+    display: block;
+}
 .navbar-line{
     background-color: $ungu;
     height: 8px;
@@ -157,6 +163,14 @@ body{
     // padding-left: 0;
     // padding-right: 0;
 }
+
+@media only screen and (max-width:992px){
+    .sidebar{
+        margin-top: 100px;
+        border-top: 1px solid $ungu;
+        padding-top: 30px;
+    }
+}
 .sidebar{
     .sidebar-title{
         padding-top: 3px;
@@ -182,6 +196,9 @@ body{
 
     .news-content{
         margin-top: 15px;
+        max-height: 500px;
+        overflow-y: scroll;
+        overflow-x: hidden;
         .news-title{
             text-decoration: none;
             color: black;
