@@ -5,9 +5,9 @@ Kategori: {{ strtoUpper($kategori['kategori'])}}
 @section('breadcrumb')
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
-        <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a>{{ strtoUpper($kategori['kategori'])}}
+        <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('allcategory')}}">Kategori</a> &nbsp;/&nbsp; <a>{{ strtoUpper($kategori['kategori'])}}
         <?php } else { ?>
-            <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a>{{ strtoUpper($kategori['kategori'])}}
+            <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('allcategory')}}">Kategori</a> &nbsp;/&nbsp; <a>{{ strtoUpper($kategori['kategori'])}}
             <?php } ?>
 </div></a>
 <hr>
