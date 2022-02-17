@@ -55,11 +55,31 @@
       <?php
       foreach ($files as $f) {
         if ($f->jenis_file == "foto") { ?>
-          <li class="splide__slide text-center"> <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <li class="splide__slide text-center"> <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?php echo e($f->id); ?>">
               <div class="img-thumbnail-box">
                 <div class="img-thumbnail" style="background-image:url('<?php echo e(url('files/', $f->nama_file)); ?>');"></div>
               </div>
             </a></li>
+        <?php } ?>
+      <?php } ?>
+    </ul>
+  </div>
+</div>
+<hr>
+<div class="splidevideo">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <?php
+      foreach ($files as $f) {
+        if ($f->jenis_file == "video") { ?>
+          <li class="splide__slide text-center">
+            <div class="video-thumbnail-box">
+              <video width="320" height="240" controls>
+                <source src="<?php echo e(url('files/',$f->nama_file)); ?>" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </li>
         <?php } ?>
       <?php } ?>
     </ul>
@@ -84,28 +104,44 @@
   var splide = new Splide('.splide', {
     perPage: 3,
     rewind: true,
+    type: 'loop',
+    autoWidth: true,
+  });
+
+  splide.mount();
+</script>
+<script>
+  var splide = new Splide('.splidevideo', {
+    perPage: 3,
+    type: 'loop',
+    // drag: 'free',
+    rewind: true,
+    autoWidth: true,
   });
 
   splide.mount();
 </script>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<?php $__currentLoopData = $files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<?php if($f->jenis_file == "foto"): ?>
+<div class="modal fade" id="staticBackdrop<?php echo e($f->id); ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div id="modal-thumbnail" class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Lorem Ipsum Dolor</h5>
+        <h5 class="modal-title" id="staticBackdropLabel"><?php echo e($f->nama_file); ?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="<?php echo e(url('frontend/assets/image/md-duran-E0ylfF52C6M-unsplash.jpg')); ?>" alt="">
+        <img src="<?php echo e(url('files/', $f->nama_file)); ?>" alt="">
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn btn-danger">Hapus</a>
-        <a href="#" class="btn btn-success">Unduh</a>
+        <a href="<?php echo e(route('download', ['uuid' => $artikel->uuid, 'id' => $f->id])); ?>" class="btn btn-success">Unduh</a>
       </div>
     </div>
   </div>
 </div>
+<?php endif; ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/post.blade.php ENDPATH**/ ?>

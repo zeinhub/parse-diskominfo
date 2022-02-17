@@ -77,19 +77,19 @@
 <div class="splidevideo">
   <div class="splide__track">
     <ul class="splide__list">
-    <?php
-    foreach ($files as $f) {
-      if ($f->jenis_file == "video") { ?>
+      <?php
+      foreach ($files as $f) {
+        if ($f->jenis_file == "video") { ?>
           <li class="splide__slide text-center">
-              <div class="video-thumbnail-box">
-                <video width="320" height="240" controls>
-                  <source src="{{url('files/',$f->nama_file)}}" type="video/mp4">
+            <div class="video-thumbnail-box">
+              <video width="320" height="240" controls>
+                <source src="{{url('files/',$f->nama_file)}}" type="video/mp4">
                 Your browser does not support the video tag.
-                </video>
-              </div>
+              </video>
+            </div>
           </li>
-    <?php } ?>
-    <?php } ?>
+        <?php } ?>
+      <?php } ?>
     </ul>
   </div>
 </div>

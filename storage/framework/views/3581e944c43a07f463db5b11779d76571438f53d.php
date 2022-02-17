@@ -40,13 +40,21 @@
           </li>
         <?php } ?>
       </ul>
-      <!--  -->
-      <form action="<?php echo e(route('cari')); ?>" method="POST" class="d-flex nav-search">
-        <?php echo e(csrf_field()); ?>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo e(Auth::User()->name); ?>
 
-        <input class="form-control me-2" name="judul" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Hapus Akun?</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--  -->
+      
     </div>
   </div>
 </nav><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/layouts/navbar.blade.php ENDPATH**/ ?>

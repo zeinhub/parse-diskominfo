@@ -45,10 +45,18 @@ Filter Berita
                     <div class="col-6">
                         <div class="form-group">
                             <label for="kategori">Kategori</label>
-                            <input class="form-control" type="text" name="kategori" placeholder="Kategori">
-                            <!-- <option value="" disabled selected>Pilih Kategori</option>
-                                <option value="">Pembangunan</option> -->
-                            </input>
+                            <input placeholder="Kategori" list="category" type="text" class="form-control" name="kategori" id="">
+                    <datalist id="category">
+                        <?php
+                        $data = file_get_contents("category.json");
+                        foreach (json_decode($data)->category as $area)
+                        {
+                        ?>
+                        <option value="<?=$area->category;?>">
+                        <?php
+                        }
+                        ?>
+                    </datalist>
                         </div>
                     </div>
                     <div class="col-6">

@@ -6,10 +6,10 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
-        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($kategori['kategori'])); ?>
+        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('allcategory')); ?>">Kategori</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($kategori['kategori'])); ?>
 
         <?php } else { ?>
-            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Kategori</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($kategori['kategori'])); ?>
+            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('allcategory')); ?>">Kategori</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($kategori['kategori'])); ?>
 
             <?php } ?>
 </div></a>

@@ -14,14 +14,16 @@ Ubah Data
 @endsection
 @section('breadcrumb')
 <div class="breadcrumb">
-    <a href="{{route('adminhome')}}">Admin</a> &nbsp;/&nbsp;<a href="#">Ubah Data</a>
+    <a href="{{route('adminhome')}}">Admin</a> &nbsp;/&nbsp;<a>Ubah Data</a>
 </div>
 <hr>
 @endsection
 @section('content')
 
 <style>
-    .col, .col-6, .col-12{
+    .col,
+    .col-6,
+    .col-12 {
         margin-top: 10px !important;
     }
 </style>
@@ -96,13 +98,15 @@ Ubah Data
                 </div>
             </div>
             <h5 class="mt-4">Hapus Dokumentasi</h5>
-<!--             <a onclick="per()" class=" btn btn-outline-danger">tombol alert</a>
- -->            <div class="col-12">
+            <!--             <a onclick="per()" class=" btn btn-outline-danger">tombol alert</a>
+ -->
+            <div class="col-12">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">File</th> <!--kecilin row-->
+                            <th scope="col">File</th>
+                            <!--kecilin row-->
                             <th scope="col">Preview</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -111,15 +115,16 @@ Ubah Data
                         <?php
                         $no = 1;
                         foreach ($files as $f) {
-                            if ($f->jenis_file == "foto") { ?>
-                                <tr id="sid{{$f->id}}">
-                                    <th scope="row">{{$no}}</th>
-                                    <td>{{$f->nama_file}}</td>
-                                    <td><img width="50px" src="{{url('files/', $f->nama_file)}}" alt=""></td>
-                                    <td><a href="javascript:void(0)" onclick="deleteDokumentasi({{$f->id}})" class=" btn btn-outline-danger">Hapus</a></td>
-                                </tr>
+                            // if ($f->jenis_file == "foto") { 
+                        ?>
+                            <tr id="sid{{$f->id}}">
+                                <th scope="row">{{$no}}</th>
+                                <td>{{$f->nama_file}}</td>
+                                <td><img width="50px" src="{{url('files/', $f->nama_file)}}" alt=""></td>
+                                <td><a href="javascript:void(0)" onclick="deleteDokumentasi({{$f->id}})" class=" btn btn-outline-danger">Hapus</a></td>
+                            </tr>
                         <?php
-                            }
+                            // }
                             $no++;
                         }
                         ?>

@@ -7,7 +7,14 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
     <img src="https://tangerangkab.go.id/images/1639013612.png" alt="">
 </div>
 <div class="latest-upload-wrap">
-    <h3 class="latest-upload-heading">Unggahan Terbaru</h3>
+    <div class="row">
+        <div class="col">
+            <h3 style="display: inline-block" class="latest-upload-heading">Unggahan Terbaru</h3> 
+        </div>
+        <div class="col text-end">
+            <a href="<?php echo e(route('allpost')); ?>" style="margin-top: 20px" class="btn btn-outline-primary ">Semua Post</a>
+        </div>
+    </div>
     <div class="row">
         <?php
         $n = 0;
@@ -36,9 +43,9 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                             </div>
                             <a href="<?php echo e(route('postbycategory', ['kategori' => $a->kategori])); ?>" class="category"><?php echo e($a->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($a->judul); ?>"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e(substr($a->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($a->judul); ?>"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e(substr($a->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } ?>
                             <!-- <div class="content">
                                 <?php
