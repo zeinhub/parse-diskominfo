@@ -100,12 +100,12 @@ Ubah Data
             <h5 class="mt-4">Hapus Dokumentasi</h5>
             <!--             <a onclick="per()" class=" btn btn-outline-danger">tombol alert</a>
  -->
-            <div class="col-12">
+            <div class="col-10 mx-auto">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">File</th>
+                            <th width="400px" scope="col">File</th>
                             <!--kecilin row-->
                             <th scope="col">Preview</th>
                             <th scope="col">Aksi</th>
@@ -120,7 +120,16 @@ Ubah Data
                             <tr id="sid{{$f->id}}">
                                 <th scope="row">{{$no}}</th>
                                 <td>{{$f->nama_file}}</td>
+                                @if ($f->jenis_file == "foto")
                                 <td><img width="50px" src="{{url('files/', $f->nama_file)}}" alt=""></td>
+                                @else
+                                <td>
+                                <video width="50px" autoplay="autoplay" muted loop="true">
+                                    <source src="{{url('files/', $f->nama_file)}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </td>
+                                @endif
                                 <td><a href="javascript:void(0)" onclick="deleteDokumentasi({{$f->id}})" class=" btn btn-outline-danger">Hapus</a></td>
                             </tr>
                         <?php

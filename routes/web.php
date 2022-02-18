@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AccountController::class, 'index'])->name('index');
 Route::get('/login', [AccountController::class, 'login'])->name('login');
 Route::post('/action-login', [AccountController::class, 'actionlogin'])->name('actionlogin');
-Route::get('/register', [AccountController::class, 'register'])->name('register');
+// Route::get('/register', [AccountController::class, 'register'])->name('register');
 Route::post('/action-register', [AccountController::class, 'actionregister'])->name('actionregister');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
@@ -34,9 +34,12 @@ Route::get('/admin/berita/{uuid}/download/{id}', [AdminController::class, 'downl
 Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('auth');
 Route::post('/admin/store-edit/{uuid}', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('auth');
 Route::delete('/admin/delete-dokumentasi/{id}', [AdminController::class, 'deleteDokumentasi'])->name('delete-dokumentasi')->middleware('auth');
+Route::get('/admin/tambah-akun', [AccountController::class, 'register'])->name('register');
+
 
 //User
-Route::get('/statistik', [HomeController::class, 'statistic'])->name('statistic')->middleware('auth');
+Route::get('/statistik/berita', [HomeController::class, 'statistikBerita'])->name('statistik-berita')->middleware('auth');
+Route::get('/statistik/kategori', [HomeController::class, 'statistikKategori'])->name('statistik-kategori')->middleware('auth');
 Route::get('/filter-pencarian', [HomeController::class, 'filter'])->name('filter')->middleware('auth');
 Route::get('/hasil-filter-pencarian', [HomeController::class, 'hasilFilter'])->name('hasil-filter')->middleware('auth');
 Route::post('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter')->middleware('auth');

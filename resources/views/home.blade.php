@@ -4,7 +4,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
 @endsection
 @section('content')
 <div class="banner">
-    <img src="https://tangerangkab.go.id/images/1639013612.png" alt="">
+    <img src="{{url('files/Banner.png')}}" alt="">
 </div>
 <div class="latest-upload-wrap">
     <div class="row">

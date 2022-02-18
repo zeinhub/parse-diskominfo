@@ -27,28 +27,24 @@
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-5 col-md-9">
+            <div class="col-xl-6 col-lg-5 col-md-9">
 
                 <div class="card border-0 o-hidden shadow-lg my-5">
-                    <div class=" card-body p-0" style="overflow-y: scroll">
+                    <div class=" card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
+                        {{-- <div class="row"> --}}
                             <style>
                                 .bg-login-image {
                                     background-image: url('');
                                 }
-
-                                form {
-                                    height: 300px;
-                                }
                             </style>
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> --}}
+                            <div class="col">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">PARSE - Register</h1>
                                     </div>
-                                    <form class="user" method="post" action="{{route('actionregister')}}">
+                                    <form class="user mx-auto" method="post" action="{{route('actionregister')}}">
                                         {{ csrf_field() }}
                                         <div class=" form-group">
                                             <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" required>
@@ -69,10 +65,10 @@
                                             <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
-                                        <hr>
+                                        {{-- <hr>
                                         <a href="{{route('login')}}" class="btn btn-google btn-user btn-block">
                                             Log in
-                                        </a>
+                                        </a> --}}
                                         {{-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> --}}
@@ -86,7 +82,7 @@
                                     </div> --}}
                                 </div>
                             </div>
-                        </div>
+                        {{-- </div> --}}
                     </div>
                 </div>
 

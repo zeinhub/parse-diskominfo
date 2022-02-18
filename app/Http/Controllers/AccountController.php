@@ -27,11 +27,13 @@ class AccountController extends Controller
 
     public function register()
     {
-        if (Auth::check()) {
-            return redirect(route('home'));
-        } else {
-            return view('register');
-        }
+        // if (Auth::check()) {
+        //     return redirect(route('home'));
+        // } else {
+        //     return view('register');
+        // }
+
+        return view('register');
     }
 
     public function actionlogin(Request $request)

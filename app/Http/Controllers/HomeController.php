@@ -23,9 +23,13 @@ class HomeController extends Controller
             }
         }
     }
-    public function statistic()
+    public function statistikBerita()
     {
-        return view('statistic');
+        return view('statistik-berita');
+    }
+    public function statistikKategori()
+    {
+        return view('statistik-kategori');
     }
     public function filter()
     {

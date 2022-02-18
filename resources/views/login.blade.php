@@ -35,14 +35,20 @@
                         <div class="row">
                             <style>
                                 .bg-login-image {
-                                    background-image: url('');
+                                    padding: 30px;
+                                    background-image: url();
+                                }
+                                .bg-login-image img{
+                                    width: 80%;
                                 }
 
                                 form {
                                     height: 300px;
                                 }
                             </style>
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                                <img src="{{url('files/parse.png')}}" alt="">
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">

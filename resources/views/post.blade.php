@@ -110,9 +110,8 @@
 <script src="{{url('frontend/library/splide-3.6.9/dist/js/splide.min.js')}}"></script>
 <script>
   var splide = new Splide('.splide', {
-    perPage: 3,
+    perPage: 2,
     rewind: true,
-    type: 'loop',
     autoWidth: true,
   });
 
@@ -120,8 +119,7 @@
 </script>
 <script>
   var splide = new Splide('.splidevideo', {
-    perPage: 3,
-    type: 'loop',
+    perPage: 2,
     // drag: 'free',
     rewind: true,
     autoWidth: true,
