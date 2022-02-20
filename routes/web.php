@@ -20,33 +20,34 @@ Route::get('/', [AccountController::class, 'index'])->name('index');
 Route::get('/login', [AccountController::class, 'login'])->name('login');
 Route::post('/action-login', [AccountController::class, 'actionlogin'])->name('actionlogin');
 // Route::get('/register', [AccountController::class, 'register'])->name('register');
-Route::post('/action-register', [AccountController::class, 'actionregister'])->name('actionregister');
+// Route::post('/action-register', [AccountController::class, 'actionregister'])->name('actionregister');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/actionlogout', [AccountController::class, 'actionlogout'])->name('logout')->middleware('auth');
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(['checkRole:admin,user']);
+Route::get('/actionlogout', [AccountController::class, 'actionlogout'])->name('logout')->middleware(['checkRole:admin,user']);
 
 //Admin
-Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome')->middleware('auth');
-Route::get('/admin/upload-data', [AdminController::class, 'uploadData'])->name('upload-data')->middleware('auth');
-Route::get('/admin/edit-data/{uuid}', [AdminController::class, 'editData'])->name('edit-post')->middleware('auth');
-Route::get('/admin/berita/{uuid}', [AdminController::class, 'berita'])->name('admin-berita')->middleware('auth');
-Route::get('/admin/berita/{uuid}/download/{id}', [AdminController::class, 'download'])->name('download')->middleware('auth');
-Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('auth');
-Route::post('/admin/store-edit/{uuid}', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('auth');
-Route::delete('/admin/delete-dokumentasi/{id}', [AdminController::class, 'deleteDokumentasi'])->name('delete-dokumentasi')->middleware('auth');
-Route::get('/admin/tambah-akun', [AccountController::class, 'register'])->name('register')->middleware('auth');
+Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome')->middleware('checkRole:admin');
+Route::get('/admin/upload-data', [AdminController::class, 'uploadData'])->name('upload-data')->middleware('checkRole:admin');
+Route::get('/admin/edit-data/{uuid}', [AdminController::class, 'editData'])->name('edit-post')->middleware('checkRole:admin');
+Route::get('/admin/berita/{uuid}', [AdminController::class, 'berita'])->name('admin-berita')->middleware('checkRole:admin');
+Route::get('/admin/berita/{uuid}/download/{id}', [AdminController::class, 'download'])->name('download')->middleware('checkRole:admin');
+Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('checkRole:admin');
+Route::post('/admin/store-edit/{uuid}', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('checkRole:admin');
+Route::delete('/admin/delete-dokumentasi/{id}', [AdminController::class, 'deleteDokumentasi'])->name('delete-dokumentasi')->middleware('checkRole:admin');
+Route::get('/admin/tambah-akun', [AccountController::class, 'register'])->name('register')->middleware('checkRole:admin');
+Route::post('/admin/action-register', [AccountController::class, 'actionregister'])->name('actionregister')->middleware('checkRole:admin');
 
 
 //User
-Route::get('/statistik/berita', [HomeController::class, 'statistikBerita'])->name('statistik-berita')->middleware('auth');
-Route::get('/statistik/kategori', [HomeController::class, 'statistikKategori'])->name('statistik-kategori')->middleware('auth');
-Route::get('/filter-pencarian', [HomeController::class, 'filter'])->name('filter')->middleware('auth');
-Route::get('/hasil-filter-pencarian', [HomeController::class, 'hasilFilter'])->name('hasil-filter')->middleware('auth');
-Route::post('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter')->middleware('auth');
-Route::post('/cari-berita', [HomeController::class, 'cariArtikel'])->name('cari')->middleware('auth');
-Route::get('/berita/{uuid}', [HomeController::class, 'berita'])->name('berita')->middleware('auth');
-Route::get('/author/{username}', [HomeController::class, 'postbyauthor'])->name('postbyauthor')->middleware('auth');
-Route::get('/category/{kategori}', [HomeController::class, 'postbycategory'])->name('postbycategory')->middleware('auth');
-Route::get('/category', [HomeController::class, 'allcategory'])->name('allcategory')->middleware('auth');
-Route::get('/allpost', [HomeController::class, 'allpost'])->name('allpost')->middleware('auth');
-Route::get('/about', [HomeController::class, 'about'])->name('about')->middleware('auth');
+Route::get('/statistik/berita', [HomeController::class, 'statistikBerita'])->name('statistik-berita')->middleware(['checkRole:admin,user']);
+Route::get('/statistik/kategori', [HomeController::class, 'statistikKategori'])->name('statistik-kategori')->middleware(['checkRole:admin,user']);
+Route::get('/filter-pencarian', [HomeController::class, 'filter'])->name('filter')->middleware(['checkRole:admin,user']);
+Route::get('/hasil-filter-pencarian', [HomeController::class, 'hasilFilter'])->name('hasil-filter')->middleware(['checkRole:admin,user']);
+Route::post('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter')->middleware(['checkRole:admin,user']);
+Route::post('/cari-berita', [HomeController::class, 'cariArtikel'])->name('cari')->middleware(['checkRole:admin,user']);
+Route::get('/berita/{uuid}', [HomeController::class, 'berita'])->name('berita')->middleware(['checkRole:admin,user']);
+Route::get('/author/{username}', [HomeController::class, 'postbyauthor'])->name('postbyauthor')->middleware(['checkRole:admin,user']);
+Route::get('/category/{kategori}', [HomeController::class, 'postbycategory'])->name('postbycategory')->middleware(['checkRole:admin,user']);
+Route::get('/category', [HomeController::class, 'allcategory'])->name('allcategory')->middleware(['checkRole:admin,user']);
+Route::get('/allpost', [HomeController::class, 'allpost'])->name('allpost')->middleware(['checkRole:admin,user']);
+Route::get('/about', [HomeController::class, 'about'])->name('about')->middleware(['checkRole:admin,user']);

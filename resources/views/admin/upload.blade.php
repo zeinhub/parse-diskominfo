@@ -43,32 +43,64 @@ Unggah Dokumentasi
                     <datalist id="category">
                         <?php
                         $data = file_get_contents("category.json");
-                        foreach (json_decode($data)->category as $area)
-                        {
+                        foreach (json_decode($data)->category as $area) {
                         ?>
-                        <option value="<?=$area->category;?>">
-                        <?php
+                            <option value="<?= $area->category; ?>">
+                            <?php
                         }
-                        ?>
+                            ?>
                     </datalist>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="tahun">Tahun</label>
-                    <input type="text" class="form-control" placeholder="tahun" name="tahun" id="" required>
+                    <input type="text" list="tahun" class="form-control" placeholder="tahun" name="tahun" id="" required>
+                    <datalist id="tahun">
+                        <?php
+                        $array = [];
+                        foreach ($tahun as $t) {
+                            if (!in_array($t, $array)) {
+                                array_push($array, $t);
+                        ?>
+                                <option value="<?= $t; ?>">
+                            <?php }
+                        } ?>
+                    </datalist>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="wilayah">Wilayah</label>
                 </div>
-                <input placeholder="Wilayah" type="text" class="form-control" name="wilayah" id="" required>
+                <input placeholder="Wilayah" type="text" list="wilayah" class="form-control" name="wilayah" id="" required>
+                <datalist id="wilayah">
+                    <?php
+                    $array = [];
+                    foreach ($wilayah as $w) {
+                        if (!in_array($w, $array)) {
+                            array_push($array, $w);
+                    ?>
+                            <option value="<?= $w; ?>">
+                        <?php }
+                    } ?>
+                </datalist>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="dinas">Dinas</label>
-                    <input placeholder="Dinas" type="text" class="form-control" name="dinas" id="" required>
+                    <input placeholder="Dinas" type="text" list="dinas" class="form-control" name="dinas" id="" required>
+                    <datalist id="dinas">
+                        <?php
+                        $array = [];
+                        foreach ($dinas as $d) {
+                            if (!in_array($d, $array)) {
+                                array_push($array, $d);
+                        ?>
+                                <option value="<?= $d; ?>">
+                            <?php }
+                        } ?>
+                    </datalist>
                 </div>
             </div>
             <!-- <div class="col">

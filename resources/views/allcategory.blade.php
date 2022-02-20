@@ -16,18 +16,6 @@
         </h2>
         <div class="row justify-content-center">
             <?php
-            $array = [];
-            foreach ($artikel as $a) {
-                if (!in_array($a, $array)) {
-                    array_push($array, $a);
-                }
-            ?>
-            <?php } ?>
-
-            <?php
-            // foreach ($array as $a) { 
-            ?>
-            <?php
             $data = file_get_contents("category.json");
             foreach (json_decode($data)->category as $area) {
 
@@ -50,9 +38,6 @@
                 </div>
             <?php
             }
-            ?>
-            <?php
-            // } 
             ?>
         </div>
     </div>

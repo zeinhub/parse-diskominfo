@@ -49,25 +49,68 @@ Ubah Data
             <div class="col-6">
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
-                    <input placeholder="Kategori" type="text" value="{{$artikel->kategori}}" class="form-control" name="kategori" id="" required>
+                    <input placeholder="Kategori" type="text" list="category" value="{{$artikel->kategori}}" class="form-control" name="kategori" id="" required>
+                    <datalist id="category">
+                        <?php
+                        $data = file_get_contents("category.json");
+                        foreach (json_decode($data)->category as $area) {
+                        ?>
+                            <option value="<?= $area->category; ?>">
+                            <?php
+                        }
+                            ?>
+                    </datalist>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="tahun">Tahun</label>
-                    <input type="text" class="form-control" value="{{$artikel->tahun}}" placeholder="tahun" name="tahun" id="" required>
+                    <input type="text" list="tahun" class="form-control" value="{{$artikel->tahun}}" placeholder="tahun" name="tahun" id="" required>
+                    <datalist id="tahun">
+                        <?php
+                        $array = [];
+                        foreach ($tahun as $t) {
+                            if (!in_array($t, $array)) {
+                                array_push($array, $t);
+                        ?>
+                                <option value="<?= $t; ?>">
+                            <?php }
+                        } ?>
+                    </datalist>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="wilayah">Wilayah</label>
                 </div>
-                <input placeholder="Wilayah" type="text" value="{{$artikel->wilayah}}" class="form-control" name="wilayah" id="" required>
+                <input placeholder="Wilayah" type="text" list="wilayah" value="{{$artikel->wilayah}}" class="form-control" name="wilayah" id="" required>
+                <datalist id="wilayah">
+                    <?php
+                    $array = [];
+                    foreach ($wilayah as $w) {
+                        if (!in_array($w, $array)) {
+                            array_push($array, $w);
+                    ?>
+                            <option value="<?= $w; ?>">
+                        <?php }
+                    } ?>
+                </datalist>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="dinas">Dinas</label>
-                    <input placeholder="Dinas" type="text" value="{{$artikel->dinas}}" class="form-control" name="dinas" id="" required>
+                    <input placeholder="Dinas" type="text" list="dinas" value="{{$artikel->dinas}}" class="form-control" name="dinas" id="" required>
+                    <datalist id="dinas">
+                        <?php
+                        $array = [];
+                        foreach ($dinas as $d) {
+                            if (!in_array($d, $array)) {
+                                array_push($array, $d);
+                        ?>
+                                <option value="<?= $d; ?>">
+                            <?php }
+                        } ?>
+                    </datalist>
                 </div>
             </div>
             <!-- <div class="col">
@@ -124,10 +167,10 @@ Ubah Data
                                 <td><img width="50px" src="{{url('files/', $f->nama_file)}}" alt=""></td>
                                 @else
                                 <td>
-                                <video width="50px" autoplay="autoplay" muted loop="true">
-                                    <source src="{{url('files/', $f->nama_file)}}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                    <video width="50px" autoplay="autoplay" muted loop="true">
+                                        <source src="{{url('files/', $f->nama_file)}}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </td>
                                 @endif
                                 <td><a href="javascript:void(0)" onclick="deleteDokumentasi({{$f->id}})" class=" btn btn-outline-danger">Hapus</a></td>

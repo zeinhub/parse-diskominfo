@@ -23,7 +23,13 @@ class AdminController extends Controller
 
     public function uploadData()
     {
-        return view('admin.upload');
+        $tahun = DB::table('artikel')
+            ->pluck('tahun');
+        $wilayah = DB::table('artikel')
+            ->pluck('wilayah');
+        $dinas = DB::table('artikel')
+            ->pluck('dinas');
+        return view('admin.upload', ['tahun' => $tahun, 'wilayah' => $wilayah, 'dinas' => $dinas]);
     }
 
     public function berita($uuid)
@@ -109,7 +115,13 @@ class AdminController extends Controller
     {
         $artikel = Artikel::where('uuid', $uuid)->first();
         $files = File::where('artikel_id', $uuid)->get();
-        return view('admin.edit', ['artikel' => $artikel, 'files' => $files]);
+        $tahun = DB::table('artikel')
+            ->pluck('tahun');
+        $wilayah = DB::table('artikel')
+            ->pluck('wilayah');
+        $dinas = DB::table('artikel')
+            ->pluck('dinas');
+        return view('admin.edit', ['artikel' => $artikel, 'files' => $files, 'tahun' => $tahun, 'wilayah' => $wilayah, 'dinas' => $dinas]);
     }
 
     public function storeEdit($uuid, Request $request)
@@ -180,8 +192,8 @@ class AdminController extends Controller
     {
         $gambar = File::find($id);
         File::find($id)->delete($id);
-        Files::delete('files/'.$gambar->nama_file);
-        
+        Files::delete('files/' . $gambar->nama_file);
+
 
         // return response()->json([
         //     'success' => 'Record deleted successfully!'
@@ -191,7 +203,7 @@ class AdminController extends Controller
     public function download($uuid, $id)
     {
         $nama = File::find($id);
-        $file = public_path()."/files/". $nama->nama_file;
+        $file = public_path() . "/files/" . $nama->nama_file;
 
         return Response::download($file, $nama->nama_file);
     }

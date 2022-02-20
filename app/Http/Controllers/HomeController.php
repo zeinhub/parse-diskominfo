@@ -53,7 +53,13 @@ class HomeController extends Controller
     }
     public function filter()
     {
-        return view('filter');
+        $tahun = DB::table('artikel')
+            ->pluck('tahun');
+        $wilayah = DB::table('artikel')
+            ->pluck('wilayah');
+        $dinas = DB::table('artikel')
+            ->pluck('dinas');
+        return view('filter', ['tahun' => $tahun, 'wilayah' => $wilayah, 'dinas' => $dinas]);
     }
     public function about()
     {
@@ -136,9 +142,9 @@ class HomeController extends Controller
     }
     public function allcategory()
     {
-        $artikel = DB::table('artikel')
-            // ->paginate(9);
-            ->pluck('kategori');
-        return view('allcategory', ['artikel' => $artikel]);
+        // $artikel = DB::table('artikel')
+        //     ->paginate(9);
+        //     ->pluck('kategori');
+        return view('allcategory');
     }
 }
