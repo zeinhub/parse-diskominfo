@@ -62,5 +62,8 @@ Kategori: {{ strtoUpper($kategori['kategori'])}}
 
         </div>
     </div>
+    <div class="pagination">
+        {{$artikel->links()}}
+    </div>
 </div>
 @endsection

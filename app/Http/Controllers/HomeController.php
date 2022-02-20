@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Artikel;
 use App\Models\File;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,26 @@ class HomeController extends Controller
     }
     public function statistikBerita()
     {
-        return view('statistik-berita');
+        $label_harian = [];
+        for ($i = 6; $i >= 0; $i--) {
+            array_push($label_harian, date('d M', strtotime(Carbon::today()->subDays($i))));
+        }
+
+        $label_mingguan = [];
+        $j = 27;
+        for ($i = 4; $i >= 0; $i--) {
+            $week = date('d M', strtotime(Carbon::today()->subDays($j))) . " - " . date('d M', strtotime(Carbon::today()->subDays($j -= 6)));
+            array_push($label_mingguan, $week);
+            $j--;
+        }
+
+        $label_tahunan = [];
+        for ($i = 11; $i >= 0; $i--) {
+            array_push($label_tahunan, date('F, Y', strtotime(Carbon::today()->subMonth($i))));
+        }
+
+        $array = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+        return view('statistik-berita', ['array' => $array, 'label_harian' => $label_harian, 'label_mingguan' => $label_mingguan, 'label_tahunan' => $label_tahunan]);
     }
     public function statistikKategori()
     {
@@ -90,7 +110,8 @@ class HomeController extends Controller
 
         $artikel = DB::table('artikel')
             ->where('username', 'like', "{$parseusername}")
-            ->get();
+            ->orderByDesc('created_at')
+            ->paginate(9);
         return view('bypost', ['artikel' => $artikel, 'nama' => $nama]);
     }
 
@@ -101,15 +122,16 @@ class HomeController extends Controller
         );
         $artikel = DB::table('artikel')
             ->where('kategori', 'like', "{$parsekategori}")
-            ->get();
+            ->orderByDesc('created_at')
+            ->paginate(9);
         return view('bycategory', ['artikel' => $artikel, 'kategori' => $kategori]);
     }
 
     public function allpost()
     {
         $artikel = DB::table('artikel')
-        ->orderByDesc('created_at')
-        ->paginate(9);
+            ->orderByDesc('created_at')
+            ->paginate(9);
         return view('allpost', ['artikel' => $artikel]);
     }
     public function allcategory()

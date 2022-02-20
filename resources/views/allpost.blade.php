@@ -3,9 +3,9 @@
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
         <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="#">Semua Post</a>
-        <?php } else { ?>
-            <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="#">Semua Post</a>
-            <?php } ?>
+    <?php } else { ?>
+        <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="#">Semua Post</a>
+    <?php } ?>
 </div></a>
 <hr>
 @endsection

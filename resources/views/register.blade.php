@@ -33,55 +33,55 @@
                     <div class=" card-body p-0">
                         <!-- Nested Row within Card Body -->
                         {{-- <div class="row"> --}}
-                            <style>
-                                .bg-login-image {
-                                    background-image: url('');
-                                }
-                            </style>
-                            {{-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> --}}
-                            <div class="col">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">PARSE - Register</h1>
+                        <style>
+                            .bg-login-image {
+                                background-image: url('');
+                            }
+                        </style>
+                        {{-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> --}}
+                        <div class="col">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4"><img src="{{url('files/parse.png')}}" style="width:50px" />&nbsp;PARSE - Register</h1>
+                                </div>
+                                <form class="user mx-auto" method="post" action="{{route('actionregister')}}">
+                                    {{ csrf_field() }}
+                                    <div class=" form-group">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" required>
                                     </div>
-                                    <form class="user mx-auto" method="post" action="{{route('actionregister')}}">
-                                        {{ csrf_field() }}
-                                        <div class=" form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" required>
-                                        </div>
-                                        <div class=" form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" required>
-                                        </div>
-                                        <div class=" form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" required>
-                                        </div>
-                                        <div class=" form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="role" aria-describedby="emailHelp" placeholder="Role" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
-                                        {{-- <hr>
+                                    <div class=" form-group">
+                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" required>
+                                    </div>
+                                    <div class=" form-group">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" required>
+                                    </div>
+                                    <div class=" form-group">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="role" aria-describedby="emailHelp" placeholder="Role" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
+                                    {{-- <hr>
                                         <a href="{{route('login')}}" class="btn btn-google btn-user btn-block">
-                                            Log in
-                                        </a> --}}
-                                        {{-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    Log in
+                                    </a> --}}
+                                    {{-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> --}}
-                                    </form>
-                                    {{-- <hr> --}}
-                                    {{-- <div class="text-center">
+                                </form>
+                                {{-- <hr> --}}
+                                {{-- <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
                                     </div> --}}
-                                </div>
                             </div>
+                        </div>
                         {{-- </div> --}}
                     </div>
                 </div>

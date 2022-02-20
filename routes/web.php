@@ -34,7 +34,7 @@ Route::get('/admin/berita/{uuid}/download/{id}', [AdminController::class, 'downl
 Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('auth');
 Route::post('/admin/store-edit/{uuid}', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('auth');
 Route::delete('/admin/delete-dokumentasi/{id}', [AdminController::class, 'deleteDokumentasi'])->name('delete-dokumentasi')->middleware('auth');
-Route::get('/admin/tambah-akun', [AccountController::class, 'register'])->name('register');
+Route::get('/admin/tambah-akun', [AccountController::class, 'register'])->name('register')->middleware('auth');
 
 
 //User

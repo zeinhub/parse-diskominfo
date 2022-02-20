@@ -22,7 +22,7 @@ Statistik Berita
         <script>
           var options = {
             series: [{
-              name: 'Sales',
+              name: 'Berita',
               data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
             }],
             chart: {
@@ -81,8 +81,8 @@ Statistik Berita
         <script>
           var options = {
             series: [{
-              name: "Desktops",
-              data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+              name: "Berita",
+              data: [10, 41, 35, 51]
             }],
             chart: {
               height: 350,
@@ -108,7 +108,8 @@ Statistik Berita
               },
             },
             xaxis: {
-              categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+              categories: <?php echo json_encode($label_mingguan); ?>,
+              // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
             }
           };
 
@@ -116,6 +117,62 @@ Statistik Berita
           chart.render();
         </script>
       </div>
+      <div class="col-lg-8 col-md-12 col-sm-12">
+        <div id="berita-harian2"></div>
+        <script>
+          var options = {
+            chart: {
+              type: 'line',
+              zoom: {
+                enabled: true,
+                type: 'x',
+                autoScaleYaxis: true,
+                zoomedArea: {
+                  fill: {
+                    color: '#90CAF9',
+                    opacity: 0.4
+                  },
+                  stroke: {
+                    color: '#0D47A1',
+                    opacity: 0.4,
+                    width: 1
+                  }
+                }
+              }
+              //   toolbar: {
+              //     show: false,
+              //     offsetX: 0,
+              //     offsetY: 0,
+              //     tools: {
+              //     download: true,
+              //     selection: true,
+              //     zoom: false,
+              //     zoomin: false,
+              //     zoomout: false,
+              //     pan: true,
+              //     reset: true | '<img src="/static/icons/reset.png" width="20">',
+              //     customIcons: []
+              //     }}
+            },
+            title: {
+              text: 'Berita Harian',
+              align: 'left'
+            },
+            series: [{
+              name: 'Berita',
+              data: [30, 40, 35, 50, 49, 60, 70]
+            }],
+            xaxis: {
+              categories: <?php echo json_encode($label_harian); ?>
+            }
+          }
+
+          var chart = new ApexCharts(document.querySelector("#berita-harian2"), options);
+
+          chart.render();
+        </script>
+      </div>
+
       <div class="col-lg-8 col-md-12 col-sm-12">
         <div id="berita-tahunan"></div>
         <script>
@@ -158,11 +215,11 @@ Statistik Berita
               align: 'left'
             },
             series: [{
-              name: 'sales',
-              data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+              name: 'Berita',
+              data: [30, 40, 35, 50, 49, 60, 30, 40, 35, 50, 49, 60]
             }],
             xaxis: {
-              categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+              categories: <?php echo json_encode($label_tahunan); ?>
             }
           }
 

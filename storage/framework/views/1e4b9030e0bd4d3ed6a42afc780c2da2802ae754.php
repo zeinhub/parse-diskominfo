@@ -59,6 +59,10 @@ Author: <?php echo e($nama_author); ?>
 
         </div>
     </div>
+    <div class="pagination">
+        <?php echo e($artikel->links()); ?>
+
+    </div>
 </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/bypost.blade.php ENDPATH**/ ?>

@@ -27,60 +27,53 @@
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-5 col-md-9">
+            <div class="col-xl-6 col-lg-5 col-md-9">
 
                 <div class="card border-0 o-hidden shadow-lg my-5">
-                    <div class=" card-body p-0" style="overflow-y: scroll">
+                    <div class=" card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <style>
-                                .bg-login-image {
-                                    background-image: url('');
-                                }
-
-                                form {
-                                    height: 300px;
-                                }
-                            </style>
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">PARSE - Register</h1>
-                                    </div>
-                                    <form class="user" method="post" action="<?php echo e(route('actionregister')); ?>">
-                                        <?php echo e(csrf_field()); ?>
-
-                                        <div class=" form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" required>
-                                        </div>
-                                        <div class=" form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" required>
-                                        </div>
-                                        <div class=" form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" required>
-                                        </div>
-                                        <div class=" form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="role" aria-describedby="emailHelp" placeholder="Role" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
-                                        <hr>
-                                        <a href="<?php echo e(route('login')); ?>" class="btn btn-google btn-user btn-block">
-                                            Log in
-                                        </a>
-                                        
-                                    </form>
-                                    
-                                    
+                        
+                        <style>
+                            .bg-login-image {
+                                background-image: url('');
+                            }
+                        </style>
+                        
+                        <div class="col">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('files/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
+                                <form class="user mx-auto" method="post" action="<?php echo e(route('actionregister')); ?>">
+                                    <?php echo e(csrf_field()); ?>
+
+                                    <div class=" form-group">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" required>
+                                    </div>
+                                    <div class=" form-group">
+                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" required>
+                                    </div>
+                                    <div class=" form-group">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" required>
+                                    </div>
+                                    <div class=" form-group">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="role" aria-describedby="emailHelp" placeholder="Role" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
+                                    
+                                    
+                                </form>
+                                
+                                
                             </div>
                         </div>
+                        
                     </div>
                 </div>
 

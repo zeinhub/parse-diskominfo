@@ -58,6 +58,10 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
 
         </div>
     </div>
+    <div class="pagination">
+        <?php echo e($artikel->links()); ?>
+
+    </div>
 </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/bycategory.blade.php ENDPATH**/ ?>

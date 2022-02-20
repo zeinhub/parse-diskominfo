@@ -20,7 +20,7 @@ about-body
     <div class="container">
         <div class="about-app">
             <div class="app-title">
-                <h1>Pusat Arsip Elektronik (PARSE)</h1>
+                <h1>Pusat Data dan Arsip Elektronik (PARSE)</h1>
                 <p>Dinas Komunikasi dan Informatika Kabupaten Tangerang</p>
             </div>
             <div class="app-desc">

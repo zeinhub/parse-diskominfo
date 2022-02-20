@@ -9,7 +9,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
 <div class="latest-upload-wrap">
     <div class="row">
         <div class="col">
-            <h3 style="display: inline-block" class="latest-upload-heading">Unggahan Terbaru</h3> 
+            <h3 style="display: inline-block" class="latest-upload-heading">Unggahan Terbaru</h3>
         </div>
         <div class="col text-end">
             <a href="{{route('allpost')}}" style="margin-top: 20px" class="btn btn-outline-primary ">Semua Post</a>

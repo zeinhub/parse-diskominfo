@@ -175,7 +175,6 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         ),
         'A' => 
         array (
-            'Asm89\\Stack\\' => 12,
             'App\\' => 4,
         ),
     );
@@ -333,7 +332,7 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         ),
         'Psr\\Log\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/log/src',
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -435,7 +434,8 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -501,10 +501,6 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
-        'Asm89\\Stack\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
-        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -545,8 +541,6 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
-        'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
@@ -639,7 +633,6 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
-        'Carbon\\TranslatorImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorImmutable.php',
         'Carbon\\TranslatorStrongTypeInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
@@ -988,7 +981,6 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Faker\\ChanceGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ChanceGenerator.php',
         'Faker\\Core\\Barcode' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Core/Barcode.php',
         'Faker\\Core\\Blood' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Core/Blood.php',
-        'Faker\\Core\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Core/Color.php',
         'Faker\\Core\\Coordinates' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Core/Coordinates.php',
         'Faker\\Core\\File' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Core/File.php',
         'Faker\\Core\\Number' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Core/Number.php',
@@ -999,7 +991,6 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Faker\\Extension\\AddressExtension' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Extension/AddressExtension.php',
         'Faker\\Extension\\BarcodeExtension' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Extension/BarcodeExtension.php',
         'Faker\\Extension\\BloodExtension' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Extension/BloodExtension.php',
-        'Faker\\Extension\\ColorExtension' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Extension/ColorExtension.php',
         'Faker\\Extension\\CompanyExtension' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Extension/CompanyExtension.php',
         'Faker\\Extension\\Container' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Extension/Container.php',
         'Faker\\Extension\\ContainerBuilder' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Extension/ContainerBuilder.php',
@@ -1355,6 +1346,7 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Faker\\Provider\\nl_BE\\Payment' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php',
         'Faker\\Provider\\nl_BE\\Person' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php',
         'Faker\\Provider\\nl_BE\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/PhoneNumber.php',
+        'Faker\\Provider\\nl_BE\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Text.php',
         'Faker\\Provider\\nl_NL\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Address.php',
         'Faker\\Provider\\nl_NL\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Color.php',
         'Faker\\Provider\\nl_NL\\Company' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php',
@@ -1476,7 +1468,9 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
+        'Fruitcake\\Cors\\CorsService' => __DIR__ . '/..' . '/fruitcake/php-cors/src/CorsService.php',
         'Fruitcake\\Cors\\CorsServiceProvider' => __DIR__ . '/..' . '/fruitcake/laravel-cors/src/CorsServiceProvider.php',
+        'Fruitcake\\Cors\\Exceptions\\InvalidOptionException' => __DIR__ . '/..' . '/fruitcake/php-cors/src/Exceptions/InvalidOptionException.php',
         'Fruitcake\\Cors\\HandleCors' => __DIR__ . '/..' . '/fruitcake/laravel-cors/src/HandleCors.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
         'GrahamCampbell\\ResultType\\Result' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Result.php',
@@ -4142,14 +4136,17 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
         'Psr\\Http\\Message\\UriFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/UriFactoryInterface.php',
         'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
-        'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/src/AbstractLogger.php',
-        'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/src/InvalidArgumentException.php',
-        'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/src/LogLevel.php',
-        'Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/src/LoggerAwareInterface.php',
-        'Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/src/LoggerAwareTrait.php',
-        'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/src/LoggerInterface.php',
-        'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/src/LoggerTrait.php',
-        'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/src/NullLogger.php',
+        'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
+        'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
+        'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
+        'Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareInterface.php',
+        'Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareTrait.php',
+        'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
+        'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
+        'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
+        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/DummyTest.php',
+        'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
+        'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
         'Psr\\SimpleCache\\CacheException' => __DIR__ . '/..' . '/psr/simple-cache/src/CacheException.php',
         'Psr\\SimpleCache\\CacheInterface' => __DIR__ . '/..' . '/psr/simple-cache/src/CacheInterface.php',
         'Psr\\SimpleCache\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/simple-cache/src/InvalidArgumentException.php',
@@ -4496,17 +4493,13 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'SebastianBergmann\\CodeCoverage\\Report\\Xml\\Totals' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Report/Xml/Totals.php',
         'SebastianBergmann\\CodeCoverage\\Report\\Xml\\Unit' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Report/Xml/Unit.php',
         'SebastianBergmann\\CodeCoverage\\StaticAnalysisCacheNotConfiguredException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/StaticAnalysisCacheNotConfiguredException.php',
-        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\Cache' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/Cache.php',
         'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\CacheWarmer' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/CacheWarmer.php',
-        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\CachingCoveredFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/CachingCoveredFileAnalyser.php',
-        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\CachingUncoveredFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/CachingUncoveredFileAnalyser.php',
+        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\CachingFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/CachingFileAnalyser.php',
         'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\CodeUnitFindingVisitor' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/CodeUnitFindingVisitor.php',
-        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\CoveredFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/CoveredFileAnalyser.php',
         'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\ExecutableLinesFindingVisitor' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/ExecutableLinesFindingVisitor.php',
+        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\FileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/FileAnalyser.php',
         'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\IgnoredLinesFindingVisitor' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/IgnoredLinesFindingVisitor.php',
-        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\ParsingCoveredFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/ParsingCoveredFileAnalyser.php',
-        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\ParsingUncoveredFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/ParsingUncoveredFileAnalyser.php',
-        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\UncoveredFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/UncoveredFileAnalyser.php',
+        'SebastianBergmann\\CodeCoverage\\StaticAnalysis\\ParsingFileAnalyser' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/StaticAnalysis/ParsingFileAnalyser.php',
         'SebastianBergmann\\CodeCoverage\\TestIdMissingException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/TestIdMissingException.php',
         'SebastianBergmann\\CodeCoverage\\UnintentionallyCoveredCodeException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/UnintentionallyCoveredCodeException.php',
         'SebastianBergmann\\CodeCoverage\\Version' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Version.php',
@@ -4843,6 +4836,7 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Symfony\\Component\\EventDispatcher\\EventSubscriberInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventSubscriberInterface.php',
         'Symfony\\Component\\EventDispatcher\\GenericEvent' => __DIR__ . '/..' . '/symfony/event-dispatcher/GenericEvent.php',
         'Symfony\\Component\\EventDispatcher\\ImmutableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/ImmutableEventDispatcher.php',
+        'Symfony\\Component\\EventDispatcher\\LegacyEventDispatcherProxy' => __DIR__ . '/..' . '/symfony/event-dispatcher/LegacyEventDispatcherProxy.php',
         'Symfony\\Component\\Finder\\Comparator\\Comparator' => __DIR__ . '/..' . '/symfony/finder/Comparator/Comparator.php',
         'Symfony\\Component\\Finder\\Comparator\\DateComparator' => __DIR__ . '/..' . '/symfony/finder/Comparator/DateComparator.php',
         'Symfony\\Component\\Finder\\Comparator\\NumberComparator' => __DIR__ . '/..' . '/symfony/finder/Comparator/NumberComparator.php',
@@ -5414,6 +5408,7 @@ class ComposerStaticInite60bfc630bf4c6bc505e4fd559d139a8
         'Symfony\\Contracts\\EventDispatcher\\Event' => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts/Event.php',
         'Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts/EventDispatcherInterface.php',
         'Symfony\\Contracts\\Service\\Attribute\\Required' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/Required.php',
+        'Symfony\\Contracts\\Service\\Attribute\\SubscribedService' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/SubscribedService.php',
         'Symfony\\Contracts\\Service\\ResetInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ResetInterface.php',
         'Symfony\\Contracts\\Service\\ServiceLocatorTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceLocatorTrait.php',
         'Symfony\\Contracts\\Service\\ServiceProviderInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceProviderInterface.php',

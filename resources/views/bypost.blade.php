@@ -64,5 +64,8 @@ Author: {{$nama_author}}
 
         </div>
     </div>
+    <div class="pagination">
+        {{$artikel->links()}}
+    </div>
 </div>
 @endsection

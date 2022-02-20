@@ -45,9 +45,12 @@
             <li><a class="dropdown-item" href="{{route('statistik-kategori')}}">Kategori</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('register')}}">Tambah Akun</a>
-        </li>
+        <?php if (Auth::User()->role == "admin") { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('register')}}">Tambah Akun</a>
+          </li>
+        <?php } ?>
+
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
@@ -56,8 +59,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Hapus Akun?</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <?php if (Auth::User()->role == "user") { ?>
+              <li><a class="dropdown-item" href="#">Hapus Akun?</a></li>
+            <?php } ?>
           </ul>
         </li>
       </ul>
@@ -84,7 +91,7 @@
     </li>
     </ul>
     </li> --}} -->
-      
+
     </div>
   </div>
 </nav>
