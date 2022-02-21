@@ -22,7 +22,7 @@ Statistik Berita
         <script>
           var options = {
             series: [{
-              name: 'Berita',
+              name: 'Jumlah berita',
               data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
             }],
             chart: {
@@ -81,7 +81,7 @@ Statistik Berita
         <script>
           var options = {
             series: [{
-              name: "Berita",
+              name: "Jumlah berita",
               data: <?php echo json_encode($data_mingguan); ?>
             }],
             chart: {
@@ -159,7 +159,7 @@ Statistik Berita
               align: 'left'
             },
             series: [{
-              name: 'Berita',
+              name: 'Jumlah berita',
               data: <?php echo json_encode($data_harian); ?>
             }],
             xaxis: {
@@ -215,7 +215,7 @@ Statistik Berita
               align: 'left'
             },
             series: [{
-              name: 'Berita',
+              name: 'Jumlah berita',
               data: <?php echo json_encode($data_tahunan); ?>
             }],
             xaxis: {

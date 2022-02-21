@@ -13,6 +13,20 @@
   </div>
   <div class="sidebar-title">
     STATISTIK
+    <?php
+
+    use App\Models\Artikel;
+    use Carbon\Carbon;
+
+    $label_harian = [];
+    $data_harian = [];
+    for ($i = 6; $i >= 0; $i--) {
+      $tanggal = Carbon::today()->subDays($i);
+      $data = Artikel::whereDate('created_at', $tanggal)->count();
+      array_push($label_harian, date('d M', strtotime($tanggal)));
+      array_push($data_harian, $data);
+    }
+    ?>
     <div class="line-sidebar-title"></div>
   </div>
   <div class="sidebar-content">
@@ -23,11 +37,11 @@
           type: 'line'
         },
         series: [{
-          name: 'sales',
-          data: [30, 40, 35]
+          name: 'Jumlah berita',
+          data: <?php echo json_encode($data_harian); ?>
         }],
         xaxis: {
-          categories: [1991, 1992, 1993]
+          categories: <?php echo json_encode($label_harian); ?>
         }
       }
 
