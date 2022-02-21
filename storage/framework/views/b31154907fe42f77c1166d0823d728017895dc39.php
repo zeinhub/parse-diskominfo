@@ -101,8 +101,11 @@
                     </div>
                 </div>
             <?php } ?>
-
         </div>
+    </div>
+    <div class="pagination">
+        <?php echo e($hasil->links()); ?>
+
     </div>
 </div>
 <?php $__env->stopSection(); ?>

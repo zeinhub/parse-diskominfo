@@ -27,25 +27,38 @@ class HomeController extends Controller
     public function statistikBerita()
     {
         $label_harian = [];
+        $data_harian = [];
         for ($i = 6; $i >= 0; $i--) {
-            array_push($label_harian, date('d M', strtotime(Carbon::today()->subDays($i))));
+            $tanggal = Carbon::today()->subDays($i);
+            $data = Artikel::whereDate('created_at', $tanggal)->count();
+            array_push($label_harian, date('d M', strtotime($tanggal)));
+            array_push($data_harian, $data);
         }
 
         $label_mingguan = [];
+        $data_mingguan = [];
         $j = 27;
-        for ($i = 4; $i >= 0; $i--) {
-            $week = date('d M', strtotime(Carbon::today()->subDays($j))) . " - " . date('d M', strtotime(Carbon::today()->subDays($j -= 6)));
+        for ($i = 4; $i > 0; $i--) {
+            $first = Carbon::today()->subDays($j);
+            $data_first = Carbon::today()->subDays($j + 1);
+            $last = Carbon::today()->subDays($j -= 6);
+            $data_last = Carbon::today()->subDays($j - 1);
+            $week = date('d M', strtotime($first)) . " - " . date('d M', strtotime($last));
+            $data = Artikel::whereBetween('created_at', [$data_first, $data_last])->count();
             array_push($label_mingguan, $week);
+            array_push($data_mingguan, $data);
             $j--;
         }
 
         $label_tahunan = [];
+        $data_tahunan = [];
         for ($i = 11; $i >= 0; $i--) {
             array_push($label_tahunan, date('F, Y', strtotime(Carbon::today()->subMonth($i))));
+            array_push($data_tahunan, Artikel::whereMonth('created_at', '=', Carbon::today()->subMonth($i))->count());
         }
 
         $array = [10, 20, 30, 40, 50, 60, 70, 80, 90];
-        return view('statistik-berita', ['array' => $array, 'label_harian' => $label_harian, 'label_mingguan' => $label_mingguan, 'label_tahunan' => $label_tahunan]);
+        return view('statistik-berita', ['array' => $array, 'label_harian' => $label_harian, 'data_harian' => $data_harian, 'label_mingguan' => $label_mingguan, 'data_mingguan' => $data_mingguan, 'label_tahunan' => $label_tahunan, 'data_tahunan' => $data_tahunan]);
     }
     public function statistikKategori()
     {
@@ -91,7 +104,7 @@ class HomeController extends Controller
             ->where('wilayah', 'like', "%{$request->wilayah}%")
             ->where('dinas', 'like', "%{$request->dinas}%")
             ->orderByDesc('created_at')
-            ->paginate(3);
+            ->paginate(2)->withQueryString();
 
         return view('hasil-filter', ['hasil' => $hasil, 'filter' => $filter]);
     }
@@ -103,7 +116,8 @@ class HomeController extends Controller
         );
         $hasil = DB::table('artikel')
             ->where('judul', 'like', "%{$request->judul}%")
-            ->get();
+            ->orderByDesc('created_at')
+            ->paginate(2)->withQueryString();
 
         return view('hasil-pencarian', ['hasil' => $hasil, 'judulhalaman' => $judulhalaman]);
     }

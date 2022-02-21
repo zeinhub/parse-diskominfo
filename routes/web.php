@@ -43,8 +43,8 @@ Route::get('/statistik/berita', [HomeController::class, 'statistikBerita'])->nam
 Route::get('/statistik/kategori', [HomeController::class, 'statistikKategori'])->name('statistik-kategori')->middleware(['checkRole:admin,user']);
 Route::get('/filter-pencarian', [HomeController::class, 'filter'])->name('filter')->middleware(['checkRole:admin,user']);
 Route::get('/hasil-filter-pencarian', [HomeController::class, 'hasilFilter'])->name('hasil-filter')->middleware(['checkRole:admin,user']);
-Route::post('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter')->middleware(['checkRole:admin,user']);
-Route::post('/cari-berita', [HomeController::class, 'cariArtikel'])->name('cari')->middleware(['checkRole:admin,user']);
+Route::get('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter')->middleware(['checkRole:admin,user']);
+Route::get('/cari-berita', [HomeController::class, 'cariArtikel'])->name('cari')->middleware(['checkRole:admin,user']);
 Route::get('/berita/{uuid}', [HomeController::class, 'berita'])->name('berita')->middleware(['checkRole:admin,user']);
 Route::get('/author/{username}', [HomeController::class, 'postbyauthor'])->name('postbyauthor')->middleware(['checkRole:admin,user']);
 Route::get('/category/{kategori}', [HomeController::class, 'postbycategory'])->name('postbycategory')->middleware(['checkRole:admin,user']);

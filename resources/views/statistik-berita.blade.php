@@ -82,7 +82,7 @@ Statistik Berita
           var options = {
             series: [{
               name: "Berita",
-              data: [10, 41, 35, 51]
+              data: <?php echo json_encode($data_mingguan); ?>
             }],
             chart: {
               height: 350,
@@ -160,7 +160,7 @@ Statistik Berita
             },
             series: [{
               name: 'Berita',
-              data: [30, 40, 35, 50, 49, 60, 70]
+              data: <?php echo json_encode($data_harian); ?>
             }],
             xaxis: {
               categories: <?php echo json_encode($label_harian); ?>
@@ -216,7 +216,7 @@ Statistik Berita
             },
             series: [{
               name: 'Berita',
-              data: [30, 40, 35, 50, 49, 60, 30, 40, 35, 50, 49, 60]
+              data: <?php echo json_encode($data_tahunan); ?>
             }],
             xaxis: {
               categories: <?php echo json_encode($label_tahunan); ?>

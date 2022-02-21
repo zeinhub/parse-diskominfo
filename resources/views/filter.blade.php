@@ -32,7 +32,7 @@ Filter Berita
             </div> -->
         </div>
         <div class="filter-box">
-            <form action="{{route('cari-filter')}}" method="post">
+            <form action="{{route('cari-filter')}}" method="get">
                 {{ csrf_field() }}
                 <div class="row">
                     <div class="col-12">

@@ -32,7 +32,7 @@ Filter Berita
             </div> -->
         </div>
         <div class="filter-box">
-            <form action="<?php echo e(route('cari-filter')); ?>" method="post">
+            <form action="<?php echo e(route('cari-filter')); ?>" method="get">
                 <?php echo e(csrf_field()); ?>
 
                 <div class="row">

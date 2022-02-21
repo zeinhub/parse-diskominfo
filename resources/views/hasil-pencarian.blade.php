@@ -62,5 +62,8 @@ Pencarian Judul: {{$judulhalaman['judul']}}
             <?php } ?>
         </div>
     </div>
+    <div class="pagination">
+        {{$hasil->links()}}
+    </div>
 </div>
 @endsection
