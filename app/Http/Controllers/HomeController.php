@@ -40,9 +40,9 @@ class HomeController extends Controller
         $j = 27;
         for ($i = 4; $i > 0; $i--) {
             $first = Carbon::today()->subDays($j);
-            $data_first = Carbon::today()->subDays($j + 1);
+            $data_first = Carbon::today()->subDays($j);
             $last = Carbon::today()->subDays($j -= 6);
-            $data_last = Carbon::today()->subDays($j - 1);
+            $data_last = date('Y-m-d', strtotime(Carbon::today()->subDays($j))) . " 23:59:59";
             $week = date('d M', strtotime($first)) . " - " . date('d M', strtotime($last));
             $data = Artikel::whereBetween('created_at', [$data_first, $data_last])->count();
             array_push($label_mingguan, $week);
@@ -57,12 +57,48 @@ class HomeController extends Controller
             array_push($data_tahunan, Artikel::whereMonth('created_at', '=', Carbon::today()->subMonth($i))->count());
         }
 
-        $array = [10, 20, 30, 40, 50, 60, 70, 80, 90];
-        return view('statistik-berita', ['array' => $array, 'label_harian' => $label_harian, 'data_harian' => $data_harian, 'label_mingguan' => $label_mingguan, 'data_mingguan' => $data_mingguan, 'label_tahunan' => $label_tahunan, 'data_tahunan' => $data_tahunan]);
+        return view('statistik-berita', ['label_harian' => $label_harian, 'data_harian' => $data_harian, 'label_mingguan' => $label_mingguan, 'data_mingguan' => $data_mingguan, 'label_tahunan' => $label_tahunan, 'data_tahunan' => $data_tahunan]);
     }
     public function statistikKategori()
     {
         return view('statistik-kategori');
+    }
+    public function hasilStatistikKategori(request $request)
+    {
+        $kategori = $request->kategori;
+
+        $label_harian = [];
+        $data_harian = [];
+        for ($i = 6; $i >= 0; $i--) {
+            $tanggal = Carbon::today()->subDays($i);
+            $data = Artikel::whereDate('created_at', $tanggal)->where('kategori', 'like', "%{$request->kategori}%")->count();
+            array_push($label_harian, date('d M', strtotime($tanggal)));
+            array_push($data_harian, $data);
+        }
+
+        $label_mingguan = [];
+        $data_mingguan = [];
+        $j = 27;
+        for ($i = 4; $i > 0; $i--) {
+            $first = Carbon::today()->subDays($j);
+            $data_first = Carbon::today()->subDays($j);
+            $last = Carbon::today()->subDays($j -= 6);
+            $data_last = date('Y-m-d', strtotime(Carbon::today()->subDays($j))) . " 23:59:59";
+            $week = date('d M', strtotime($first)) . " - " . date('d M', strtotime($last));
+            $data = Artikel::whereBetween('created_at', [$data_first, $data_last])->where('kategori', 'like', "%{$request->kategori}%")->count();
+            array_push($label_mingguan, $week);
+            array_push($data_mingguan, $data);
+            $j--;
+        }
+
+        $label_tahunan = [];
+        $data_tahunan = [];
+        for ($i = 11; $i >= 0; $i--) {
+            array_push($label_tahunan, date('F, Y', strtotime(Carbon::today()->subMonth($i))));
+            array_push($data_tahunan, Artikel::whereMonth('created_at', '=', Carbon::today()->subMonth($i))->where('kategori', 'like', "%{$request->kategori}%")->count());
+        }
+
+        return view('hasil-statistik-kategori', ['kategori' => $kategori, 'label_harian' => $label_harian, 'data_harian' => $data_harian, 'label_mingguan' => $label_mingguan, 'data_mingguan' => $data_mingguan, 'label_tahunan' => $label_tahunan, 'data_tahunan' => $data_tahunan]);
     }
     public function filter()
     {

@@ -41,6 +41,7 @@ Route::post('/admin/action-register', [AccountController::class, 'actionregister
 //User
 Route::get('/statistik/berita', [HomeController::class, 'statistikBerita'])->name('statistik-berita')->middleware(['checkRole:admin,user']);
 Route::get('/statistik/kategori', [HomeController::class, 'statistikKategori'])->name('statistik-kategori')->middleware(['checkRole:admin,user']);
+Route::get('/hasil/statistik/kategori', [HomeController::class, 'hasilStatistikKategori'])->name('hasil-statistik-kategori')->middleware(['checkRole:admin,user']);
 Route::get('/filter-pencarian', [HomeController::class, 'filter'])->name('filter')->middleware(['checkRole:admin,user']);
 Route::get('/hasil-filter-pencarian', [HomeController::class, 'hasilFilter'])->name('hasil-filter')->middleware(['checkRole:admin,user']);
 Route::get('/cari-filter-pencarian', [HomeController::class, 'cariFilter'])->name('cari-filter')->middleware(['checkRole:admin,user']);
