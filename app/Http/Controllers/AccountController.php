@@ -61,6 +61,12 @@ class AccountController extends Controller
     public function actionregister(Request $request)
     {
         if ($request->password == $request->confirmpassword) {
+
+            $this->validate($request, [
+                'email' => 'required|unique:users',
+                'username' => 'required|unique:users',
+            ]);
+
             User::create([
                 'name' => trim($request->nama),
                 'email' => strtolower($request->email),

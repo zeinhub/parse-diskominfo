@@ -59,10 +59,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
             <?php if (Auth::User()->role == "user") { ?>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li><a class="dropdown-item" href="#">Hapus Akun?</a></li>
             <?php } ?>
           </ul>

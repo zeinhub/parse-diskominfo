@@ -6,10 +6,10 @@
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
   <?php if (Auth::User()->role == "admin") { ?>
-    <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('postbycategory', ['kategori' => $artikel->kategori])); ?>"><?php echo e($artikel->kategori); ?></a> &nbsp;/&nbsp;<?php echo e($artikel->judul); ?>
+    <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('allcategory')); ?>">Kategori</a> &nbsp;/&nbsp;<a href="<?php echo e(route('postbycategory', ['kategori' => $artikel->kategori])); ?>"><?php echo e($artikel->kategori); ?></a> &nbsp;/&nbsp;<?php echo e($artikel->judul); ?>
 
   <?php } else { ?>
-    <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('postbycategory', ['kategori' => $artikel->kategori])); ?>"><?php echo e($artikel->kategori); ?></a> &nbsp;/&nbsp;<?php echo e($artikel->judul); ?>
+    <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="<?php echo e(route('allcategory')); ?>">Kategori</a> &nbsp;/&nbsp;<a href="<?php echo e(route('postbycategory', ['kategori' => $artikel->kategori])); ?>"><?php echo e($artikel->kategori); ?></a> &nbsp;/&nbsp;<?php echo e($artikel->judul); ?>
 
   <?php } ?>
 </div>

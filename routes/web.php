@@ -30,7 +30,7 @@ Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome')-
 Route::get('/admin/upload-data', [AdminController::class, 'uploadData'])->name('upload-data')->middleware('checkRole:admin');
 Route::get('/admin/edit-data/{uuid}', [AdminController::class, 'editData'])->name('edit-post')->middleware('checkRole:admin');
 Route::get('/admin/berita/{uuid}', [AdminController::class, 'berita'])->name('admin-berita')->middleware('checkRole:admin');
-Route::get('/admin/berita/{uuid}/download/{id}', [AdminController::class, 'download'])->name('download')->middleware('checkRole:admin');
+Route::get('/admin/berita/{uuid}/download/{id}', [AdminController::class, 'download'])->name('download')->middleware('checkRole:admin,user');
 Route::post('/admin/store-file', [AdminController::class, 'store'])->name('store-file')->middleware('checkRole:admin');
 Route::post('/admin/store-edit/{uuid}', [AdminController::class, 'storeEdit'])->name('store-edit')->middleware('checkRole:admin');
 Route::delete('/admin/delete-dokumentasi/{id}', [AdminController::class, 'deleteDokumentasi'])->name('delete-dokumentasi')->middleware('checkRole:admin');

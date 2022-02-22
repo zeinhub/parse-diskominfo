@@ -5,7 +5,7 @@
     <?php echo $__env->yieldContent('addon-script-top'); ?>
     <title><?php echo $__env->yieldContent('title'); ?></title>
 </head>
-<body class="<?php echo $__env->yieldContent('class-body'); ?>">
+<body style="<?php echo $__env->yieldContent('body-style'); ?>" class="<?php echo $__env->yieldContent('class-body'); ?>">
     <?php echo $__env->make('layouts.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="container mt-50-px">
         <?php echo $__env->yieldContent('breadcrumb'); ?>

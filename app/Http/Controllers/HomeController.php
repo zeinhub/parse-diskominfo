@@ -53,7 +53,7 @@ class HomeController extends Controller
         $label_tahunan = [];
         $data_tahunan = [];
         for ($i = 11; $i >= 0; $i--) {
-            array_push($label_tahunan, date('F, Y', strtotime(Carbon::today()->subMonth($i))));
+            array_push($label_tahunan, date('M Y', strtotime(Carbon::today()->subMonth($i))));
             array_push($data_tahunan, Artikel::whereMonth('created_at', '=', Carbon::today()->subMonth($i))->count());
         }
 
@@ -94,7 +94,7 @@ class HomeController extends Controller
         $label_tahunan = [];
         $data_tahunan = [];
         for ($i = 11; $i >= 0; $i--) {
-            array_push($label_tahunan, date('F, Y', strtotime(Carbon::today()->subMonth($i))));
+            array_push($label_tahunan, date('M Y', strtotime(Carbon::today()->subMonth($i))));
             array_push($data_tahunan, Artikel::whereMonth('created_at', '=', Carbon::today()->subMonth($i))->where('kategori', 'like', "%{$request->kategori}%")->count());
         }
 

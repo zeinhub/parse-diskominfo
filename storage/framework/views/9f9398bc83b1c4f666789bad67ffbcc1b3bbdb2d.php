@@ -18,9 +18,11 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo e(url('frontend/library/sbadmin2/css/sb-admin-2.min.css')); ?>" rel="stylesheet">
 
+    <link rel="stylesheet" href="<?php echo e(url('frontend/style/style.css')); ?>">
+
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-image: url('<?php echo e(url('files/kantor.jpeg')); ?>'); background-size: cover;" class="bg-gradient-primary">
 
     <div class="container">
 
@@ -37,7 +39,7 @@
                         <style>
                             .bg-login-image {
                                 padding: 30px;
-                                background-image: url();
+
                             }
 
                             /* .bg-login-image img {
@@ -66,7 +68,6 @@
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Log In</button>
-                                    <hr>
                                     <!-- <a href="<?php echo e(route('register')); ?>" class="btn btn-google btn-user btn-block">
                                             Register
                                         </a> -->

@@ -18,6 +18,8 @@
     <!-- Custom styles for this template-->
     <link href="{{url('frontend/library/sbadmin2/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{url('frontend/style/style.css')}}">
+
 </head>
 
 <body style="background-image: url('{{url('files/kantor.jpeg')}}'); background-size: cover;" class="bg-gradient-primary">
@@ -37,7 +39,7 @@
                         <style>
                             .bg-login-image {
                                 padding: 30px;
-                                
+
                             }
 
                             /* .bg-login-image img {
@@ -65,7 +67,6 @@
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Log In</button>
-                                    <hr>
                                     <!-- <a href="{{route('register')}}" class="btn btn-google btn-user btn-block">
                                             Register
                                         </a> -->

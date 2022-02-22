@@ -1,4 +1,7 @@
 @extends('app')
+@section('title')
+Semua Berita
+@endsection
 @section('breadcrumb')
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>

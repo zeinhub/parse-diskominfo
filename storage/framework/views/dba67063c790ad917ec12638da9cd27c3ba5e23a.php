@@ -5,6 +5,9 @@ About Developer
 <?php $__env->startSection('class-body'); ?>
 about-body
 <?php $__env->stopSection(); ?>
+<?php $__env->startSection('body-style'); ?>
+
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <style>
     .sidebar,
@@ -14,6 +17,15 @@ about-body
     .navbar-line,
     .col-lg-3 {
         display: none;
+    }
+    .about-body{
+        width: 100%;
+        background-image: url('<?php echo e(url('files/parse.png')); ?>');
+        background-size: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        /* opacity: 0.6; */
     }
 </style>
 <div class="about-page">

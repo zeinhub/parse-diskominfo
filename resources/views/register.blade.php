@@ -18,6 +18,8 @@
     <!-- Custom styles for this template-->
     <link href="{{url('frontend/library/sbadmin2/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{url('frontend/style/style.css')}}">
+
 </head>
 
 <body style="background-image: url('{{url('files/kantor.jpeg')}}');" class="bg-gradient-primary">
@@ -44,19 +46,40 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><img src="{{url('files/parse.png')}}" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
+                                {{-- menampilkan error validasi --}}
+                                @if (count($errors) > 0)
+                                <?php $errorr = []; ?>
+                                @foreach ($errors->all() as $error)
+                                <?php array_push($errorr, $error); ?>
+                                @endforeach
+                                <script>
+                                    alert(<?php echo json_encode($errorr); ?>);
+                                </script>
+                                <!-- <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div> -->
+                                @endif
                                 <form class="user mx-auto" method="post" action="{{route('actionregister')}}">
                                     {{ csrf_field() }}
                                     <div class=" form-group">
-                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" required>
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="nama" aria-describedby="emailHelp" placeholder="Nama" value="{{ old('nama') }}" required>
                                     </div>
                                     <div class=" form-group">
-                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" required>
+                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" value="{{ old('email') }}" required>
                                     </div>
                                     <div class=" form-group">
-                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" required>
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" value="{{ old('username') }}" required>
                                     </div>
                                     <div class=" form-group">
-                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="role" aria-describedby="emailHelp" placeholder="Role" required>
+                                        <select class="form-control form-control-lg" style="border-radius: 10rem; font-size: .8rem; color:grey; height: 3.2rem;" id="exampleInputEmail" name="role" value="{{ old('role') }}" required>
+                                            <option value="" selected disabled>--Pilih Role--</option>
+                                            <option value="user">user</option>
+                                            <option value="admin">admin</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
@@ -64,7 +87,10 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
                                     </div>
+                                    <br>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
+                                    <hr>
+                                    <a href="{{route('adminhome')}}" class="btn btn-outline-primary btn-user btn-block">Home</a>
                                     {{-- <hr>
                                         <a href="{{route('login')}}" class="btn btn-google btn-user btn-block">
                                     Log in

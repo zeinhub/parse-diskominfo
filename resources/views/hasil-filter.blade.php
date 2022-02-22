@@ -1,4 +1,7 @@
 @extends('app')
+@section('title')
+Hasil Filter
+@endsection
 @section('breadcrumb')
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
@@ -19,7 +22,7 @@
     <div class="latest-upload-wrap pt-fs">
         <div class="row">
             <div class="col">
-                <h2 class="filter-title">Hasil Filter</h2>
+                <h2 class="filter-title">Filter</h2>
             </div>
             <!-- <div class="col">
                 <form class="d-flex">
@@ -66,7 +69,8 @@
     <br>
     <hr>
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Hasil</h2>
+        <h2 class="filter-title">Hasil Filter</h2>
+        <h5 class="filter-title">Hasil: {{ $hasil->total() }} berita ditemukan</h5>
         <div class="row">
             <?php
             foreach ($hasil as $h) {
@@ -111,7 +115,8 @@
             <?php } ?>
         </div>
     </div>
-    <div class="pagination">
+    <div class="text-center">
+        <br>
         {{$hasil->links()}}
     </div>
 </div>

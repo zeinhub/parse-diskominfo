@@ -28,9 +28,6 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo e(route('filter')); ?>">Filter</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo e(route('about')); ?>">About</a>
-        </li>
         <?php if (Auth::User()->role == "admin") { ?>
           <li class="nav-item <?php echo e($uploadBtn); ?> uploadBtn">
             <a class="nav-link" href="<?php echo e(route('upload-data')); ?>">Upload Data</a>
@@ -50,6 +47,9 @@
             <a class="nav-link" href="<?php echo e(route('register')); ?>">Tambah Akun</a>
           </li>
         <?php } ?>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo e(route('about')); ?>">About</a>
+        </li>
 
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -60,10 +60,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="<?php echo e(route('logout')); ?>">Logout</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
             <?php if (Auth::User()->role == "user") { ?>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li><a class="dropdown-item" href="#">Hapus Akun?</a></li>
             <?php } ?>
           </ul>

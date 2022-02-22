@@ -14,7 +14,7 @@ Ubah Data
 @endsection
 @section('breadcrumb')
 <div class="breadcrumb">
-    <a href="{{route('adminhome')}}">Admin</a> &nbsp;/&nbsp;<a>Ubah Data</a>
+    <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('admin-berita', ['uuid' => $artikel->uuid])}}">{{$artikel->judul}}</a> &nbsp;/&nbsp;<a>Ubah Data</a>
 </div>
 <hr>
 @endsection
