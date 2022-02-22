@@ -5,7 +5,7 @@
     @yield('addon-script-top')
     <title>@yield('title')</title>
 </head>
-<body class="@yield('class-body')">
+<body style="@yield('body-style')" class="@yield('class-body')">
     @include('layouts.navbar')
     <div class="container mt-50-px">
         @yield('breadcrumb')

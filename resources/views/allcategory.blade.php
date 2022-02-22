@@ -21,20 +21,17 @@
 
             ?>
                 <div class="col">
-                    <div class="category-box">
-                        <div class="row">
-                            <div class="col">
-                                <a href="{{route('postbycategory', ['kategori' => $area->category])}}">{{$area->category}} </a>
-                            </div>
-                            <div class="col-3 text-end">
-                                <?php
-                                echo DB::table('artikel')
+                    <a href="{{route('postbycategory', ['kategori' => $area->category])}}" class="category-box">
+                        {{$area->category}}
+                        <?php
+                                $jmlpost = DB::table('artikel')
                                     ->where('kategori', $area->category)
                                     ->count();
                                 ?>
-                            </div>
-                        </div>
-                    </div>
+                                <?= "(".$jmlpost.")"?>
+                        
+                    </a>
+                    
                 </div>
             <?php
             }

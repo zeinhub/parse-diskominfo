@@ -28,9 +28,6 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('filter')}}">Filter</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('about')}}">About</a>
-        </li>
         <?php if (Auth::User()->role == "admin") { ?>
           <li class="nav-item {{$uploadBtn}} uploadBtn">
             <a class="nav-link" href="{{route('upload-data')}}">Upload Data</a>
@@ -50,6 +47,9 @@
             <a class="nav-link" href="{{route('register')}}">Tambah Akun</a>
           </li>
         <?php } ?>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('about')}}">About</a>
+        </li>
 
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

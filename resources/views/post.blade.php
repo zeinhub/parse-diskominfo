@@ -5,9 +5,9 @@
 @section('breadcrumb')
 <div class="breadcrumb">
   <?php if (Auth::User()->role == "admin") { ?>
-    <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('postbycategory', ['kategori' => $artikel->kategori])}}">{{$artikel->kategori}}</a> &nbsp;/&nbsp;{{$artikel->judul}}
+    <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('allcategory')}}">Kategori</a> &nbsp;/&nbsp;<a href="{{route('postbycategory', ['kategori' => $artikel->kategori])}}">{{$artikel->kategori}}</a> &nbsp;/&nbsp;{{$artikel->judul}}
   <?php } else { ?>
-    <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('postbycategory', ['kategori' => $artikel->kategori])}}">{{$artikel->kategori}}</a> &nbsp;/&nbsp;{{$artikel->judul}}
+    <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="{{route('allcategory')}}">Kategori</a> &nbsp;/&nbsp;<a href="{{route('postbycategory', ['kategori' => $artikel->kategori])}}">{{$artikel->kategori}}</a> &nbsp;/&nbsp;{{$artikel->judul}}
   <?php } ?>
 </div>
 <hr>

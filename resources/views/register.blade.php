@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-image: url('{{url('files/kantor.jpeg')}}');" class="bg-gradient-primary">
 
     <div class="container">
 

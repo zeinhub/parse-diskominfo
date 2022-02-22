@@ -5,6 +5,9 @@ About Developer
 @section('class-body')
 about-body
 @endsection
+@section('body-style')
+
+@endsection
 @section('content')
 <style>
     .sidebar,
@@ -14,6 +17,15 @@ about-body
     .navbar-line,
     .col-lg-3 {
         display: none;
+    }
+    .about-body{
+        width: 100%;
+        background-image: url('{{url('files/parse.png')}}');
+        background-size: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        /* opacity: 0.6; */
     }
 </style>
 <div class="about-page">

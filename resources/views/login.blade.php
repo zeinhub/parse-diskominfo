@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-image: url('{{url('files/kantor.jpeg')}}'); background-size: cover;" class="bg-gradient-primary">
 
     <div class="container">
 
@@ -37,7 +37,7 @@
                         <style>
                             .bg-login-image {
                                 padding: 30px;
-                                background-image: url();
+                                
                             }
 
                             /* .bg-login-image img {
