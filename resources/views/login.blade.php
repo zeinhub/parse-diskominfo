@@ -58,6 +58,14 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><img src="{{url('files/parse.png')}}" style="width:50px" />&nbsp;PARSE - Login</h1>
                                 </div>
+
+                                @if ($message = Session::get('error'))
+                                <div class="alert alert-danger alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <p style="margin-bottom: 0px;">{{ $message }}</p>
+                                </div>
+                                @endif
+
                                 <form class="user" method="post" action="{{route('actionlogin')}}">
                                     {{ csrf_field() }}
                                     <div class=" form-group">

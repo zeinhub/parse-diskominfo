@@ -21,6 +21,7 @@ class AccountController extends Controller
         if (Auth::check()) {
             return redirect(route('home'));
         } else {
+            // return redirect()->back();
             return view('login');
         }
     }
@@ -53,8 +54,10 @@ class AccountController extends Controller
         } else if (Auth::Attempt($loginUsername)) {
             return redirect(route('home'));
         } else {
+            // return back()->with('error', 'Email atau Password Salah!');
             Session::flash('error', 'Email atau Password Salah');
-            return redirect('/');
+            return redirect()->back();
+            // return redirect('/');
         }
     }
 

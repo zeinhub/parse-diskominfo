@@ -58,6 +58,14 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('files/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Login</h1>
                                 </div>
+
+                                <?php if($message = Session::get('error')): ?>
+                                <div class="alert alert-danger alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <p style="margin-bottom: 0px;"><?php echo e($message); ?></p>
+                                </div>
+                                <?php endif; ?>
+
                                 <form class="user" method="post" action="<?php echo e(route('actionlogin')); ?>">
                                     <?php echo e(csrf_field()); ?>
 
