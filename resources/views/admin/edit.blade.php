@@ -44,6 +44,12 @@ Ubah Data
                 <div class="form-group">
                     <label for="judul">Link Berita</label>
                     <input placeholder="Link" type="text" value="{{$artikel->link}}" class="form-control" name="link" id="" required>
+                    @if ($errors->has('link'))
+                    <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('link') }}</p>
+                    </div>
+                    @endif
                 </div>
             </div>
             <div class="col-6">
@@ -132,12 +138,24 @@ Ubah Data
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Foto</label>
                     <input class="form-control" type="file" name="foto[]" placeholder="Dokumentasi Foto" accept="image/*" multiple>
+                    @if ($errors->has('foto.*'))
+                    <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('foto.*') }}</p>
+                    </div>
+                    @endif
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Video</label>
                     <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
+                    @if ($errors->has('video.*'))
+                    <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('video.*') }}</p>
+                    </div>
+                    @endif
                 </div>
             </div>
             <h5 class="mt-4">Hapus Dokumentasi</h5>

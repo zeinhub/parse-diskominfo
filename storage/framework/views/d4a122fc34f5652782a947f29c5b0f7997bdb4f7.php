@@ -28,19 +28,25 @@ Unggah Dokumentasi
             <div class="col-12">
                 <div class="form-group">
                     <label for="judul">Judul</label>
-                    <input placeholder="Judul" type="text" class="form-control" name="judul" id="" required>
+                    <input placeholder="Judul" type="text" class="form-control" name="judul" value="<?php echo e(old('judul')); ?>" id="" required>
                 </div>
             </div>
-            <div class="col-12">
+            <div class=" col-12">
                 <div class="form-group">
                     <label for="judul">Link Berita</label>
-                    <input placeholder="Link" type="text" class="form-control" name="link" id="" required>
+                    <input placeholder="Link" type="text" class="form-control" name="link" value="<?php echo e(old('link')); ?>" id="" required>
+                    <?php if($errors->has('link')): ?>
+                    <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('link')); ?></p>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
-                    <input placeholder="Kategori" list="category" type="text" class="form-control" name="kategori" id="" required>
+                    <input placeholder="Kategori" list="category" type="text" class="form-control" name="kategori" value="<?php echo e(old('kategori')); ?>" id="" required>
                     <datalist id="category">
                         <?php
                         $data = file_get_contents("category.json");
@@ -56,7 +62,7 @@ Unggah Dokumentasi
             <div class="col-6">
                 <div class="form-group">
                     <label for="tahun">Tahun</label>
-                    <input type="text" list="tahun" class="form-control" placeholder="tahun" name="tahun" id="" required>
+                    <input type="text" list="tahun" class="form-control" placeholder="tahun" name="tahun" value="<?php echo e(old('tahun')); ?>" id="" required>
                     <datalist id="tahun">
                         <?php
                         $array = [];
@@ -74,7 +80,7 @@ Unggah Dokumentasi
                 <div class="form-group">
                     <label for="wilayah">Wilayah</label>
                 </div>
-                <input placeholder="Wilayah" type="text" list="wilayah" class="form-control" name="wilayah" id="" required>
+                <input placeholder="Wilayah" type="text" list="wilayah" class="form-control" name="wilayah" value="<?php echo e(old('wilayah')); ?>" id="" required>
                 <datalist id="wilayah">
                     <?php
                     $array = [];
@@ -90,7 +96,7 @@ Unggah Dokumentasi
             <div class="col-6">
                 <div class="form-group">
                     <label for="dinas">Dinas</label>
-                    <input placeholder="Dinas" type="text" list="dinas" class="form-control" name="dinas" id="" required>
+                    <input placeholder="Dinas" type="text" list="dinas" class="form-control" name="dinas" value="<?php echo e(old('dinas')); ?>" id="" required>
                     <datalist id="dinas">
                         <?php
                         $array = [];
@@ -121,12 +127,24 @@ Unggah Dokumentasi
                     <label for="featured-image">Dokumentasi Foto</label>
                     <input class="form-control" type="file" name="foto[]" placeholder="Dokumentasi Foto" accept="image/*" multiple>
                 </div>
+                <?php if($errors->has('foto.*')): ?>
+                <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('foto.*')); ?></p>
+                </div>
+                <?php endif; ?>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Video</label>
                     <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
                 </div>
+                <?php if($errors->has('video.*')): ?>
+                <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('video.*')); ?></p>
+                </div>
+                <?php endif; ?>
             </div>
             <!-- <div class="col-12">
                 <div class="form-group">

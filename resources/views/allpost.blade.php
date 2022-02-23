@@ -15,8 +15,8 @@ Semua Berita
 @section('content')
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Semua Post
-        </h2>
+        <h2 class="filter-title" style="margin-bottom: 0px;">Semua Post</h2>
+        <h5 class=" filter-title" style="font-weight: lighter">{{ $artikel->total() }} berita</h5>
         <div class="row">
             <?php
             foreach ($artikel as $a) {

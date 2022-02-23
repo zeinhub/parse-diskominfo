@@ -54,37 +54,43 @@ class AccountController extends Controller
         } else if (Auth::Attempt($loginUsername)) {
             return redirect(route('home'));
         } else {
-            // return back()->with('error', 'Email atau Password Salah!');
-            Session::flash('error', 'Email atau Password Salah');
+            Session::flash('error', 'Email/Username atau Password Salah.');
             return redirect()->back();
-            // return redirect('/');
         }
     }
 
     public function actionregister(Request $request)
     {
-        if ($request->password == $request->confirmpassword) {
+        // if ($request->password == $request->confirmpassword) {
 
-            $this->validate($request, [
+        $this->validate(
+            $request,
+            [
                 'email' => 'required|unique:users',
                 'username' => 'required|unique:users',
-            ]);
+                'password' => 'required|min:6|max:20',
+                'confirmpassword' => 'required|same:password',
+            ],
+            [
+                'email.unique' => 'Email sudah digunakan.',
+                'username.unique' => 'Username sudah digunakan.',
+                'confirmpassword.same' => 'Password dan confirm password harus sesuai.',
+            ]
+        );
 
-            User::create([
-                'name' => trim($request->nama),
-                'email' => strtolower($request->email),
-                'username' => strtolower($request->username),
-                'role' => strtolower($request->role),
-                'password' => bcrypt($request->password),
-            ]);
-            session()->flash('message', 'Akun berhasil dibuat');
-
-            return redirect()->route('login');
-        } else {
-            Session::flash('error', 'Pembuatan akun gagal!');
-
-            return redirect()->route('register');
-        }
+        User::create([
+            'name' => trim($request->nama),
+            'email' => strtolower($request->email),
+            'username' => strtolower($request->username),
+            'role' => strtolower($request->role),
+            'password' => bcrypt($request->password),
+        ]);
+        Session::flash('success', 'Akun berhasil dibuat');
+        return redirect()->route('adminhome');
+        // } else {
+        //     Session::flash('error', 'Password/ confirm password tidak sesuai.');
+        //     return back();
+        // }
     }
 
     public function actionlogout()

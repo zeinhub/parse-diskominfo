@@ -62,7 +62,7 @@
                                 <?php if($message = Session::get('error')): ?>
                                 <div class="alert alert-danger alert-block">
                                     <button type="button" class="close" data-dismiss="alert">×</button>
-                                    <p style="margin-bottom: 0px;"><?php echo e($message); ?></p>
+                                    <p style="margin-bottom: 0px; font-size:small"><?php echo e($message); ?></p>
                                 </div>
                                 <?php endif; ?>
 
@@ -76,9 +76,6 @@
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Log In</button>
-                                    <!-- <a href="<?php echo e(route('register')); ?>" class="btn btn-google btn-user btn-block">
-                                            Register
-                                        </a> -->
                                     
                                     
                                     

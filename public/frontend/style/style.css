@@ -4,592 +4,592 @@
 About style
 =======================================================*/
 .about-page {
-  padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 @media only screen and (max-width: 992px) {
-  .about-page .developer-profile {
-    margin-bottom: 20px;
-  }
+    .about-page .developer-profile {
+        margin-bottom: 20px;
+    }
 }
 
 .about-page .about-app {
-  margin-top: 20px;
-  border-radius: 20px;
-  border: 1px solid black;
-  background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .about-page .about-app .app-title {
-  text-align: center;
+    text-align: center;
 }
 
 .about-page .about-app .app-title p {
-  font-size: 20px;
-  margin-top: -10px;
+    font-size: 20px;
+    margin-top: -10px;
 }
 
 .about-page .about-app .app-desc {
-  text-align: center;
+    text-align: center;
 }
 
 .about-page .about-app .app-desc p {
-  font-size: 17px;
+    font-size: 17px;
 }
 
 .about-page .about-developer {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .about-page .about-developer .developer-profile {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px 15px 20px 15px;
-  border: 1px solid black;
-  border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px 20px 15px;
+    border: 1px solid black;
+    border-radius: 20px;
 }
 
 .about-page .about-developer .developer-profile .developer-badge {
-  background-color: #682666;
-  width: 200px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  margin-left: -15px;
-  padding-left: 10px;
-  color: white;
-  font-weight: bold;
-  border-radius: 0px 10px 10px 0px;
+    background-color: #682666;
+    width: 200px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: -15px;
+    padding-left: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 0px 10px 10px 0px;
 }
 
 .about-page .about-developer .developer-profile .developer-photo {
-  width: 200px;
-  height: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-page .about-developer .developer-profile .developer-name {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 .about-page .about-developer .developer-profile .university {
-  text-align: center;
-  font-size: 16px;
-  margin-top: -5px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: -5px;
 }
 
 .about-page .about-developer .developer-profile .quote {
-  font-family: "Passion One", cursive;
-  font-size: 80px;
-  color: #682666;
-  text-align: center;
-  margin-bottom: -50px;
-  margin-top: -10px;
+    font-family: "Passion One", cursive;
+    font-size: 80px;
+    color: #682666;
+    text-align: center;
+    margin-bottom: -50px;
+    margin-top: -10px;
 }
 
 .about-page .about-developer .developer-profile .developer-desc {
-  text-align: center;
-  font-size: 16px;
+    text-align: center;
+    font-size: 16px;
 }
 
 .w-5 {
-  width: 20px;
+    width: 20px;
 }
 
 nav .flex {
-  display: none;
+    display: none;
 }
 
 .category-box {
-  text-align: center;
-  display: block;
-  height: 80px;
-  margin: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 15px;
-  color: white;
-  background-color: #8f408c;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-weight: bold;
+    text-align: center;
+    display: block;
+    height: 80px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    color: white;
+    background-color: #8f408c;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
 }
 
 .category-box a {
-  color: white;
+    color: white;
 }
 
 .category-box:hover {
-  background-color: #682666;
-  color: white;
+    background-color: #682666;
+    color: white;
 }
 
 .user-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid black;
 }
 
 .pagination {
-  margin-top: 50px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+    margin-top: 50px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 #myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: rgba(255, 255, 255, 0);
-  color: orangered;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 50%;
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+    color: orangered;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
 }
 
 #myBtn:hover {
-  color: red;
+    color: red;
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
-  scroll-behavior: smooth;
+    font-family: "Quicksand", sans-serif;
+    scroll-behavior: smooth;
 }
 
 .uploadBtn {
-  display: none;
+    display: none;
 }
 
 .upload-btn-visible {
-  display: block;
+    display: block;
 }
 
 .navbar-line {
-  background-color: #682666;
-  height: 8px;
-  width: 100%;
+    background-color: #682666;
+    height: 8px;
+    width: 100%;
 }
 
 .navbar-light {
-  background-color: white !important;
+    background-color: white !important;
 }
 
 .navbar-light .nav-link,
 .navbar-light .navbar-brand {
-  color: #682666 !important;
+    color: #682666 !important;
 }
 
 .mt-50-px {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .btn-primary {
-  background-color: #8f408c;
+    background-color: #8f408c;
 }
 
 .btn-primary:hover,
 .btn-primary :checked {
-  background-color: #682666;
+    background-color: #682666;
 }
 
 .btn-primary:focus {
-  background-color: #682677 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+    background-color: #682677 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 @media only screen and (max-width: 576px) {
-  .mt-50-px {
-    margin-top: 20px;
-  }
+    .mt-50-px {
+        margin-top: 20px;
+    }
 }
 
 @media only screen and (max-width: 992px) {
-  .sidebar {
-    margin-top: 100px;
-    border-top: 1px solid #682666;
-    padding-top: 30px;
-  }
+    .sidebar {
+        margin-top: 100px;
+        border-top: 1px solid #682666;
+        padding-top: 30px;
+    }
 }
 
 .sidebar .sidebar-title {
-  padding-top: 3px;
-  font-weight: bold;
-  font-size: 20px;
-  color: black;
+    padding-top: 3px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
 }
 
 .sidebar .sidebar-title .line-sidebar-title {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  height: 3px;
-  width: 15%;
-  background-color: #682666;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 3px;
+    width: 15%;
+    background-color: #682666;
 }
 
 .sidebar .sidebar-content {
-  padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .sidebar .sidebar-content iframe {
-  margin-top: 10px;
-  width: 100%;
+    margin-top: 10px;
+    width: 100%;
 }
 
 .sidebar .news-content {
-  margin-top: 15px;
-  max-height: 500px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+    margin-top: 15px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .sidebar .news-content .news-title {
-  text-decoration: none;
-  color: black;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+    text-decoration: none;
+    color: black;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
 }
 
 .sidebar .news-content .news-title a {
-  text-decoration: none;
-  color: black;
-  font-weight: 400;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
 }
 
 .sidebar .news-content .news-title a:hover {
-  color: #682666;
-  font-weight: 500;
+    color: #682666;
+    font-weight: 500;
 }
 
 .sidebar .news-content .news-title:hover {
-  color: #682666;
+    color: #682666;
 }
 
 .sidebar .news-content .sidebar-divider {
-  height: 0.2px;
-  background-color: #8f408c;
-  margin-top: 5px;
-  margin-bottom: 5px;
+    height: 0.2px;
+    background-color: #8f408c;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .sidebar .news-content .news-number {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .btn-outline-primary {
-  color: #682666;
-  border-color: #682666;
+    color: #682666;
+    border-color: #682666;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary :active,
 .btn-outline-primary :checked,
 .btn-outline-primary :focus {
-  background-color: #682666;
-  color: white;
+    background-color: #682666;
+    color: white;
 }
 
 .btn-outline-primary:focus {
-  border-color: #682666;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+    border-color: #682666;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 .form-control {
-  border-color: #c29bc1;
-  color: #682666;
+    border-color: #c29bc1;
+    color: #682666;
 }
 
 .form-control:focus {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-  border-color: #682666;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-color: #682666;
 }
 
 .banner img {
-  width: 100%;
-  border-radius: 20px;
+    width: 100%;
+    border-radius: 20px;
 }
 
 @media only screen and (max-width: 992px) {
-  .featured-image {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .featured-image img {
-    width: 80%;
-    text-align: center;
-    border-radius: 20px;
-  }
+    .featured-image {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .featured-image img {
+        width: 80%;
+        text-align: center;
+        border-radius: 20px;
+    }
 }
 
 .post .post-title-heading {
-  font-size: 35px;
-  font-weight: 400;
-  width: 80%;
+    font-size: 35px;
+    font-weight: 400;
+    width: 80%;
 }
 
 .post .author {
-  margin-top: 10px;
-  margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .post .author a {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .post table {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .post .btn {
-  padding: 0;
-  padding: 0px 5px 0px 5px;
+    padding: 0;
+    padding: 0px 5px 0px 5px;
 }
 
 .post .btn-outline-info {
-  color: #682666;
-  border-color: #682666;
+    color: #682666;
+    border-color: #682666;
 }
 
 .post .btn-outline-info:hover {
-  background-color: #682666;
-  color: white;
+    background-color: #682666;
+    color: white;
 }
 
 .post .btn-outline-info:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .post p {
-  margin-top: 20px;
-  font-size: 16px;
+    margin-top: 20px;
+    font-size: 16px;
 }
 
 .post .featured-image {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .post .featured-image img {
-  width: 80%;
-  text-align: center;
-  border-radius: 20px;
+    width: 80%;
+    text-align: center;
+    border-radius: 20px;
 }
 
 .filter-search .pt-fs {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 .filter-search .filter-title {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .filter-search .btn-primary {
-  background-color: #682666;
+    background-color: #682666;
 }
 
 .filter-search .btn-primary:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .filter-search .mb-20-px {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .bg-primary,
 .bg-gradient-primary {
-  background-color: #682666;
-  background-image: none;
+    background-color: #682666;
+    background-image: none;
 }
 
 .accordion .bg-gradient-primary {
-  background-color: white !important;
+    background-color: white !important;
 }
 
 .splide__arrow {
-  display: none;
+    display: none;
 }
 
 .splide {
-  max-width: 800px;
+    max-width: 800px;
 }
 
 .splide .img-thumbnail-box,
 .splide .splide__slide {
-  width: 250px;
-  height: 200px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+    width: 250px;
+    height: 200px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .splide .img-thumbnail {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .splidevideo {
-  max-width: 800px;
+    max-width: 800px;
 }
 
 .splidevideo .video-thumbnail-box,
 .splidevideo .splide__slide {
-  margin-right: 10px;
-  margin-top: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 #modal-thumbnail {
-  max-width: 800px;
+    max-width: 800px;
 }
 
 #modal-thumbnail .modal-body img {
-  width: 100%;
+    width: 100%;
 }
 
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 a:hover {
-  color: #682666;
+    color: #682666;
 }
 
 .documentation-title {
-  font-size: 20px;
-  font-weight: 300;
+    font-size: 20px;
+    font-weight: 300;
 }
 
 .file-thumbnail {
-  width: 200px;
-  height: 50px;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding-left: 5px;
-  display: block;
-  overflow: hidden;
-  font-size: 15px;
-  background-color: #f8f9fa;
-  text-decoration: none;
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 5px;
+    display: block;
+    overflow: hidden;
+    font-size: 15px;
+    background-color: #f8f9fa;
+    text-decoration: none;
 }
 
 .file-thumbnail i {
-  margin-top: 7px;
+    margin-top: 7px;
 }
 
 .latest-upload-wrap {
-  margin-top: 20px;
-  border: 1px solid #d6d6d6;
-  border-radius: 10px;
-  padding: 20px;
-  padding-top: 0;
+    margin-top: 20px;
+    border: 1px solid #d6d6d6;
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 0;
 }
 
 .pt-fs {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 .latest-upload-heading {
-  margin-top: 20px;
-  font-weight: bold;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 .latest-upload {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .latest-upload .post-thumbnail {
-  height: 200px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 10px 10px 5px 5px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 10px 5px 5px;
 }
 
 .latest-upload .author a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 
 .latest-upload .author a:hover {
-  color: #682666;
+    color: #682666;
 }
 
 .latest-upload .info {
-  margin-top: 10px;
-  font-size: 12px;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .latest-upload .category {
-  margin-top: 5px;
-  font-size: 13px;
-  text-transform: uppercase;
-  color: orange;
-  font-weight: bold;
-  margin-bottom: -5px;
-  display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: orange;
+    font-weight: bold;
+    margin-bottom: -5px;
+    display: block;
 }
 
 .latest-upload .title {
-  font-size: 20px;
-  font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .latest-upload .content {
-  text-align: left;
+    text-align: left;
 }
 
 .latest-upload img {
-  width: 100%;
-  border-radius: 10px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 @media only screen and (max-width: 992px) {
-  .statistic #berita-harian,
-  .statistic #berita-mingguan {
-    max-width: 100%;
-    max-height: 100%;
-  }
+    .statistic #berita-harian,
+    .statistic #berita-mingguan {
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 .statistic #berita-harian,
 .statistic #berita-mingguan {
-  max-width: 400px;
-  max-height: 350px;
+    max-width: 400px;
+    max-height: 350px;
 }
 
 .line-footer {
-  min-height: 20px;
-  background-color: #8f408c;
-  width: 100%;
-  margin-top: 30px;
+    min-height: 20px;
+    background-color: #f4861f;
+    width: 100%;
+    margin-top: 30px;
 }
 
 footer {
-  background-color: #682666;
-  color: white;
-  padding-top: 30px;
-  padding-bottom: 20px;
+    background-color: #952f76;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 /*# sourceMappingURL=style.css.map */

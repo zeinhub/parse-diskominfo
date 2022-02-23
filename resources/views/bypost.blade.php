@@ -18,7 +18,8 @@ Author: {{$nama_author}}
 @section('content')
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Author: {{$nama_author}}</h2>
+        <h2 class="filter-title" style="margin-bottom: 0px;">Author: {{$nama_author}}</h2>
+        <h5 class=" filter-title" style="font-weight: lighter">{{ $artikel->total() }} berita</h5>
         <div class="row">
             <?php
             foreach ($artikel as $a) {
@@ -53,9 +54,9 @@ Author: {{$nama_author}}
                             </div>
                             <a href="{{route('postbycategory', ['kategori' => $a->kategori])}}" class="category">{{$a->kategori}}</a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="{{route('admin-berita', ['uuid' => $a->uuid])}}">{{$a->judul}}</a></div>
+                                <div class="title" title="{{$a->judul}}"><a href="{{route('admin-berita', ['uuid' => $a->uuid])}}">{{substr($a->judul, 0, 40)."... [Selengkapnya]"}}</a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="{{route('berita', ['uuid' => $a->uuid])}}">{{$a->judul}}</a></div>
+                                <div class="title" title="{{$a->judul}}"><a href="{{route('berita', ['uuid' => $a->uuid])}}">{{substr($a->judul, 0, 40)."... [Selengkapnya]"}}</a></div>
                             <?php } ?>
                         </div>
                     </div>

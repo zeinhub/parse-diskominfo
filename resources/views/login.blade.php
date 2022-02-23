@@ -62,7 +62,7 @@
                                 @if ($message = Session::get('error'))
                                 <div class="alert alert-danger alert-block">
                                     <button type="button" class="close" data-dismiss="alert">×</button>
-                                    <p style="margin-bottom: 0px;">{{ $message }}</p>
+                                    <p style="margin-bottom: 0px; font-size:small">{{ $message }}</p>
                                 </div>
                                 @endif
 
@@ -75,9 +75,6 @@
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Log In</button>
-                                    <!-- <a href="{{route('register')}}" class="btn btn-google btn-user btn-block">
-                                            Register
-                                        </a> -->
                                     {{-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> --}}

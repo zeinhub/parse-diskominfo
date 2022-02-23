@@ -3,6 +3,15 @@
 Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
+
+<link rel="stylesheet" href="<?php echo e(url('frontend/style/style.css')); ?>">
+
+<?php if($message = Session::get('success')): ?>
+<script>
+    alert(<?php echo json_encode($message); ?>);
+</script>
+<?php endif; ?>
+
 <div class="banner">
     <img src="<?php echo e(url('files/Banner.png')); ?>" alt="">
 </div>

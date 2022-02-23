@@ -13,11 +13,11 @@ Hasil Filter
 <hr>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
-<style>
+<!-- <style>
     .nav-search {
         display: none !important;
     }
-</style>
+</style> -->
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
         <div class="row">
@@ -69,9 +69,9 @@ Hasil Filter
     <br>
     <hr>
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Hasil Filter</h2>
-        <h5 class="filter-title">Hasil: <?php echo e($hasil->total()); ?> berita ditemukan</h5>
-        <div class="row">
+        <h2 class="filter-title" style="margin-bottom: 0px;">Hasil Filter</h2>
+        <h5 class="filter-title" style="font-weight: lighter"><?php echo e($hasil->total()); ?> berita ditemukan</h5>
+        <div class=" row">
             <?php
             foreach ($hasil as $h) {
                 $foto = DB::table('file')->where('artikel_id', $h->uuid)->where('jenis_file', "foto")->first();
@@ -97,9 +97,9 @@ Hasil Filter
                             </div>
                             <a href="<?php echo e(route('postbycategory', ['kategori' => $h->kategori])); ?>" class="category"><?php echo e($h->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('admin-berita', ['uuid' => $h->uuid])); ?>"><?php echo e($h->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($h->judul); ?>"><a href="<?php echo e(route('admin-berita', ['uuid' => $h->uuid])); ?>"><?php echo e(substr($h->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="<?php echo e(route('berita', ['uuid' => $h->uuid])); ?>"><?php echo e($h->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($h->judul); ?>"><a href="<?php echo e(route('berita', ['uuid' => $h->uuid])); ?>"><?php echo e(substr($h->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } ?>
                         </div>
                     </div>

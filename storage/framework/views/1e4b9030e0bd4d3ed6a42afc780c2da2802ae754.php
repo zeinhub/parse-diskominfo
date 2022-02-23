@@ -21,7 +21,8 @@ Author: <?php echo e($nama_author); ?>
 <?php $__env->startSection('content'); ?>
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Author: <?php echo e($nama_author); ?></h2>
+        <h2 class="filter-title" style="margin-bottom: 0px;">Author: <?php echo e($nama_author); ?></h2>
+        <h5 class=" filter-title" style="font-weight: lighter"><?php echo e($artikel->total()); ?> berita</h5>
         <div class="row">
             <?php
             foreach ($artikel as $a) {
@@ -48,9 +49,9 @@ Author: <?php echo e($nama_author); ?>
                             </div>
                             <a href="<?php echo e(route('postbycategory', ['kategori' => $a->kategori])); ?>" class="category"><?php echo e($a->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($a->judul); ?>"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e(substr($a->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($a->judul); ?>"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e(substr($a->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } ?>
                         </div>
                     </div>

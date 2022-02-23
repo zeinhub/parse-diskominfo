@@ -44,11 +44,19 @@ class AdminController extends Controller
         //pembuatan Uuid
         $id = Uuid::uuid1()->getHex();
 
-        $request->validate([
-            // 'foto' => 'required',
-            'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
-            'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac'
-        ]);
+        $request->validate(
+            [
+                'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
+                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac',
+                'link' => 'required|unique:artikel|url'
+
+            ],
+            [
+                'foto.*.mimes' => 'Input bukan file foto.',
+                'video.*.mimes' => 'Input bukan file video.',
+                'link.unique' => 'Link sudah diinput sebelumnya.'
+            ]
+        );
 
         //post Foto
         if ($request->hasfile('foto')) {
@@ -126,6 +134,19 @@ class AdminController extends Controller
 
     public function storeEdit($uuid, Request $request)
     {
+        $request->validate(
+            [
+                'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
+                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac',
+                'link' => 'required|url'
+
+            ],
+            [
+                'foto.*.mimes' => 'Input bukan file foto.',
+                'video.*.mimes' => 'Input bukan file video.',
+            ]
+        );
+
         $update = [
             'judul' => $request->judul,
             'link' => $request->link,
@@ -137,13 +158,6 @@ class AdminController extends Controller
         ];
 
         DB::table('artikel')->where('uuid', 'like', "%{$uuid}%")->update($update);
-
-        //Tambah Dokumentasi
-        $request->validate([
-            // 'foto' => 'required',
-            'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
-            'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac'
-        ]);
 
         //post Foto
         if ($request->hasfile('foto')) {

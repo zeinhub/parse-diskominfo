@@ -15,8 +15,8 @@ Kategori: {{ strtoUpper($kategori['kategori'])}}
 @section('content')
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Kategori: {{ $kategori['kategori'] }}
-        </h2>
+        <h2 class="filter-title" style="margin-bottom: 0px;">Kategori: {{ $kategori['kategori'] }}</h2>
+        <h5 class=" filter-title" style="font-weight: lighter">{{ $artikel->total() }} berita</h5>
         <div class="row">
             <?php
             foreach ($artikel as $a) {
@@ -51,9 +51,9 @@ Kategori: {{ strtoUpper($kategori['kategori'])}}
                             </div>
                             <a href="#" class="category">{{$a->kategori}}</a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="{{route('admin-berita', ['uuid' => $a->uuid])}}">{{$a->judul}}</a></div>
+                                <div class="title" title="{{$a->judul}}"><a href="{{route('admin-berita', ['uuid' => $a->uuid])}}">{{substr($a->judul, 0, 40)."... [Selengkapnya]"}}</a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="{{route('berita', ['uuid' => $a->uuid])}}">{{$a->judul}}</a></div>
+                                <div class="title" title="{{$a->judul}}"><a href="{{route('berita', ['uuid' => $a->uuid])}}">{{substr($a->judul, 0, 40)."... [Selengkapnya]"}}</a></div>
                             <?php } ?>
                         </div>
                     </div>

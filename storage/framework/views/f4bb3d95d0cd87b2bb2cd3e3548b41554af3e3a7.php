@@ -46,23 +46,14 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('files/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
-                                
-                                <?php if(count($errors) > 0): ?>
-                                <?php $errorr = []; ?>
-                                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php array_push($errorr, $error); ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                <!-- 
+                                <?php if($message = Session::get('error')): ?>
                                 <script>
-                                    alert(<?php echo json_encode($errorr); ?>);
+                                    alert(<?php echo json_encode($message); ?>);
                                 </script>
-                                <!-- <div class="alert alert-danger">
-                                    <ul>
-                                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <li><?php echo e($error); ?></li>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </ul>
-                                </div> -->
-                                <?php endif; ?>
+                                <?php endif; ?> -->
+
                                 <form class="user mx-auto" method="post" action="<?php echo e(route('actionregister')); ?>">
                                     <?php echo e(csrf_field()); ?>
 
@@ -71,9 +62,21 @@
                                     </div>
                                     <div class=" form-group">
                                         <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" value="<?php echo e(old('email')); ?>" required>
+                                        <?php if($errors->has('email')): ?>
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('email')); ?></p>
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
                                     <div class=" form-group">
                                         <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" value="<?php echo e(old('username')); ?>" required>
+                                        <?php if($errors->has('username')): ?>
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('username')); ?></p>
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
                                     <div class=" form-group">
                                         <select class="form-control form-control-lg" style="border-radius: 10rem; font-size: .8rem; color:grey; height: 3.2rem;" id="exampleInputEmail" name="role" value="<?php echo e(old('role')); ?>" required>
@@ -84,9 +87,21 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
+                                        <?php if($errors->has('password')): ?>
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('password')); ?></p>
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
+                                        <?php if($errors->has('confirmpassword')): ?>
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('confirmpassword')); ?></p>
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
                                     <br>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>

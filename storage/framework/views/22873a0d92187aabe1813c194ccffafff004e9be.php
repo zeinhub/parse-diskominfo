@@ -18,9 +18,8 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
 <?php $__env->startSection('content'); ?>
 <div class="filter-search">
     <div class="latest-upload-wrap pt-fs">
-        <h2 class="filter-title">Kategori: <?php echo e($kategori['kategori']); ?>
-
-        </h2>
+        <h2 class="filter-title" style="margin-bottom: 0px;">Kategori: <?php echo e($kategori['kategori']); ?></h2>
+        <h5 class=" filter-title" style="font-weight: lighter"><?php echo e($artikel->total()); ?> berita</h5>
         <div class="row">
             <?php
             foreach ($artikel as $a) {
@@ -47,9 +46,9 @@ Kategori: <?php echo e(strtoUpper($kategori['kategori'])); ?>
                             </div>
                             <a href="#" class="category"><?php echo e($a->kategori); ?></a>
                             <?php if (Auth::User()->role == "admin") { ?>
-                                <div class="title"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($a->judul); ?>"><a href="<?php echo e(route('admin-berita', ['uuid' => $a->uuid])); ?>"><?php echo e(substr($a->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } else { ?>
-                                <div class="title"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e($a->judul); ?></a></div>
+                                <div class="title" title="<?php echo e($a->judul); ?>"><a href="<?php echo e(route('berita', ['uuid' => $a->uuid])); ?>"><?php echo e(substr($a->judul, 0, 40)."... [Selengkapnya]"); ?></a></div>
                             <?php } ?>
                         </div>
                     </div>

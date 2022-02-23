@@ -3,6 +3,15 @@
 Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
 @endsection
 @section('content')
+
+<link rel="stylesheet" href="{{url('frontend/style/style.css')}}">
+
+@if ($message = Session::get('success'))
+<script>
+    alert(<?php echo json_encode($message); ?>);
+</script>
+@endif
+
 <div class="banner">
     <img src="{{url('files/Banner.png')}}" alt="">
 </div>

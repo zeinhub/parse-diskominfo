@@ -46,23 +46,14 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><img src="{{url('files/parse.png')}}" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
-                                {{-- menampilkan error validasi --}}
-                                @if (count($errors) > 0)
-                                <?php $errorr = []; ?>
-                                @foreach ($errors->all() as $error)
-                                <?php array_push($errorr, $error); ?>
-                                @endforeach
+
+                                <!-- {{-- menampilkan error validasi --}}
+                                @if ($message = Session::get('error'))
                                 <script>
-                                    alert(<?php echo json_encode($errorr); ?>);
+                                    alert(<?php echo json_encode($message); ?>);
                                 </script>
-                                <!-- <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div> -->
-                                @endif
+                                @endif -->
+
                                 <form class="user mx-auto" method="post" action="{{route('actionregister')}}">
                                     {{ csrf_field() }}
                                     <div class=" form-group">
@@ -70,9 +61,21 @@
                                     </div>
                                     <div class=" form-group">
                                         <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email" value="{{ old('email') }}" required>
+                                        @if ($errors->has('email'))
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('email') }}</p>
+                                        </div>
+                                        @endif
                                     </div>
                                     <div class=" form-group">
                                         <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Username" value="{{ old('username') }}" required>
+                                        @if ($errors->has('username'))
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('username') }}</p>
+                                        </div>
+                                        @endif
                                     </div>
                                     <div class=" form-group">
                                         <select class="form-control form-control-lg" style="border-radius: 10rem; font-size: .8rem; color:grey; height: 3.2rem;" id="exampleInputEmail" name="role" value="{{ old('role') }}" required>
@@ -83,9 +86,21 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>
+                                        @if ($errors->has('password'))
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('password') }}</p>
+                                        </div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="confirmpassword" placeholder="Confirm Password" required>
+                                        @if ($errors->has('confirmpassword'))
+                                        <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('confirmpassword') }}</p>
+                                        </div>
+                                        @endif
                                     </div>
                                     <br>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
