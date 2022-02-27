@@ -36,7 +36,7 @@ Unggah Dokumentasi
                     <input placeholder="Link" type="text" class="form-control" name="link" value="{{ old('link') }}" id="" required>
                     @if ($errors->has('link'))
                     <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('link') }}</p>
                     </div>
                     @endif
@@ -128,7 +128,7 @@ Unggah Dokumentasi
                 </div>
                 @if ($errors->has('foto.*'))
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('foto.*') }}</p>
                 </div>
                 @endif
@@ -140,7 +140,7 @@ Unggah Dokumentasi
                 </div>
                 @if ($errors->has('video.*'))
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     <p style="margin-bottom: 0px; font-size:small">{{ $errors->first('video.*') }}</p>
                 </div>
                 @endif

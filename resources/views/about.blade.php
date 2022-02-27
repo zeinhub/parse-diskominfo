@@ -30,7 +30,7 @@ about-body
 </style>
 <div class="about-page">
     <div class="container">
-        <div class="about-app">
+        <div class="about-app p-2">
             <div class="app-title">
                 <h1>Pusat Data dan Arsip Elektronik (PARSE)</h1>
                 <p>Dinas Komunikasi dan Informatika Kabupaten Tangerang</p>
@@ -58,45 +58,53 @@ about-body
                             Halo perkenalkan nama saya Awiez, saya merupakan front-end developer pada aplikasi PARSE ini. Saya ucapkan terimakasih kepada Diskominfo Kabupaten Tangerang terutama pada bidang IKP yang telah memberikan kesempatan PKL kepada saya dengan membuat aplikasi ini, semoga aplikasi ini dapat membantu memudahkan pekerjaan dalam menemukan file maupun dokumentasi yang dibutuhkan oleh IKP Diskominfo Kabupaten Tangerang.
                         </div>
                         <hr>
-                        <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">www.awiez.com</a> <br>
-                        <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">AWIEZ FATHWA ZEIN</a> <br>
-                        <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:awiezfathwa@gmail.com">awiezfathwa@gmail.com</a> <br>
+                        <div class="socmed">
+                            <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">www.awiez.com</a> <br>
+                            <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">AWIEZ FATHWA ZEIN</a> <br>
+                            <i class="fab fa-instagram"></i> &nbsp;<a href="https://instagram.com/awiez_zein">awiez_zein</a> <br>
+                            <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:awiezfathwa@gmail.com">awiezfathwa@gmail.com</a> <br>
+                        </div>
 
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="developer-profile">
                         <div class="developer-badge">Graphic Designer</div>
-                        <div class="developer-photo" style="background-image: url('{{url('frontend/assets/image/developer/awiez.png')}}');">
+                        <div class="developer-photo" style="background-image: url('{{url('frontend/assets/image/developer/micho.jpg')}}');">
                         </div>
-                        <div class="developer-name">Awiez Fathwa Zein</div>
-                        <div class="university">UIN Syarif Hidayatullah Jakarta</div>
+                        <div class="developer-name">Laurensius Micho Pratama</div>
+                        <div class="university">Universitas Multimedia Nusantara</div>
                         <div class="quote">"</div>
                         <div class="developer-desc">
-                            Halo perkenalkan nama saya Awiez, saya merupakan front-end developer pada aplikasi PARSE ini. Saya ucapkan terimakasih kepada Diskominfo Kabupaten Tangerang terutama pada bidang IKP yang telah memberikan kesempatan PKL kepada saya dengan membuat aplikasi ini, semoga aplikasi ini dapat membantu memudahkan pekerjaan dalam menemukan file maupun dokumentasi yang dibutuhkan oleh IKP Diskominfo Kabupaten Tangerang.
+                            Halo, perkenalkan nama saya Micho. Saya merupakan Perancang Grafis pada aplikasi PARSE ini. Saya sangat berterima kasih atas kesempatan berharga dan peluang yang telah diberikat atas kegiatan praktik kerja lapangan yang sudah dilalui. Semoga apa dengan aplikasi PARSE yang telah dirancang, dapat berfungsi dan memudahkan para pengguna aplikasi dalam melaksanakan tugasnya yaitu dengan menemukan dokumentasi maupun arsip dengan mudah.
                         </div>
                         <hr>
-                        <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">www.awiez.com</a> <br>
-                        <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">AWIEZ FATHWA ZEIN</a> <br>
-                        <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:awiezfathwa@gmail.com">awiezfathwa@gmail.com</a> <br>
+                        <div class="socmed">
+                            <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/laurensiusmichopratama/">Laurensius Micho Pratama</a> <br>
+                            <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:michopratama123@gmail.com">michopratama123@gmail.com</a> <br>
+                        
+                        </div>
 
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="developer-profile">
                         <div class="developer-badge">Backend Developer</div>
-                        <div class="developer-photo" style="background-image: url('{{url('frontend/assets/image/developer/awiez.png')}}');">
+                        <div class="developer-photo" style="background-image: url('{{url('frontend/assets/image/developer/sigit.jpg')}}');">
                         </div>
-                        <div class="developer-name">Awiez Fathwa Zein</div>
+                        <div style="font-size: 18px" class="developer-name">Muhammad Sigit Tri Pamungkas</div>
                         <div class="university">UIN Syarif Hidayatullah Jakarta</div>
                         <div class="quote">"</div>
                         <div class="developer-desc">
-                            Halo perkenalkan nama saya Awiez, saya merupakan front-end developer pada aplikasi PARSE ini. Saya ucapkan terimakasih kepada Diskominfo Kabupaten Tangerang terutama pada bidang IKP yang telah memberikan kesempatan PKL kepada saya dengan membuat aplikasi ini, semoga aplikasi ini dapat membantu memudahkan pekerjaan dalam menemukan file maupun dokumentasi yang dibutuhkan oleh IKP Diskominfo Kabupaten Tangerang.
+                            Halo, perkenalkan nama saya Sigit, saya merupakan back-end developer pada aplikasi PARSE ini. Saya ingin berterima kasih kepada Diskominfo Kabupaten Tangerang terutama pada bidang IKP karena telah memberikan kesempatan untuk saya melaksanakan PKL disini sehingga saya dapat meningkatkan kemampuan dan menambah pengalaman tentunya. Semoga dengan adanya aplikasi ini dapat membantu mengelola file ataupun dokumentasi yang diperlukan oleh IKP Diskominfo Kabupaten Tangerang.
                         </div>
                         <hr>
-                        <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">www.awiez.com</a> <br>
-                        <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">AWIEZ FATHWA ZEIN</a> <br>
-                        <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:awiezfathwa@gmail.com">awiezfathwa@gmail.com</a> <br>
+                        <div class="socmed">
+                            <i class="fab fa-edge"></i> &nbsp;<a href="https://awiez.com">github.com/msigit26</a> <br>
+                            <i class="fab fa-linkedin"></i> &nbsp;<a href="https://www.linkedin.com/in/awiez-fathwa-zein-025b331b0/">Muhammad Sigit Tri Pamungkas</a> <br>
+                            <i class="fab fa-instagram"></i> &nbsp;<a href="https://instagram.com/msigit26">msigit26</a> <br>
+                            <i class="fas fa-envelope"></i> &nbsp;<a href="mailto:sigittri2602@gmail.com">sigittri2602@gmail.com</a> <br>
+                        </div>
 
                     </div>
                 </div>

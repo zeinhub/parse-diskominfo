@@ -20,8 +20,8 @@
             foreach (json_decode($data)->category as $area) {
 
             ?>
-                <div class="col">
-                    <a href="{{route('postbycategory', ['kategori' => $area->category])}}" class="category-box">
+                <div class="col-lg-4 col-sm-12">
+                    <a href="{{route('postbycategory', ['kategori' => $area->category])}}" class="category-box pt-4">
                         {{$area->category}}
                         <?php
                                 $jmlpost = DB::table('artikel')
