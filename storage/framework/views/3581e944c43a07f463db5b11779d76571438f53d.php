@@ -60,12 +60,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="<?php echo e(route('logout')); ?>">Logout</a></li>
-            <?php if (Auth::User()->role == "user") { ?>
+            <!-- <?php if (Auth::User()->role == "user") { ?>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="#">Hapus Akun?</a></li>
-            <?php } ?>
+            <?php } ?> -->
           </ul>
         </li>
       </ul>

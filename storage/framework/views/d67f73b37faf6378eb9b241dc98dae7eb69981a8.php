@@ -16,6 +16,13 @@
 <hr>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
+
+<?php if($message = Session::get('success')): ?>
+<script>
+  alert(<?php echo json_encode($message); ?>);
+</script>
+<?php endif; ?>
+
 <div id="page-content" class="post">
   <div class="post-title-heading"><?php echo e($artikel->judul); ?></div>
   <div class="row">
@@ -134,7 +141,13 @@
         <img src="<?php echo e(url('files/', $f->nama_file)); ?>" alt="">
       </div>
       <div class="modal-footer">
-        <a href="<?php echo e(route('download', ['uuid' => $artikel->uuid, 'id' => $f->id])); ?>" class="btn btn-success">Unduh</a>
+        <?php if (Auth::User()->role == "admin") {
+          $route = route('download', ['uuid' => $artikel->uuid, 'id' => $f->id]);
+        } else {
+          $route = route('user-download', ['uuid' => $artikel->uuid, 'id' => $f->id]);
+        }
+        ?>
+        <a href="<?php echo e($route); ?>" class="btn btn-success">Unduh</a>
       </div>
     </div>
   </div>

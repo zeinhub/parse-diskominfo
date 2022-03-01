@@ -36,7 +36,7 @@
                         <!-- Nested Row within Card Body -->
                         {{-- <div class="row"> --}}
                         <style>
-                            .row{
+                            .row {
                                 margin-top: 30px
                             }
                         </style>
@@ -130,7 +130,7 @@
             </div>
 
         </div>
-        <div class="fixed-bottom">
+        <div class="bottom">
             <p style="color: white; font-weight: 600;" class="text-center">
                 PARSE - Pusat Data dan Arsip Elektronik &copy;<?php echo date(" Y") ?> <br>
                 Dinas Komunikasi dan Informatika (DISKOMINFO) Kabupaten Tangerang

@@ -120,10 +120,7 @@ class HomeController extends Controller
         $files = File::where('artikel_id', $uuid)->get();
         return view('post', ['artikel' => $artikel, 'files' => $files]);
     }
-    // public function hasilFilter()
-    // {
-    //     return view('hasil-filter');
-    // }
+
     public function cariFilter(request $request)
     {
         $filter = array(

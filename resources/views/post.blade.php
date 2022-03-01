@@ -13,6 +13,13 @@
 <hr>
 @endsection
 @section('content')
+
+@if ($message = Session::get('success'))
+<script>
+  alert(<?php echo json_encode($message); ?>);
+</script>
+@endif
+
 <div id="page-content" class="post">
   <div class="post-title-heading">{{$artikel->judul}}</div>
   <div class="row">
@@ -142,7 +149,13 @@
         <img src="{{url('files/', $f->nama_file)}}" alt="">
       </div>
       <div class="modal-footer">
-        <a href="{{route('download', ['uuid' => $artikel->uuid, 'id' => $f->id])}}" class="btn btn-success">Unduh</a>
+        <?php if (Auth::User()->role == "admin") {
+          $route = route('download', ['uuid' => $artikel->uuid, 'id' => $f->id]);
+        } else {
+          $route = route('user-download', ['uuid' => $artikel->uuid, 'id' => $f->id]);
+        }
+        ?>
+        <a href="{{$route}}" class="btn btn-success">Unduh</a>
       </div>
     </div>
   </div>

@@ -1,6 +1,9 @@
 
 <?php $__env->startSection('addon-script-top'); ?>
 <script src="https://cdn.tiny.cloud/1/g30aj0fetx2ms7ttb105k6vsyqvgclb7sfxpk92vzasxp45g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script>
     tinymce.init({
         selector: '#isi'
@@ -37,7 +40,7 @@ Unggah Dokumentasi
                     <input placeholder="Link" type="text" class="form-control" name="link" value="<?php echo e(old('link')); ?>" id="" required>
                     <?php if($errors->has('link')): ?>
                     <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('link')); ?></p>
                     </div>
                     <?php endif; ?>
@@ -129,7 +132,7 @@ Unggah Dokumentasi
                 </div>
                 <?php if($errors->has('foto.*')): ?>
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('foto.*')); ?></p>
                 </div>
                 <?php endif; ?>
@@ -141,18 +144,17 @@ Unggah Dokumentasi
                 </div>
                 <?php if($errors->has('video.*')): ?>
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('video.*')); ?></p>
                 </div>
                 <?php endif; ?>
             </div>
-            <!-- <div class="col-12">
-                <div class="form-group">
-                    <label for="isi">Artikel</label>
 
-                    <textarea id="isi" class="form-control" type="text" name="artikel" placeholder="Isi"></textarea>
+            <div class="col-12 mt-3">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
                 </div>
-            </div> -->
+            </div>
             <div class="col-12">
                 <div class="form-group">
                     <br>
@@ -163,7 +165,7 @@ Unggah Dokumentasi
             </div>
         </div>
     </form>
-    <script>
+    <!-- <script>
         function sukses() {
             Swal.fire(
                 'Sukses!',
@@ -171,6 +173,30 @@ Unggah Dokumentasi
                 'success'
             )
         }
+    </script> -->
+    <script>
+        $(document).ready(function() {
+            $('form').ajaxForm({
+                beforeSend: function() {
+                    $('#success').empty();
+                    $('.progress-bar').text('0%');
+                    $('.progress-bar').css('width', '0%');
+                },
+                uploadProgress: function(event, position, total, percentComplete) {
+                    $('.progress-bar').text(percentComplete + '0%');
+                    $('.progress-bar').css('width', percentComplete + '0%');
+                },
+                success: function(data) {
+                    if (data.success) {
+                        $('#success').html('<div class="text-success text-center"><b>' + data.success + '</b></div><br /><br />');
+                        $('#success').append(data.image);
+                        $('.progress-bar').text('Uploaded');
+                        $('.progress-bar').css('width', '100%');
+                        return redirect(route('adminhome'));
+                    }
+                }
+            });
+        });
     </script>
 </div>
 <?php $__env->stopSection(); ?>

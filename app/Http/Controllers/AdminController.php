@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File as Files;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -116,7 +117,8 @@ class AdminController extends Controller
             'dinas' => $request->dinas,
         ]);
 
-        return redirect(route('adminhome'));
+        Session::flash('success', 'Upload Data Berhasil');
+        // return redirect(route('adminhome'));
     }
 
     public function editData($uuid)
@@ -199,6 +201,7 @@ class AdminController extends Controller
             File::insert($files);
         }
 
+        Session::flash('success', 'Edit Data Berhasil');
         return redirect(route('admin-berita', ['uuid' => $uuid]));
     }
 

@@ -24,26 +24,28 @@
 
 <body style="background-image: url('{{url('files/kantor.jpeg')}}'); background-size: cover;" class="bg-gradient-primary">
     <style>
-        button{
+        button {
             margin: 50px 0px 0px 0px;
         }
-        .margin-card{
+
+        .margin-card {
             margin-top: 100px;
         }
-        .card{
+
+        .card {
             /* background-color: rgba(177, 177, 177, 0.8); */
         }
     </style>
     <div class="container">
 
         <!-- Outer Row -->
-        <div  class="row justify-content-center margin-card">
+        <div class="row justify-content-center margin-card">
 
             <div class="col-xl-6 col-lg-5 col-md-9">
 
-                <div class="card border-0 o-hidden shadow-lg my-5">
+                <div class="card border-0 o-hidden shadow-lg">
                     <!-- <div class="card o-hidden border-0 shadow-lg my-5"> -->
-                    <div  class="card-body p-0">
+                    <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <!-- <div class="row"> -->
                         <style>
@@ -104,7 +106,7 @@
         </div>
 
     </div>
-    <div class="fixed-bottom">
+    <div class="bottom mt-5">
         <p style="color: white; font-weight: 600;" class="text-center">
             PARSE - Pusat Data dan Arsip Elektronik &copy;<?php echo date(" Y") ?> <br>
             Dinas Komunikasi dan Informatika (DISKOMINFO) Kabupaten Tangerang
