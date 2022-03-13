@@ -82,7 +82,7 @@ Hasil Filter
                             <?php if (is_object($foto)) { ?>
                                 <div loading="lazy" style="background-image:url('<?php echo e(url('files/', $foto->nama_file)); ?>');" class="post-thumbnail"></div>
                             <?php } else { ?>
-                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/kosong.png')); ?>');" class="post-thumbnail"></div>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('frontend/assets/image/kosong.png')); ?>');" class="post-thumbnail"></div>
                             <?php } ?>
                             <div class="info">
                                 <div class="row">

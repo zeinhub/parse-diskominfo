@@ -24,14 +24,14 @@
                     <a href="{{route('postbycategory', ['kategori' => $area->category])}}" class="category-box pt-4">
                         {{$area->category}}
                         <?php
-                                $jmlpost = DB::table('artikel')
-                                    ->where('kategori', $area->category)
-                                    ->count();
-                                ?>
-                                <?= "(".$jmlpost.")"?>
-                        
+                        $jmlpost = DB::table('artikel')
+                            ->where('kategori', $area->category)
+                            ->count();
+                        ?>
+                        <?= "(" . $jmlpost . ")" ?>
+
                     </a>
-                    
+
                 </div>
             <?php
             }

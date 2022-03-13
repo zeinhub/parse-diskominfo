@@ -161,12 +161,12 @@ Ubah Data
             <h5 class="mt-4">Hapus Dokumentasi</h5>
             <!--             <a onclick="per()" class=" btn btn-outline-danger">tombol alert</a>
  -->
-            <div class="col-10 mx-auto">
-                <table class="table">
+            <div class="col-10 mx-auto" style="overflow-x: auto;">
+                <table class="table" style="width: 100%;">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th width="400px" scope="col">File</th>
+                            <th scope="col">File</th>
                             <!--kecilin row-->
                             <th scope="col">Preview</th>
                             <th scope="col">Aksi</th>

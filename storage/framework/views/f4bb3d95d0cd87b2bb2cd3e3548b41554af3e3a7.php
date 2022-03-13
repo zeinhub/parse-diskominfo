@@ -22,7 +22,7 @@
 
 </head>
 
-<body style="background-image: url('<?php echo e(url('files/kantor.jpeg')); ?>');" class="bg-gradient-primary">
+<body style="background-image: url('<?php echo e(url('frontend/assets/image/kantor.jpeg')); ?>');" class="bg-gradient-primary">
 
     <div class="container">
 
@@ -44,7 +44,7 @@
                         <div class="col">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('files/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Register</h1>
+                                    <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('frontend/assets/image/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
 
                                 <!-- 

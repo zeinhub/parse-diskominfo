@@ -137,7 +137,7 @@ class HomeController extends Controller
             ->where('wilayah', 'like', "%{$request->wilayah}%")
             ->where('dinas', 'like', "%{$request->dinas}%")
             ->orderByDesc('created_at')
-            ->paginate(2)->withQueryString();
+            ->paginate(9)->withQueryString();
 
         return view('hasil-filter', ['hasil' => $hasil, 'filter' => $filter]);
     }
@@ -150,7 +150,7 @@ class HomeController extends Controller
         $hasil = DB::table('artikel')
             ->where('judul', 'like', "%{$request->judul}%")
             ->orderByDesc('created_at')
-            ->paginate(2)->withQueryString();
+            ->paginate(9)->withQueryString();
 
         return view('hasil-pencarian', ['hasil' => $hasil, 'judulhalaman' => $judulhalaman]);
     }

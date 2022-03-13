@@ -8,9 +8,9 @@ Author: {{$nama_author}}
 @section('breadcrumb')
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
-        <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a href="#">Penulis</a> &nbsp;/&nbsp; <a>{{ strtoUpper($nama_author)}}
+        <a href="{{route('adminhome')}}">Home</a> &nbsp;/&nbsp;<a>Penulis</a> &nbsp;/&nbsp; <a>{{ strtoUpper($nama_author)}}
         <?php } else { ?>
-            <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a href="#">Penulis</a> &nbsp;/&nbsp; <a>{{ strtoUpper($nama_author)}}
+            <a href="{{route('home')}}">Home</a> &nbsp;/&nbsp;<a>Penulis</a> &nbsp;/&nbsp; <a>{{ strtoUpper($nama_author)}}
             <?php } ?>
 </div>
 <hr>
@@ -31,7 +31,7 @@ Author: {{$nama_author}}
                             <?php if (is_object($foto)) { ?>
                                 <div loading="lazy" style="background-image:url('{{url('files/', $foto->nama_file)}}');" class="post-thumbnail"></div>
                             <?php } else { ?>
-                                <div loading="lazy" style="background-image:url('{{url('files/kosong.png')}}');" class="post-thumbnail"></div>
+                                <div loading="lazy" style="background-image:url('{{url('frontend/assets/image/kosong.png')}}');" class="post-thumbnail"></div>
                             <?php } ?>
                             <div class="info">
                                 <div class="row">

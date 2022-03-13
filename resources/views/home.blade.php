@@ -1,6 +1,6 @@
 @extends('app')
 @section('title')
-Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
+Selamat Datang - Pusat Data dan Arsip Elektronik (PARSE) Diskominfo Kabupaten Tangerang
 @endsection
 @section('content')
 
@@ -13,7 +13,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
 @endif
 
 <div class="banner">
-    <img src="{{url('files/Banner.png')}}" alt="">
+    <img src="{{url('frontend/assets/image/banner.png')}}" alt="">
 </div>
 <div class="latest-upload-wrap">
     <div class="row">
@@ -37,7 +37,7 @@ Selamat Datang - Press Release Diskominfo Kabupaten Tangerang
                             <?php if (is_object($foto)) { ?>
                                 <div loading="lazy" style="background-image:url('{{url('files/', $foto->nama_file)}}');" class="post-thumbnail"></div>
                             <?php } else { ?>
-                                <div loading="lazy" style="background-image:url('{{url('files/kosong.png')}}');" class="post-thumbnail"></div>
+                                <div loading="lazy" style="background-image:url('{{url('frontend/assets/image/kosong.png')}}');" class="post-thumbnail"></div>
                             <?php } ?>
                             <div class="info">
                                 <div class="row">

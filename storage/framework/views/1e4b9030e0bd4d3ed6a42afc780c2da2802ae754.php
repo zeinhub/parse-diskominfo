@@ -9,10 +9,10 @@ Author: <?php echo e($nama_author); ?>
 <?php $__env->startSection('breadcrumb'); ?>
 <div class="breadcrumb">
     <?php if (Auth::User()->role == "admin") { ?>
-        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Penulis</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($nama_author)); ?>
+        <a href="<?php echo e(route('adminhome')); ?>">Home</a> &nbsp;/&nbsp;<a>Penulis</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($nama_author)); ?>
 
         <?php } else { ?>
-            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a href="#">Penulis</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($nama_author)); ?>
+            <a href="<?php echo e(route('home')); ?>">Home</a> &nbsp;/&nbsp;<a>Penulis</a> &nbsp;/&nbsp; <a><?php echo e(strtoUpper($nama_author)); ?>
 
             <?php } ?>
 </div>
@@ -34,7 +34,7 @@ Author: <?php echo e($nama_author); ?>
                             <?php if (is_object($foto)) { ?>
                                 <div loading="lazy" style="background-image:url('<?php echo e(url('files/', $foto->nama_file)); ?>');" class="post-thumbnail"></div>
                             <?php } else { ?>
-                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/kosong.png')); ?>');" class="post-thumbnail"></div>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('frontend/assets/image/kosong.png')); ?>');" class="post-thumbnail"></div>
                             <?php } ?>
                             <div class="info">
                                 <div class="row">

@@ -104,7 +104,7 @@ class AdminController extends Controller
             File::insert($files);
         }
 
-        //post artikel
+        // post artikel
         Artikel::create([
             'uuid' => $id,
             'username' => Auth::user()->username,
@@ -117,8 +117,12 @@ class AdminController extends Controller
             'dinas' => $request->dinas,
         ]);
 
+        // $output = array(
+        //     'success' => 'Sukses',
+        // );
         Session::flash('success', 'Upload Data Berhasil');
-        // return redirect(route('adminhome'));
+        // return response()->json($output);
+        return redirect(route('adminhome'));
     }
 
     public function editData($uuid)

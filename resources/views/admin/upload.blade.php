@@ -1,14 +1,6 @@
 @extends('app')
 @section('addon-script-top')
-<script src="https://cdn.tiny.cloud/1/g30aj0fetx2ms7ttb105k6vsyqvgclb7sfxpk92vzasxp45g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script>
-    tinymce.init({
-        selector: '#isi'
-    });
-</script>
 @endsection
 @section('title')
 Unggah Dokumentasi
@@ -24,7 +16,7 @@ Unggah Dokumentasi
     <h2>
         Input Data
     </h2>
-    <form method="post" action="{{route('store-file')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('store-file')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-12">
@@ -150,51 +142,52 @@ Unggah Dokumentasi
             </div>
             <div class="col-12 mt-3">
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+                    <!-- <div class="percent">0%</div> -->
                 </div>
+                <!-- <div class="progress">
+                    <div class="bar"></div>
+                    <div class="percent">0%</div>
+                </div>
+                <div id="status"></div> -->
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <br>
                     <div class="d-grid gap-2">
-                        <button onclick="sukses()" class="btn btn-primary">Simpan Data</button>
+                        <button class="btn btn-primary" type="submit" value="submit">Simpan Data</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <!-- <script>
-        function sukses() {
-            Swal.fire(
-                'Sukses!',
-                'Data berhasil disimpan!',
-                'success'
-            )
-        }
-    </script> -->
-    <script>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+<script script script type="text/javascript">
+    var SITEURL = "{{URL('/')}}";
+    $(function() {
         $(document).ready(function() {
+            var bar = $('.progress-bar');
+            var percent = $('.progress-bar');
             $('form').ajaxForm({
                 beforeSend: function() {
-                    $('#success').empty();
-                    $('.progress-bar').text('0%');
-                    $('.progress-bar').css('width', '0%');
+                    var percentVal = '0%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
                 },
                 uploadProgress: function(event, position, total, percentComplete) {
-                    $('.progress-bar').text(percentComplete + '0%');
-                    $('.progress-bar').css('width', percentComplete + '0%');
+                    var percentVal = percentComplete + '%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
                 },
-                success: function(data) {
-                    if (data.success) {
-                        $('#success').html('<div class="text-success text-center"><b>' + data.success + '</b></div><br /><br />');
-                        $('#success').append(data.image);
-                        $('.progress-bar').text('Uploaded');
-                        $('.progress-bar').css('width', '100%');
-                        return redirect(route('adminhome'));
-                    }
+                complete: function(xhr) {
+                    alert('File Has Been Uploaded Successfully');
+                    window.location.href = SITEURL + "/" + "admin/home";
                 }
             });
         });
-    </script>
-</div>
+    });
+</script>
 @endsection
