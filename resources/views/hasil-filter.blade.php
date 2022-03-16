@@ -24,12 +24,6 @@ Hasil Filter
             <div class="col">
                 <h2 class="filter-title">Filter</h2>
             </div>
-            <!-- <div class="col">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
-            </div> -->
         </div>
         <div class="filter-box">
             <div class="row">

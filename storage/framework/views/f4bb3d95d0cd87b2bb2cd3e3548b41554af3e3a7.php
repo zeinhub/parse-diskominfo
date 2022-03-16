@@ -47,13 +47,6 @@
                                     <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('frontend/assets/image/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
 
-                                <!-- 
-                                <?php if($message = Session::get('error')): ?>
-                                <script>
-                                    alert(<?php echo json_encode($message); ?>);
-                                </script>
-                                <?php endif; ?> -->
-
                                 <form class="user mx-auto" method="post" action="<?php echo e(route('actionregister')); ?>">
                                     <?php echo e(csrf_field()); ?>
 

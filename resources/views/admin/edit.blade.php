@@ -119,18 +119,6 @@ Ubah Data
                     </datalist>
                 </div>
             </div>
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="hasil">Hasil</label>
-                    <input class="form-control" type="text" placeholder="Hasil">
-                </div>
-            </div> -->
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="featured-image">Featured Image</label>
-                    <input class="form-control" type="file" name="foto_utama" placeholder="Hasil">
-                </div>
-            </div> -->
             <br>
             <h5 class="mt-4">Tambah Dokumentasi</h5>
 
@@ -159,8 +147,6 @@ Ubah Data
                 </div>
             </div>
             <h5 class="mt-4">Hapus Dokumentasi</h5>
-            <!--             <a onclick="per()" class=" btn btn-outline-danger">tombol alert</a>
- -->
             <div class="col-10 mx-auto" style="overflow-x: auto;">
                 <table class="table" style="width: 100%;">
                     <thead>
@@ -176,7 +162,6 @@ Ubah Data
                         <?php
                         $no = 1;
                         foreach ($files as $f) {
-                            // if ($f->jenis_file == "foto") { 
                         ?>
                             <tr id="sid{{$f->id}}">
                                 <th scope="row">{{$no}}</th>
@@ -194,20 +179,12 @@ Ubah Data
                                 <td><a href="javascript:void(0)" onclick="deleteDokumentasi({{$f->id}})" class=" btn btn-outline-danger">Hapus</a></td>
                             </tr>
                         <?php
-                            // }
                             $no++;
                         }
                         ?>
                     </tbody>
                 </table>
             </div>
-            <!-- <div class="col-12">
-                <div class="form-group">
-                    <label for="isi">Artikel</label>
-
-                    <textarea id="isi" class="form-control" type="text" name="artikel" placeholder="Isi"></textarea>
-                </div>
-            </div> -->
             <div class="col-12">
                 <div class="form-group">
                     <br>
@@ -239,43 +216,6 @@ Ubah Data
                 'success'
             )
         }
-
-
-        // $(document).ready(function() {
-
-        //     $("body").on("click", "#deleteCompany", function(e) {
-
-        //         if (!confirm("Do you really want to do this?")) {
-        //             return false;
-        //         }
-
-        //         e.preventDefault();
-        //         var id = $(this).data("id");
-        //         // var id = $(this).attr('data-id');
-        //         var token = $("meta[name='csrf-token']").attr("content");
-        //         var url = e.target;
-
-        //         $.ajax({
-        //             url: '/admin/delete-dokumentasi/'+ id, //or you can use url: "company/"+id,
-        //             type: 'DELETE',
-        //             data: {
-        //                 _token: token,
-        //                 id: id
-        //             },
-        //             success: function(response) {
-
-        //                 $("#success").html(response.message)
-
-        //                 Swal.fire(
-        //                     'Remind!',
-        //                     'Company deleted successfully!',
-        //                     'success'
-        //                 )
-        //             }
-        //         });
-        //         return false;
-        //     });
-        // });
     </script>
 
     <script>

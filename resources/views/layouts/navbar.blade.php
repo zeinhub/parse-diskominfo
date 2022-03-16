@@ -1,7 +1,7 @@
 <div class="navbar-line"></div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#"><img width="40px" src="{{url('frontend/assets/image/parse.png')}}" alt=""></a>
+    <a class="navbar-brand" href="/"><img width="40px" src="{{url('frontend/assets/image/parse.png')}}" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -59,39 +59,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
-            <!-- <?php if (Auth::User()->role == "user") { ?>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Hapus Akun?</a></li>
-            <?php } ?> -->
           </ul>
         </li>
       </ul>
-      <!-- {{-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Upload
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <div class="dropdown-item">
-                  <a class="nav-link" href="{{route('upload-data')}}">Upload Data</a>
-    </div>
-    </li>
-    <li>
-      <hr class="dropdown-divider">
-    </li>
-    <li>
-      <div class="dropdown-item">
-        <a class="nav-link" href="{{route('upload-file')}}">Upload Dokumentasi</a>
-      </div>
-    </li>
-    <li>
-      <hr class="dropdown-divider">
-    </li>
-    </ul>
-    </li> --}} -->
-
     </div>
   </div>
 </nav>

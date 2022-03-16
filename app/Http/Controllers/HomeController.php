@@ -189,9 +189,6 @@ class HomeController extends Controller
     }
     public function allcategory()
     {
-        // $artikel = DB::table('artikel')
-        //     ->paginate(9);
-        //     ->pluck('kategori');
         return view('allcategory');
     }
 }

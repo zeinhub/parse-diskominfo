@@ -47,13 +47,6 @@
                                     <h1 class="h4 text-gray-900 mb-4"><img src="{{url('frontend/assets/image/parse.png')}}" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
 
-                                <!-- {{-- menampilkan error validasi --}}
-                                @if ($message = Session::get('error'))
-                                <script>
-                                    alert(<?php echo json_encode($message); ?>);
-                                </script>
-                                @endif -->
-
                                 <form class="user mx-auto" method="post" action="{{route('actionregister')}}">
                                     {{ csrf_field() }}
                                     <div class=" form-group">

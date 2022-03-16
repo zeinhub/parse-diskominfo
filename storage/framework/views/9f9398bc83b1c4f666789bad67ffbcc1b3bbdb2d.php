@@ -51,20 +51,8 @@
                         <style>
                             .bg-login-image {
                                 padding: 30px;
-
                             }
-
-                            /* .bg-login-image img {
-                                width: 80%;
-                            }
-
-                            form {
-                                height: 300px;
-                            } */
                         </style>
-                        <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img src="<?php echo e(url('files/parse.png')); ?>" alt="">
-                            </div> -->
                         <div class="col">
                             <div class="p-5">
                                 <div class="text-center">
@@ -72,7 +60,7 @@
                                 </div>
 
                                 <?php if($message = Session::get('error')): ?>
-                                <div class="alert alert-danger alert-block">
+                                <div class="alert alert-danger alert-block" style="margin-top: 16px;">
                                     <button type="button" class="close" data-dismiss="alert">×</button>
                                     <p style="margin-bottom: 0px; font-size:small"><?php echo e($message); ?></p>
                                 </div>

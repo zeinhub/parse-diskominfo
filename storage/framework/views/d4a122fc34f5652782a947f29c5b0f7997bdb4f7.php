@@ -105,18 +105,6 @@ Unggah Dokumentasi
                     </datalist>
                 </div>
             </div>
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="hasil">Hasil</label>
-                    <input class="form-control" type="text" placeholder="Hasil">
-                </div>
-            </div> -->
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="featured-image">Featured Image</label>
-                    <input class="form-control" type="file" name="foto_utama" placeholder="Hasil">
-                </div>
-            </div> -->
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Foto</label>
@@ -141,17 +129,6 @@ Unggah Dokumentasi
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-12 mt-3">
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
-                    <!-- <div class="percent">0%</div> -->
-                </div>
-                <!-- <div class="progress">
-                    <div class="bar"></div>
-                    <div class="percent">0%</div>
-                </div>
-                <div id="status"></div> -->
-            </div>
             <div class="col-12">
                 <div class="form-group">
                     <br>
@@ -163,33 +140,5 @@ Unggah Dokumentasi
         </div>
     </form>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-<script script script type="text/javascript">
-    var SITEURL = "<?php echo e(URL('/')); ?>";
-    $(function() {
-        $(document).ready(function() {
-            var bar = $('.progress-bar');
-            var percent = $('.progress-bar');
-            $('form').ajaxForm({
-                beforeSend: function() {
-                    var percentVal = '0%';
-                    bar.width(percentVal)
-                    percent.html(percentVal);
-                },
-                uploadProgress: function(event, position, total, percentComplete) {
-                    var percentVal = percentComplete + '%';
-                    bar.width(percentVal)
-                    percent.html(percentVal);
-                },
-                complete: function(xhr) {
-                    alert('File Has Been Uploaded Successfully');
-                    window.location.href = SITEURL + "/" + "admin/home";
-                }
-            });
-        });
-    });
-</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/admin/upload.blade.php ENDPATH**/ ?>

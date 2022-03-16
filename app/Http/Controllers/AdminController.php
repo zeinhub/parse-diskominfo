@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// require 'vendor/autoload.php';
-
 use Illuminate\Http\Request;
 use App\Models\Artikel;
 use App\Models\File;
@@ -61,7 +59,6 @@ class AdminController extends Controller
 
         //post Foto
         if ($request->hasfile('foto')) {
-            // return redirect(route('statistic'));
             $files = [];
             foreach ($request->file('foto') as $file) {
                 if ($file->isValid()) {
@@ -79,14 +76,8 @@ class AdminController extends Controller
             File::insert($files);
         }
 
-        // $request->validate([
-        //     // 'video' => 'required',
-        //     'video.*' => 'mimes:txt,odt,html,latex,mdb,doc,docx,xls,xlsx,ppt,pptx,PDF,pdf,jpg,jpeg,png,GIF,TIFF,psd,RAW,exif,SVG,AI,AVI,mp3,MP3,mp4,MP4,MPG,WEBM,MKV,GIFV,WMV,cdr'
-        // ]);
-
         //post Video
         if ($request->hasfile('video')) {
-            // return redirect(route('logout'));
             $files = [];
             foreach ($request->file('video') as $file) {
                 if ($file->isValid()) {
@@ -117,11 +108,7 @@ class AdminController extends Controller
             'dinas' => $request->dinas,
         ]);
 
-        // $output = array(
-        //     'success' => 'Sukses',
-        // );
         Session::flash('success', 'Upload Data Berhasil');
-        // return response()->json($output);
         return redirect(route('adminhome'));
     }
 
@@ -167,7 +154,6 @@ class AdminController extends Controller
 
         //post Foto
         if ($request->hasfile('foto')) {
-            // return redirect(route('statistic'));
             $files = [];
             foreach ($request->file('foto') as $file) {
                 if ($file->isValid()) {
@@ -187,7 +173,6 @@ class AdminController extends Controller
 
         //post Video
         if ($request->hasfile('video')) {
-            // return redirect(route('logout'));
             $files = [];
             foreach ($request->file('video') as $file) {
                 if ($file->isValid()) {
@@ -214,11 +199,6 @@ class AdminController extends Controller
         $gambar = File::find($id);
         File::find($id)->delete($id);
         Files::delete('files/' . $gambar->nama_file);
-
-
-        // return response()->json([
-        //     'success' => 'Record deleted successfully!'
-        // ]);
     }
 
     public function download($uuid, $id)

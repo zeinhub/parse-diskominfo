@@ -63,9 +63,6 @@
     $i = 0;
     foreach ($response_dataa->articles as $key) {
     ?>
-      <?php
-      // if ($i < 5) { 
-      ?>
       <div class="row">
         <div class="col-2">
           <span class="news-number">#<?= $i + 1 ?></span>
@@ -78,7 +75,6 @@
         <div class="sidebar-divider"></div>
       </div>
       <?php
-      // } 
       $i++;
       ?>
     <?php
