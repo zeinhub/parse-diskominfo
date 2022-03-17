@@ -61,7 +61,7 @@
 
                                 @if ($message = Session::get('error'))
                                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <button type="button" class="close m-0" data-dismiss="alert">×</button>
                                     <p style="margin-bottom: 0px; font-size:small">{{ $message }}</p>
                                 </div>
                                 @endif
