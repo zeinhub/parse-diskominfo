@@ -119,7 +119,7 @@ Unggah Dokumentasi
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Video</label>
-                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
+                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*, .mkv" multiple>
                 </div>
                 @if ($errors->has('video.*'))
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">

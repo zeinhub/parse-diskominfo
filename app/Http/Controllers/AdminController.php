@@ -46,7 +46,7 @@ class AdminController extends Controller
         $request->validate(
             [
                 'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
-                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac',
+                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac,mkv',
                 'link' => 'required|unique:artikel|url'
 
             ],
@@ -130,7 +130,7 @@ class AdminController extends Controller
         $request->validate(
             [
                 'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
-                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac',
+                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac,mkv',
                 'link' => 'required|url'
 
             ],
