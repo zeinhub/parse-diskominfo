@@ -24,12 +24,6 @@ Hasil Filter
             <div class="col">
                 <h2 class="filter-title">Filter</h2>
             </div>
-            <!-- <div class="col">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
-            </div> -->
         </div>
         <div class="filter-box">
             <div class="row">
@@ -82,7 +76,7 @@ Hasil Filter
                             <?php if (is_object($foto)) { ?>
                                 <div loading="lazy" style="background-image:url('<?php echo e(url('files/', $foto->nama_file)); ?>');" class="post-thumbnail"></div>
                             <?php } else { ?>
-                                <div loading="lazy" style="background-image:url('<?php echo e(url('files/kosong.png')); ?>');" class="post-thumbnail"></div>
+                                <div loading="lazy" style="background-image:url('<?php echo e(url('frontend/assets/image/kosong.png')); ?>');" class="post-thumbnail"></div>
                             <?php } ?>
                             <div class="info">
                                 <div class="row">

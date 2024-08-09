@@ -22,7 +22,7 @@
 
 </head>
 
-<body style="background-image: url('{{url('files/kantor.jpeg')}}');" class="bg-gradient-primary">
+<body style="background-image: url('{{url('frontend/assets/image/kantor.jpeg')}}');" class="bg-gradient-primary">
 
     <div class="container">
 
@@ -36,7 +36,7 @@
                         <!-- Nested Row within Card Body -->
                         {{-- <div class="row"> --}}
                         <style>
-                            .row{
+                            .row {
                                 margin-top: 30px
                             }
                         </style>
@@ -44,15 +44,8 @@
                         <div class="col">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4"><img src="{{url('files/parse.png')}}" style="width:50px" />&nbsp;PARSE - Register</h1>
+                                    <h1 class="h4 text-gray-900 mb-4"><img src="{{url('frontend/assets/image/parse.png')}}" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
-
-                                <!-- {{-- menampilkan error validasi --}}
-                                @if ($message = Session::get('error'))
-                                <script>
-                                    alert(<?php echo json_encode($message); ?>);
-                                </script>
-                                @endif -->
 
                                 <form class="user mx-auto" method="post" action="{{route('actionregister')}}">
                                     {{ csrf_field() }}
@@ -130,7 +123,7 @@
             </div>
 
         </div>
-        <div class="fixed-bottom">
+        <div class="bottom">
             <p style="color: white; font-weight: 600;" class="text-center">
                 PARSE - Pusat Data dan Arsip Elektronik &copy;<?php echo date(" Y") ?> <br>
                 Dinas Komunikasi dan Informatika (DISKOMINFO) Kabupaten Tangerang

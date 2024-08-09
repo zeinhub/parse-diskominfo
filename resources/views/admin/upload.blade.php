@@ -1,11 +1,6 @@
 @extends('app')
 @section('addon-script-top')
-<script src="https://cdn.tiny.cloud/1/g30aj0fetx2ms7ttb105k6vsyqvgclb7sfxpk92vzasxp45g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: '#isi'
-    });
-</script>
+
 @endsection
 @section('title')
 Unggah Dokumentasi
@@ -21,7 +16,7 @@ Unggah Dokumentasi
     <h2>
         Input Data
     </h2>
-    <form method="post" action="{{route('store-file')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('store-file')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-12">
@@ -109,18 +104,6 @@ Unggah Dokumentasi
                     </datalist>
                 </div>
             </div>
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="hasil">Hasil</label>
-                    <input class="form-control" type="text" placeholder="Hasil">
-                </div>
-            </div> -->
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="featured-image">Featured Image</label>
-                    <input class="form-control" type="file" name="foto_utama" placeholder="Hasil">
-                </div>
-            </div> -->
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Foto</label>
@@ -136,7 +119,7 @@ Unggah Dokumentasi
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Video</label>
-                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
+                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*, .mkv" multiple>
                 </div>
                 @if ($errors->has('video.*'))
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
@@ -145,31 +128,15 @@ Unggah Dokumentasi
                 </div>
                 @endif
             </div>
-            <!-- <div class="col-12">
-                <div class="form-group">
-                    <label for="isi">Artikel</label>
-
-                    <textarea id="isi" class="form-control" type="text" name="artikel" placeholder="Isi"></textarea>
-                </div>
-            </div> -->
             <div class="col-12">
                 <div class="form-group">
                     <br>
                     <div class="d-grid gap-2">
-                        <button onclick="sukses()" class="btn btn-primary">Simpan Data</button>
+                        <button class="btn btn-primary" type="submit" value="submit">Simpan Data</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <script>
-        function sukses() {
-            Swal.fire(
-                'Sukses!',
-                'Data berhasil disimpan!',
-                'success'
-            )
-        }
-    </script>
 </div>
 @endsection

@@ -28,7 +28,7 @@ Kategori: {{ strtoUpper($kategori['kategori'])}}
                             <?php if (is_object($foto)) { ?>
                                 <div loading="lazy" style="background-image:url('{{url('files/', $foto->nama_file)}}');" class="post-thumbnail"></div>
                             <?php } else { ?>
-                                <div loading="lazy" style="background-image:url('{{url('files/kosong.png')}}');" class="post-thumbnail"></div>
+                                <div loading="lazy" style="background-image:url('{{url('frontend/assets/image/kosong.png')}}');" class="post-thumbnail"></div>
                             <?php } ?>
                             <div class="info">
                                 <div class="row">

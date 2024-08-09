@@ -1,11 +1,6 @@
 
 <?php $__env->startSection('addon-script-top'); ?>
-<script src="https://cdn.tiny.cloud/1/g30aj0fetx2ms7ttb105k6vsyqvgclb7sfxpk92vzasxp45g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: '#isi'
-    });
-</script>
+
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('title'); ?>
 Unggah Dokumentasi
@@ -21,7 +16,7 @@ Unggah Dokumentasi
     <h2>
         Input Data
     </h2>
-    <form method="post" action="<?php echo e(route('store-file')); ?>" enctype="multipart/form-data">
+    <form method="POST" action="<?php echo e(route('store-file')); ?>" enctype="multipart/form-data">
         <?php echo e(csrf_field()); ?>
 
         <div class="row">
@@ -37,7 +32,7 @@ Unggah Dokumentasi
                     <input placeholder="Link" type="text" class="form-control" name="link" value="<?php echo e(old('link')); ?>" id="" required>
                     <?php if($errors->has('link')): ?>
                     <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('link')); ?></p>
                     </div>
                     <?php endif; ?>
@@ -110,18 +105,6 @@ Unggah Dokumentasi
                     </datalist>
                 </div>
             </div>
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="hasil">Hasil</label>
-                    <input class="form-control" type="text" placeholder="Hasil">
-                </div>
-            </div> -->
-            <!-- <div class="col">
-                <div class="form-group">
-                    <label for="featured-image">Featured Image</label>
-                    <input class="form-control" type="file" name="foto_utama" placeholder="Hasil">
-                </div>
-            </div> -->
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Foto</label>
@@ -129,7 +112,7 @@ Unggah Dokumentasi
                 </div>
                 <?php if($errors->has('foto.*')): ?>
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('foto.*')); ?></p>
                 </div>
                 <?php endif; ?>
@@ -137,41 +120,25 @@ Unggah Dokumentasi
             <div class="col">
                 <div class="form-group">
                     <label for="featured-image">Dokumentasi Video</label>
-                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*" multiple>
+                    <input class="form-control" type="file" name="video[]" placeholder="Dokumentasi Video" accept="video/*, audio/*, .mkv" multiple>
                 </div>
                 <?php if($errors->has('video.*')): ?>
                 <div class="alert alert-danger alert-block" style="margin-top: 16px;">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button style="float: right" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     <p style="margin-bottom: 0px; font-size:small"><?php echo e($errors->first('video.*')); ?></p>
                 </div>
                 <?php endif; ?>
             </div>
-            <!-- <div class="col-12">
-                <div class="form-group">
-                    <label for="isi">Artikel</label>
-
-                    <textarea id="isi" class="form-control" type="text" name="artikel" placeholder="Isi"></textarea>
-                </div>
-            </div> -->
             <div class="col-12">
                 <div class="form-group">
                     <br>
                     <div class="d-grid gap-2">
-                        <button onclick="sukses()" class="btn btn-primary">Simpan Data</button>
+                        <button class="btn btn-primary" type="submit" value="submit">Simpan Data</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <script>
-        function sukses() {
-            Swal.fire(
-                'Sukses!',
-                'Data berhasil disimpan!',
-                'success'
-            )
-        }
-    </script>
 </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\parse-diskominfo\resources\views/admin/upload.blade.php ENDPATH**/ ?>

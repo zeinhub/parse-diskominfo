@@ -22,7 +22,7 @@
 
 </head>
 
-<body style="background-image: url('<?php echo e(url('files/kantor.jpeg')); ?>');" class="bg-gradient-primary">
+<body style="background-image: url('<?php echo e(url('frontend/assets/image/kantor.jpeg')); ?>');" class="bg-gradient-primary">
 
     <div class="container">
 
@@ -36,23 +36,16 @@
                         <!-- Nested Row within Card Body -->
                         
                         <style>
-                            .bg-login-image {
-                                background-image: url('');
+                            .row {
+                                margin-top: 30px
                             }
                         </style>
                         
                         <div class="col">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('files/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Register</h1>
+                                    <h1 class="h4 text-gray-900 mb-4"><img src="<?php echo e(url('frontend/assets/image/parse.png')); ?>" style="width:50px" />&nbsp;PARSE - Register</h1>
                                 </div>
-
-                                <!-- 
-                                <?php if($message = Session::get('error')): ?>
-                                <script>
-                                    alert(<?php echo json_encode($message); ?>);
-                                </script>
-                                <?php endif; ?> -->
 
                                 <form class="user mx-auto" method="post" action="<?php echo e(route('actionregister')); ?>">
                                     <?php echo e(csrf_field()); ?>
@@ -121,7 +114,12 @@
             </div>
 
         </div>
-
+        <div class="bottom">
+            <p style="color: white; font-weight: 600;" class="text-center">
+                PARSE - Pusat Data dan Arsip Elektronik &copy;<?php echo date(" Y") ?> <br>
+                Dinas Komunikasi dan Informatika (DISKOMINFO) Kabupaten Tangerang
+            </p>
+        </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->

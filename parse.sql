@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2022 pada 07.20
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.4.7
+-- Waktu pembuatan: 16 Mar 2022 pada 09.56
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,16 +41,6 @@ CREATE TABLE `artikel` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data untuk tabel `artikel`
---
-
-INSERT INTO `artikel` (`uuid`, `username`, `nama_admin`, `judul`, `link`, `kategori`, `tahun`, `wilayah`, `dinas`, `created_at`, `updated_at`) VALUES
-('22f463228bc611ec8c2300fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Bupati Zaki Keluarkan Kebijakan terkait Pemberlakuan PPKM Level 3 Kabupaten Tangerang', 'https://tangerangkab.go.id/detail-konten/show-berita/5375', 'Pemerintahan', 2020, 'Tangerang', 'kominfo', '2022-02-12 05:39:26', '2022-02-12 05:43:03'),
-('3e92bb608bc611ec823600fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Aturan Baru PPKM, Perangkat Daerah Diminta Atur WFO 50 Persen dari Jumlah ASN', 'https://tangerangkab.go.id/detail-konten/show-berita/5368', 'Pengumuman', 2022, 'Tangerang', 'kominfo', '2022-02-12 05:40:11', '2022-02-12 05:40:11'),
-('651ef1688bc611ecadef00fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Camat Mekar Baru Minta Bappeda Prioritaskan Pembangunan Jalan Bendung', 'https://tangerangkab.go.id/detail-konten/show-berita/5371', 'Pembangunan', 2022, 'Tangerang', 'kominfo', '2022-02-12 05:41:16', '2022-02-12 05:41:16'),
-('8ccb9b768bc611ec9b6300fff77bfb78', 'admin', 'Muhammad Sigit Tri P', 'Bapenda Targetkan Pendapatan Daerah Lebih Rp1 Triliun dari PBB BPHTB', 'https://tangerangkab.go.id/detail-konten/show-berita/5367', 'Umum', 2022, 'Tangerang', 'kominfo', '2022-02-12 05:42:22', '2022-02-12 05:42:22');
-
 -- --------------------------------------------------------
 
 --
@@ -81,21 +71,6 @@ CREATE TABLE `file` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `file`
---
-
-INSERT INTO `file` (`id`, `artikel_id`, `nama_file`, `jenis_file`, `created_at`, `updated_at`) VALUES
-(25, '22f463228bc611ec8c2300fff77bfb78', '1644644365770-kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg', 'foto', '2022-02-12 05:39:25', '2022-02-12 05:39:25'),
-(26, '22f463228bc611ec8c2300fff77bfb78', '1644644366029-Aboriginal-Dance-1.mp4', 'video', '2022-02-12 05:39:26', '2022-02-12 05:39:26'),
-(27, '22f463228bc611ec8c2300fff77bfb78', '1644644366031-LINE_MOVIE_1531321645543.mp4', 'video', '2022-02-12 05:39:26', '2022-02-12 05:39:26'),
-(28, '3e92bb608bc611ec823600fff77bfb78', '1644644411193-jordan-wozniak-xP_AGmeEa6s-unsplash.jpg', 'foto', '2022-02-12 05:40:11', '2022-02-12 05:40:11'),
-(29, '3e92bb608bc611ec823600fff77bfb78', '1644644411361-timothy-eberly-VgvMDrPoCN4-unsplash.jpg', 'foto', '2022-02-12 05:40:11', '2022-02-12 05:40:11'),
-(30, '651ef1688bc611ecadef00fff77bfb78', '1644644475839-kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg', 'foto', '2022-02-12 05:41:15', '2022-02-12 05:41:15'),
-(31, '651ef1688bc611ecadef00fff77bfb78', '1644644475964-Aboriginal-Dance-1.mp4', 'video', '2022-02-12 05:41:15', '2022-02-12 05:41:15'),
-(32, '8ccb9b768bc611ec9b6300fff77bfb78', '1644644542436-Aboriginal-Dance-1.mp4', 'video', '2022-02-12 05:42:22', '2022-02-12 05:42:22'),
-(33, '8ccb9b768bc611ec9b6300fff77bfb78', '1644644542438-LINE_MOVIE_1531321645543.mp4', 'video', '2022-02-12 05:42:22', '2022-02-12 05:42:22');
 
 -- --------------------------------------------------------
 
@@ -175,8 +150,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(13, 'Muhammad Sigit Tri P', 'admin', 'sigittri2602@gmail.com', NULL, '$2y$10$6htQp6Obuo65wKFuTmu4Lu36NPFO6jdsQ61VlGTW8fS.xyLL.wneu', 'admin', NULL, '2022-02-09 15:46:05', '2022-02-09 15:46:05'),
-(14, 'Muhammad Sigit', 'user', 'sigit.tri19@mhs.uinjkt.ac.id', NULL, '$2y$10$op2o0uaIBDnxqPTguwCDg.jdCCy0fVOZQ.8fCFWxHLqHsOXkl0EPq', 'user', NULL, '2022-02-09 15:46:33', '2022-02-09 15:46:33');
+(17, 'Admin', 'admin', 'admin@admin.com', NULL, '$2y$10$gR4n9heGrR3J4CbYOih31OFSj8UNsfCU.O0iHdarKUIx2myBaY7Tq', 'admin', NULL, '2022-03-16 08:52:54', '2022-03-16 08:52:54');
 
 --
 -- Indexes for dumped tables
@@ -244,7 +218,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -262,7 +236,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

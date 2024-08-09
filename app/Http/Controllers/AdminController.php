@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// require 'vendor/autoload.php';
-
 use Illuminate\Http\Request;
 use App\Models\Artikel;
 use App\Models\File;
@@ -12,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File as Files;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -47,7 +46,7 @@ class AdminController extends Controller
         $request->validate(
             [
                 'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
-                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac',
+                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac,mkv',
                 'link' => 'required|unique:artikel|url'
 
             ],
@@ -60,7 +59,6 @@ class AdminController extends Controller
 
         //post Foto
         if ($request->hasfile('foto')) {
-            // return redirect(route('statistic'));
             $files = [];
             foreach ($request->file('foto') as $file) {
                 if ($file->isValid()) {
@@ -78,14 +76,8 @@ class AdminController extends Controller
             File::insert($files);
         }
 
-        // $request->validate([
-        //     // 'video' => 'required',
-        //     'video.*' => 'mimes:txt,odt,html,latex,mdb,doc,docx,xls,xlsx,ppt,pptx,PDF,pdf,jpg,jpeg,png,GIF,TIFF,psd,RAW,exif,SVG,AI,AVI,mp3,MP3,mp4,MP4,MPG,WEBM,MKV,GIFV,WMV,cdr'
-        // ]);
-
         //post Video
         if ($request->hasfile('video')) {
-            // return redirect(route('logout'));
             $files = [];
             foreach ($request->file('video') as $file) {
                 if ($file->isValid()) {
@@ -103,7 +95,7 @@ class AdminController extends Controller
             File::insert($files);
         }
 
-        //post artikel
+        // post artikel
         Artikel::create([
             'uuid' => $id,
             'username' => Auth::user()->username,
@@ -116,6 +108,7 @@ class AdminController extends Controller
             'dinas' => $request->dinas,
         ]);
 
+        Session::flash('success', 'Upload Data Berhasil');
         return redirect(route('adminhome'));
     }
 
@@ -137,7 +130,7 @@ class AdminController extends Controller
         $request->validate(
             [
                 'foto.*' => 'mimes:tiff,pjp,jfif,bmp,gif,svg,png,xbm,dib,jxl,jpeg,svgz,jpg,webp,ico,tif,pjpeg,avif',
-                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac',
+                'video.*' => 'mimes:ogm,wmv,mpg,webm,ogv,mov,asx,mpeg,mp4,m4v,avi,opus,flac,webm,weba,wav,ogg,m4a,mp3,oga,mid,amr,aiff,wma,au,aac,mkv',
                 'link' => 'required|url'
 
             ],
@@ -161,7 +154,6 @@ class AdminController extends Controller
 
         //post Foto
         if ($request->hasfile('foto')) {
-            // return redirect(route('statistic'));
             $files = [];
             foreach ($request->file('foto') as $file) {
                 if ($file->isValid()) {
@@ -181,7 +173,6 @@ class AdminController extends Controller
 
         //post Video
         if ($request->hasfile('video')) {
-            // return redirect(route('logout'));
             $files = [];
             foreach ($request->file('video') as $file) {
                 if ($file->isValid()) {
@@ -199,6 +190,7 @@ class AdminController extends Controller
             File::insert($files);
         }
 
+        Session::flash('success', 'Edit Data Berhasil');
         return redirect(route('admin-berita', ['uuid' => $uuid]));
     }
 
@@ -207,11 +199,6 @@ class AdminController extends Controller
         $gambar = File::find($id);
         File::find($id)->delete($id);
         Files::delete('files/' . $gambar->nama_file);
-
-
-        // return response()->json([
-        //     'success' => 'Record deleted successfully!'
-        // ]);
     }
 
     public function download($uuid, $id)

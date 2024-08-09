@@ -120,10 +120,7 @@ class HomeController extends Controller
         $files = File::where('artikel_id', $uuid)->get();
         return view('post', ['artikel' => $artikel, 'files' => $files]);
     }
-    // public function hasilFilter()
-    // {
-    //     return view('hasil-filter');
-    // }
+
     public function cariFilter(request $request)
     {
         $filter = array(
@@ -140,7 +137,7 @@ class HomeController extends Controller
             ->where('wilayah', 'like', "%{$request->wilayah}%")
             ->where('dinas', 'like', "%{$request->dinas}%")
             ->orderByDesc('created_at')
-            ->paginate(2)->withQueryString();
+            ->paginate(9)->withQueryString();
 
         return view('hasil-filter', ['hasil' => $hasil, 'filter' => $filter]);
     }
@@ -153,7 +150,7 @@ class HomeController extends Controller
         $hasil = DB::table('artikel')
             ->where('judul', 'like', "%{$request->judul}%")
             ->orderByDesc('created_at')
-            ->paginate(2)->withQueryString();
+            ->paginate(9)->withQueryString();
 
         return view('hasil-pencarian', ['hasil' => $hasil, 'judulhalaman' => $judulhalaman]);
     }
@@ -192,9 +189,6 @@ class HomeController extends Controller
     }
     public function allcategory()
     {
-        // $artikel = DB::table('artikel')
-        //     ->paginate(9);
-        //     ->pluck('kategori');
         return view('allcategory');
     }
 }

@@ -40,20 +40,6 @@ Statistik Berita
                   }
                 }
               }
-              //   toolbar: {
-              //     show: false,
-              //     offsetX: 0,
-              //     offsetY: 0,
-              //     tools: {
-              //     download: true,
-              //     selection: true,
-              //     zoom: false,
-              //     zoomin: false,
-              //     zoomout: false,
-              //     pan: true,
-              //     reset: true | '<img src="/static/icons/reset.png" width="20">',
-              //     customIcons: []
-              //     }}
             },
             title: {
               text: 'Berita Harian',
@@ -136,20 +122,6 @@ Statistik Berita
                   }
                 }
               }
-              //   toolbar: {
-              //     show: false,
-              //     offsetX: 0,
-              //     offsetY: 0,
-              //     tools: {
-              //     download: true,
-              //     selection: true,
-              //     zoom: false,
-              //     zoomin: false,
-              //     zoomout: false,
-              //     pan: true,
-              //     reset: true | '<img src="/static/icons/reset.png" width="20">',
-              //     customIcons: []
-              //     }}
             },
             title: {
               text: 'Berita Tahunan',

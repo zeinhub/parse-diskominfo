@@ -25,8 +25,7 @@
 
 </head>
 
-<body style="background-image: url('{{ url('files/kantor.jpeg') }}'); background-size: cover;"
-    class="bg-gradient-primary">
+<body style="background-image: url('{{url('frontend/assets/image/kantor.jpeg')}}'); background-size: cover; min-height: 500px;" class="bg-gradient-primary">
     <style>
         button {
             margin: 50px 0px 0px 0px;
@@ -48,7 +47,7 @@
 
             <div class="col-xl-6 col-lg-5 col-md-9">
 
-                <div class="card border-0 o-hidden shadow-lg my-5">
+                <div class="card border-0 o-hidden shadow-lg">
                     <!-- <div class="card o-hidden border-0 shadow-lg my-5"> -->
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -56,33 +55,19 @@
                         <style>
                             .bg-login-image {
                                 padding: 30px;
-
                             }
-
-                            /* .bg-login-image img {
-                                width: 80%;
-                            }
-
-                            form {
-                                height: 300px;
-                            } */
-
                         </style>
-                        <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img src="{{ url('files/parse.png') }}" alt="">
-                            </div> -->
                         <div class="col">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4"><img src="{{ url('files/parse.png') }}"
-                                            style="width:50px" />&nbsp;PARSE - Login</h1>
+                                    <h1 class="h4 text-gray-900 mb-4"><img src="{{url('frontend/assets/image/parse.png')}}" style="width:50px" />&nbsp;PARSE - Login</h1>
                                 </div>
 
                                 @if ($message = Session::get('error'))
-                                    <div class="alert alert-danger alert-block">
-                                        <button type="button" class="close m-0" data-dismiss="alert">×</button>
-                                        <p style="margin-bottom: 0px; font-size:small">{{ $message }}</p>
-                                    </div>
+                                <div class="alert alert-danger alert-block" style="margin-top: 16px;">
+                                    <button type="button" class="close m-0" data-dismiss="alert">×</button>
+                                    <p style="margin-bottom: 0px; font-size:small">{{ $message }}</p>
+                                </div>
                                 @endif
 
                                 <form class="user" method="post" action="{{ route('actionlogin') }}">
@@ -116,7 +101,7 @@
         </div>
 
     </div>
-    <div class="fixed-bottom">
+    <div style="margin-top: 13vh;">
         <p style="color: white; font-weight: 600;" class="text-center">
             PARSE - Pusat Data dan Arsip Elektronik &copy;<?php echo date(' Y'); ?> <br>
             Dinas Komunikasi dan Informatika (DISKOMINFO) Kabupaten Tangerang

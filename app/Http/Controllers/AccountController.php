@@ -28,12 +28,6 @@ class AccountController extends Controller
 
     public function register()
     {
-        // if (Auth::check()) {
-        //     return redirect(route('home'));
-        // } else {
-        //     return view('register');
-        // }
-
         return view('register');
     }
 
@@ -61,14 +55,12 @@ class AccountController extends Controller
 
     public function actionregister(Request $request)
     {
-        // if ($request->password == $request->confirmpassword) {
-
         $this->validate(
             $request,
             [
                 'email' => 'required|unique:users',
                 'username' => 'required|unique:users',
-                'password' => 'required|min:6|max:20',
+                'password' => 'required|min:5|max:20',
                 'confirmpassword' => 'required|same:password',
             ],
             [
@@ -87,10 +79,6 @@ class AccountController extends Controller
         ]);
         Session::flash('success', 'Akun berhasil dibuat');
         return redirect()->route('adminhome');
-        // } else {
-        //     Session::flash('error', 'Password/ confirm password tidak sesuai.');
-        //     return back();
-        // }
     }
 
     public function actionlogout()
